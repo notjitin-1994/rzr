@@ -4,8 +4,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Menu, X, ArrowUp } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { RzrLogo } from "./RzrLogo";
 
 const NAV_ITEMS = [
@@ -64,17 +63,7 @@ export function TopNav() {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-2">
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="gap-1.5"
-            >
-              <ArrowUp className="size-3.5" />
-              Top
-            </Button>
-          </div>
+
 
           <button
             className="md:hidden p-2 -mr-2"
