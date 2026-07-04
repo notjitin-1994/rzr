@@ -1,6 +1,6 @@
 "use client";
 
-import { Player } from "@remotion/player";
+import { Player, PlayerRef } from "@remotion/player";
 import {
   OnboardingIntroVideo,
   ONBOARDING_INTRO_DURATION_FRAMES,
@@ -9,7 +9,7 @@ import {
   ONBOARDING_INTRO_HEIGHT,
 } from "@/remotion/OnboardingIntro";
 import { Play, Pause } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const COMPOSITIONS: Record<string, React.FC> = {
   "onboarding-intro": OnboardingIntroVideo,
@@ -22,6 +22,7 @@ type VideoStageProps = {
 
 export function VideoStage({ videoId, headline }: VideoStageProps) {
   const [playing, setPlaying] = useState(false);
+  const playerRef = useRef<PlayerRef>(null);
   const Component = COMPOSITIONS[videoId];
 
   if (!Component) {
@@ -32,10 +33,21 @@ export function VideoStage({ videoId, headline }: VideoStageProps) {
     );
   }
 
+  const togglePlay = () => {
+    if (!playerRef.current) return;
+    
+    if (playing) {
+      playerRef.current.pause();
+    } else {
+      playerRef.current.play();
+    }
+  };
+
   return (
     <div className="relative group">
       <div className="relative aspect-video rounded-xl overflow-hidden bg-ink shadow-card">
         <Player
+          ref={playerRef}
           component={Component}
           durationInFrames={ONBOARDING_INTRO_DURATION_FRAMES}
           fps={ONBOARDING_INTRO_FPS}
@@ -45,14 +57,13 @@ export function VideoStage({ videoId, headline }: VideoStageProps) {
           loop
           autoPlay={false}
           style={{ width: "100%", height: "100%" }}
-          clickToPlay
           onPlay={() => setPlaying(true)}
           onPause={() => setPlaying(false)}
         />
 
         {/* Play/Pause overlay */}
         <button
-          onClick={() => setPlaying(!playing)}
+          onClick={togglePlay}
           className="absolute inset-0 flex items-center justify-center bg-ink/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
           aria-label={playing ? "Pause video" : "Play video"}
         >

@@ -58,10 +58,23 @@ export function ModuleExperience({ module, onComplete, isCompleted }: ModuleExpe
     setAnswers((prev) => ({ ...prev, [sceneId]: optionIndex }));
     setRevealed((prev) => ({ ...prev, [sceneId]: true }));
 
-    // Check if correct and mark module complete
-    if (currentScene.check && optionIndex === currentScene.check.correctIndex) {
+    // Mark module complete when check is attempted (not just when correct)
+    if (currentScene.check) {
       onComplete();
     }
+  };
+
+  const handleRetry = (sceneId: string) => {
+    setAnswers((prev) => {
+      const newAnswers = { ...prev };
+      delete newAnswers[sceneId];
+      return newAnswers;
+    });
+    setRevealed((prev) => {
+      const newRevealed = { ...prev };
+      delete newRevealed[sceneId];
+      return newRevealed;
+    });
   };
 
   const sceneIcon = (type: Scene["type"]) => {
@@ -150,6 +163,7 @@ export function ModuleExperience({ module, onComplete, isCompleted }: ModuleExpe
                 answers={answers}
                 revealed={revealed}
                 onAnswer={handleAnswer}
+                onRetry={handleRetry}
               />
             </motion.div>
           </AnimatePresence>
@@ -195,9 +209,10 @@ type SceneRendererProps = {
   answers: Record<string, number>;
   revealed: Record<string, boolean>;
   onAnswer: (sceneId: string, optionIndex: number) => void;
+  onRetry: (sceneId: string) => void;
 };
 
-function SceneRenderer({ scene, answers, revealed, onAnswer }: SceneRendererProps) {
+function SceneRenderer({ scene, answers, revealed, onAnswer, onRetry }: SceneRendererProps) {
   switch (scene.type) {
     case "video":
       return <VideoScene scene={scene} />;
@@ -206,7 +221,7 @@ function SceneRenderer({ scene, answers, revealed, onAnswer }: SceneRendererProp
     case "infographic":
       return <InfographicScene scene={scene} />;
     case "check":
-      return <CheckScene scene={scene} answers={answers} revealed={revealed} onAnswer={onAnswer} />;
+      return <CheckScene scene={scene} answers={answers} revealed={revealed} onAnswer={onAnswer} onRetry={onRetry} />;
     case "transfer":
       return <TransferScene scene={scene} />;
     default:
@@ -350,11 +365,13 @@ function CheckScene({
   answers,
   revealed,
   onAnswer,
+  onRetry,
 }: {
   scene: Scene;
   answers: Record<string, number>;
   revealed: Record<string, boolean>;
   onAnswer: (sceneId: string, optionIndex: number) => void;
+  onRetry: (sceneId: string) => void;
 }) {
   const check = scene.check;
   if (!check) return null;
@@ -460,6 +477,16 @@ function CheckScene({
             </span>
           </div>
           <p className="text-sm text-foreground/85 leading-relaxed">{check.explanation}</p>
+          {!isCorrect && (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => onRetry(scene.id)}
+              className="mt-3"
+            >
+              Try again
+            </Button>
+          )}
         </motion.div>
       )}
     </div>
