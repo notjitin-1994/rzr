@@ -1,6 +1,6 @@
 "use client";
 
-import { AbsoluteFill, useCurrentFrame, interpolate, useVideoConfig, spring, Easing } from "remotion";
+import { AbsoluteFill, useCurrentFrame, interpolate, useVideoConfig, spring, Easing, Audio, staticFile } from "remotion";
 
 // RZR brand tokens (mirrored from globals.css for Remotion's isolated render context)
 const INK = "#0F0A14";
@@ -92,6 +92,10 @@ export const OnboardingIntroVideo: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ background: INK, overflow: "hidden", fontFamily: "Inter, system-ui, sans-serif" }}>
+      {/* Background score and voiceover */}
+      <Audio src={staticFile("audio/ambient.mp3")} loop />
+      <Audio src={staticFile("audio/voiceover.mp3")} />
+      
       {/* Brand gradient orb radial (act 2 onwards) */}
       <div
         style={{

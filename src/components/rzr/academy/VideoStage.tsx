@@ -53,28 +53,13 @@ export function VideoStage({ videoId, headline }: VideoStageProps) {
           fps={ONBOARDING_INTRO_FPS}
           compositionWidth={ONBOARDING_INTRO_WIDTH}
           compositionHeight={ONBOARDING_INTRO_HEIGHT}
-          controls={false}
+          controls={true}
           loop
           autoPlay={false}
           style={{ width: "100%", height: "100%" }}
           onPlay={() => setPlaying(true)}
           onPause={() => setPlaying(false)}
         />
-
-        {/* Play/Pause overlay */}
-        <button
-          onClick={togglePlay}
-          className="absolute inset-0 flex items-center justify-center bg-ink/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-          aria-label={playing ? "Pause video" : "Play video"}
-        >
-          <div className="w-16 h-16 rounded-full bg-white/90 backdrop-blur flex items-center justify-center shadow-lg">
-            {playing ? (
-              <Pause className="w-6 h-6 text-ink" />
-            ) : (
-              <Play className="w-6 h-6 text-ink ml-1" />
-            )}
-          </div>
-        </button>
       </div>
 
       {headline && (
