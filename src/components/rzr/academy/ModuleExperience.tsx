@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -29,9 +29,25 @@ type ModuleExperienceProps = {
   module: AcademyModule;
   onComplete: () => void;
   isCompleted: boolean;
+  moduleIndex?: number;
+  modulesCount?: number;
+  onPrevModule?: () => void;
+  onNextModule?: () => void;
+  onSceneView?: (sceneId: string, sceneType: string) => void;
+  onKnowledgeCheckResult?: (correct: boolean) => void;
 };
 
-export function ModuleExperience({ module, onComplete, isCompleted }: ModuleExperienceProps) {
+export function ModuleExperience({
+  module,
+  onComplete,
+  isCompleted,
+  moduleIndex = 0,
+  modulesCount = 1,
+  onPrevModule,
+  onNextModule,
+  onSceneView,
+  onKnowledgeCheckResult,
+}: ModuleExperienceProps) {
   const reduce = useReducedMotion();
   const [currentSceneIndex, setCurrentSceneIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -41,15 +57,26 @@ export function ModuleExperience({ module, onComplete, isCompleted }: ModuleExpe
   const isFirst = currentSceneIndex === 0;
   const isLast = currentSceneIndex === module.scenes.length - 1;
 
+  // Track scene views
+  useEffect(() => {
+    if (currentScene && onSceneView) {
+      onSceneView(currentScene.id, currentScene.type);
+    }
+  }, [currentSceneIndex]);
+
   const goNext = () => {
     if (!isLast) {
       setCurrentSceneIndex(currentSceneIndex + 1);
+    } else if (onNextModule) {
+      onNextModule();
     }
   };
 
   const goPrev = () => {
     if (!isFirst) {
       setCurrentSceneIndex(currentSceneIndex - 1);
+    } else if (onPrevModule) {
+      onPrevModule();
     }
   };
 
@@ -58,7 +85,12 @@ export function ModuleExperience({ module, onComplete, isCompleted }: ModuleExpe
     setAnswers((prev) => ({ ...prev, [sceneId]: optionIndex }));
     setRevealed((prev) => ({ ...prev, [sceneId]: true }));
 
-    // Mark module complete when check is attempted (not just when correct)
+    const isCorrect = currentScene.check && optionIndex === currentScene.check.correctIndex;
+
+    if (onKnowledgeCheckResult) {
+      onKnowledgeCheckResult(!!isCorrect);
+    }
+
     if (currentScene.check) {
       onComplete();
     }
@@ -176,24 +208,24 @@ export function ModuleExperience({ module, onComplete, isCompleted }: ModuleExpe
           variant="ghost"
           size="sm"
           onClick={goPrev}
-          disabled={isFirst}
+          disabled={isFirst && moduleIndex === 0}
           className="gap-1"
         >
           <ArrowLeft className="size-3.5" />
-          Previous
+          {isFirst && moduleIndex > 0 ? `Prev Module` : `Previous`}
         </Button>
 
         <div className="text-[10px] font-mono text-muted-foreground tracking-widest uppercase">
-          Scene {currentSceneIndex + 1} of {module.scenes.length}
+          {isCompleted && "✓ "}Module {moduleIndex + 1} of {modulesCount} · Scene {currentSceneIndex + 1} of {module.scenes.length}
         </div>
 
         <Button
           size="sm"
           onClick={goNext}
-          disabled={isLast}
+          disabled={isLast && moduleIndex === modulesCount - 1}
           className="gap-1 bg-ink text-background hover:bg-ink/85"
         >
-          Next
+          {isLast && moduleIndex < modulesCount - 1 ? `Next Module` : `Next`}
           <ArrowRight className="size-3.5" />
         </Button>
       </div>

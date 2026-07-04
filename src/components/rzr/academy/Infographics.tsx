@@ -41,8 +41,8 @@ function TimelineInfographic({ title, data }: { title: string; data: Record<stri
       <h4 className="text-sm font-mono tracking-widest text-mint uppercase">{title}</h4>
 
       <div className="relative">
-        {/* Timeline line */}
-        <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-gradient-to-r from-mint/20 via-mint to-mint/20" />
+        {/* Timeline line — centered vertically */}
+        <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 bg-gradient-to-r from-mint/20 via-mint to-mint/20" />
 
         {/* Points */}
         <div className="relative flex justify-between items-center">
