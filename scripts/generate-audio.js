@@ -1,22 +1,13 @@
-// scripts/generate-audio.js
 const { ElevenLabsClient } = require("elevenlabs");
 const fs = require("fs");
 const path = require("path");
 
-const API_KEY = process.env.ELEVENLABS_API_KEY;
-if (!API_KEY) {
-  console.warn("No ELEVENLABS_API_KEY provided. Generation will likely fail or use fallback.");
-}
+const API_KEY = process.env.ELEVENLABS_API_KEY || "sk_90d197d46ee05601167515368981cc83c23be76d8a200824";
 const client = new ElevenLabsClient({ apiKey: API_KEY });
 
-async function generateAudio() {
-  const text = "Welcome to RZR. Where intelligence makes impact — starting on Day 1.";
-  console.log("Generating audio...");
-
-  const dir = path.join(__dirname, "../public/audio");
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-  
-  const dest = path.join(dir, "voiceover.mp3");
+async function generateVoiceover() {
+  const text = "Welcome to RZR Academy. This ecosystem consists of three tracks: Foundation, Function, and Role-Readiness. There are five foundation modules to complete. In this first module, Welcome to RZR, you will get your Day-1 orientation covering our rebrand story, mission, and the Encore platform.";
+  const dest = path.join(__dirname, "../public/audio/voiceover.mp3");
 
   try {
     const audioStream = await client.textToSpeech.convert("pNInz6obpgDQGcFmaJcg", {
@@ -30,20 +21,55 @@ async function generateAudio() {
     
     await new Promise((resolve, reject) => {
       fileStream.on("finish", () => {
-        console.log("Audio saved to", dest);
+        console.log("Voiceover saved to", dest);
         resolve();
       });
       fileStream.on("error", reject);
     });
   } catch (error) {
-    console.error("ElevenLabs API failed:", error.message);
-    console.log("Falling back to writing a tiny dummy MP3...");
-    
-    // Fallback: write a valid, tiny silent mp3
+    console.error("ElevenLabs Voiceover failed:", error.message);
     const silentMp3Base64 = "//NExAAAAANIAAAAAExBTUUzLjEwMKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq";
     fs.writeFileSync(dest, Buffer.from(silentMp3Base64, "base64"));
-    console.log("Dummy audio saved to", dest);
+    console.log("Dummy Voiceover audio saved to", dest);
   }
 }
 
-generateAudio().catch(console.error);
+async function generateMusic() {
+  const dest = path.join(__dirname, "../public/audio/ambient.mp3");
+  
+  try {
+    const audioStream = await client.textToSoundEffects.convert({
+      text: "cinematic ambient background score, deep bass, futuristic, corporate",
+      duration_seconds: 30
+    });
+    
+    // Check if it's a stream or buffer
+    if (audioStream.pipe) {
+      const fileStream = fs.createWriteStream(dest);
+      audioStream.pipe(fileStream);
+      await new Promise((resolve, reject) => {
+        fileStream.on("finish", () => {
+          console.log("Music saved to", dest);
+          resolve();
+        });
+        fileStream.on("error", reject);
+      });
+    } else {
+      // Sometimes it returns a buffer or ReadableStream
+      fs.writeFileSync(dest, audioStream);
+      console.log("Music saved to", dest);
+    }
+  } catch (error) {
+    console.error("ElevenLabs Music failed:", error.message);
+    const silentMp3Base64 = "//NExAAAAANIAAAAAExBTUUzLjEwMKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq";
+    fs.writeFileSync(dest, Buffer.from(silentMp3Base64, "base64"));
+    console.log("Dummy Music audio saved to", dest);
+  }
+}
+
+async function run() {
+  await generateVoiceover();
+  await generateMusic();
+}
+
+run().catch(console.error);

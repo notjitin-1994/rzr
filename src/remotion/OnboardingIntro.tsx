@@ -27,65 +27,37 @@ export const OnboardingIntroVideo: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Act 1 — RZR wordmark
-  const rzrOpacity = interpolate(frame, [10, 40], [0, 1], {
+  // Act 1 — RZR Academy (0 - 150)
+  const act1Opacity = interpolate(frame, [10, 40, 120, 150], [0, 1, 1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
-  const rzrY = spring({
-    frame: frame - 10,
-    fps,
-    config: { damping: 18, stiffness: 110 },
-  });
-  const rzrTranslate = interpolate(rzrY, [0, 1], [24, 0]);
-
-  // Mint accent underline draws across act 1
-  const underlineScale = interpolate(frame, [60, 120], [0, 1], {
+  
+  // Act 2 — Tracks (150 - 360)
+  const act2Opacity = interpolate(frame, [150, 180, 330, 360], [0, 1, 1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
-    easing: Easing.bezier(0.22, 1, 0.36, 1),
   });
 
-  // Act 2 — gradient orb blooms (radial)
-  const orbScale = interpolate(frame, [120, 240], [0.2, 1], {
+  // Act 3 — Modules (360 - 540)
+  const act3Opacity = interpolate(frame, [360, 390, 510, 540], [0, 1, 1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  // Act 4 — Current Module (540 - 900)
+  const act4Opacity = interpolate(frame, [540, 570, 850, 900], [0, 1, 1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  // Brand gradient orb blooms (radial)
+  const orbScale = interpolate(frame, [0, 150], [0.2, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.bezier(0.16, 1, 0.3, 1),
   });
-  const orbOpacity = interpolate(frame, [120, 200, 720, 900], [0, 0.6, 0.6, 0], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-
-  // Act 3 — tagline tease
-  const taglineOpacity = interpolate(frame, [260, 320], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-  const taglineY = spring({ frame: frame - 260, fps, config: { damping: 22 } });
-  const taglineTranslate = interpolate(taglineY, [0, 1], [16, 0]);
-
-  // Act 4 — operative words ("intelligence makes impact") count up
-  const wordCount = Math.floor(
-    interpolate(frame, [380, 540], [0, 4], {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    })
-  );
-  const words = ["intelligence", "makes", "impact", "—"];
-  const wordLine = words
-    .map((w, i) => (i < wordCount ? w : ""))
-    .filter(Boolean)
-    .join(" ");
-
-  // Closing line
-  const closeOpacity = interpolate(frame, [580, 640, 820, 900], [0, 1, 1, 0.9], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-
-  // Footer micro-text
-  const footerOpacity = interpolate(frame, [640, 700, 820, 900], [0, 1, 1, 0.4], {
+  const orbOpacity = interpolate(frame, [0, 100, 720, 900], [0, 0.6, 0.6, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -96,7 +68,7 @@ export const OnboardingIntroVideo: React.FC = () => {
       <Audio src={staticFile("audio/ambient.mp3")} loop />
       <Audio src={staticFile("audio/voiceover.mp3")} />
       
-      {/* Brand gradient orb radial (act 2 onwards) */}
+      {/* Brand gradient orb radial */}
       <div
         style={{
           position: "absolute",
@@ -142,105 +114,45 @@ export const OnboardingIntroVideo: React.FC = () => {
           textAlign: "center",
         }}
       >
-        {/* RZR wordmark */}
-        <div
-          style={{
-            opacity: rzrOpacity,
-            transform: `translateY(${rzrTranslate}px)`,
-            fontSize: 96,
-            fontWeight: 700,
-            color: WHITE,
-            letterSpacing: "-0.04em",
-            lineHeight: 1,
-          }}
-        >
-          RZR
-        </div>
+        {/* Act 1 */}
+        {frame < 150 && (
+          <div style={{ opacity: act1Opacity, fontSize: 80, fontWeight: 700, color: WHITE }}>
+            RZR Academy
+          </div>
+        )}
 
-        {/* Mint underline */}
-        <div
-          style={{
-            width: 240,
-            height: 3,
-            marginTop: 18,
-            background: MINT,
-            transformOrigin: "left",
-            transform: `scaleX(${underlineScale})`,
-          }}
-        />
+        {/* Act 2 */}
+        {frame >= 150 && frame < 360 && (
+          <div style={{ opacity: act2Opacity, display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <div style={{ fontSize: 40, color: MINT, marginBottom: 20 }}>Three Learning Tracks</div>
+            <div style={{ fontSize: 50, fontWeight: 700, color: WHITE }}>
+              Foundation, Function & Role-Readiness
+            </div>
+          </div>
+        )}
 
-        {/* Tagline tease */}
-        <div
-          style={{
-            marginTop: 36,
-            opacity: taglineOpacity,
-            transform: `translateY(${taglineTranslate}px)`,
-            fontSize: 28,
-            color: MINT,
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            fontWeight: 500,
-          }}
-        >
-          Where
-        </div>
+        {/* Act 3 */}
+        {frame >= 360 && frame < 540 && (
+          <div style={{ opacity: act3Opacity, display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <div style={{ fontSize: 40, color: MINT, marginBottom: 20 }}>Your Journey Begins Here</div>
+            <div style={{ fontSize: 50, fontWeight: 700, color: WHITE }}>
+              5 Foundation Modules
+            </div>
+          </div>
+        )}
 
-        {/* Operative words count up */}
-        <div
-          style={{
-            marginTop: 14,
-            fontSize: 60,
-            fontWeight: 700,
-            color: WHITE,
-            letterSpacing: "-0.02em",
-            lineHeight: 1.05,
-            width: 900,
-            minHeight: 76,
-          }}
-        >
-          {wordLine.length > 0 && (
-            <span
-              style={{
-                background: `linear-gradient(135deg, ${GRAD_START} 0%, ${GRAD_MID} 50%, ${GRAD_END} 100%)`,
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              {wordLine}
-            </span>
-          )}
-          {wordCount < words.length && <span style={{ color: INK_SOFT }}>…</span>}
-        </div>
-
-        {/* Closing line */}
-        <div
-          style={{
-            marginTop: 40,
-            opacity: closeOpacity,
-            fontSize: 22,
-            color: "rgba(255,255,255,0.62)",
-            letterSpacing: "0.04em",
-            fontWeight: 400,
-          }}
-        >
-          Welcome to Day 1.
-        </div>
-
-        {/* Footer micro-text */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 56,
-            opacity: footerOpacity,
-            fontSize: 11,
-            color: "rgba(0, 189, 165, 0.65)",
-            letterSpacing: "0.32em",
-            textTransform: "uppercase",
-          }}
-        >
-          RZR Academy · Onboarding Foundation
-        </div>
+        {/* Act 4 */}
+        {frame >= 540 && (
+          <div style={{ opacity: act4Opacity, display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <div style={{ fontSize: 32, color: MINT, marginBottom: 16 }}>Current Module</div>
+            <div style={{ fontSize: 60, fontWeight: 700, color: WHITE, marginBottom: 16 }}>
+              Welcome to RZR
+            </div>
+            <div style={{ fontSize: 32, color: "rgba(255,255,255,0.7)" }}>
+              Day-1 Orientation
+            </div>
+          </div>
+        )}
       </div>
     </AbsoluteFill>
   );
