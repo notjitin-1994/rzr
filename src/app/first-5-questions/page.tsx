@@ -5,7 +5,7 @@ import { PageLayout } from "@/components/rzr/PageLayout";
 export default function First5QuestionsPage() {
   return (
     <PageLayout>
-      <div className="pt-24 pb-16">
+      <div className="pt-12 pb-8">
         <ListeningSection />
       </div>
     </PageLayout>

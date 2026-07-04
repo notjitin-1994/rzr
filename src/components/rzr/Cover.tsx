@@ -104,7 +104,7 @@ export function Cover() {
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight text-balance leading-[1.04]"
             >
               Where intelligence{" "}
-              <span className="text-brand-gradient">makes impact</span> —
+              <span className="text-mint">makes impact</span> —
               <br className="hidden sm:block" /> starting on Day 1.
             </motion.h1>
 
