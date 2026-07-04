@@ -42,7 +42,7 @@ function TimelineInfographic({ title, data }: { title: string; data: Record<stri
 
       <div className="relative pt-12 pb-24">
         {/* Timeline line — passes through center, aligned with dots */}
-        <div className="absolute left-0 right-0 top-[88px] h-0.5 bg-gradient-to-r from-mint/20 via-mint to-mint/20" />
+        <div className="absolute left-0 right-0 top-[84px] h-0.5 bg-gradient-to-r from-mint/20 via-mint to-mint/20" />
 
         {/* Points */}
         <div className="relative flex justify-between items-start">
