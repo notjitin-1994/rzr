@@ -16,7 +16,14 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "https://rzr-two.vercel.app";
+
+const ogImageUrl = `${siteUrl}/brand/rzr-og.png`;
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Senior L&D Lead · RZR — Strategy & Build Portfolio",
   description:
     "A builder-grade strategy and execution portfolio for the Senior L&D Lead role at RZR. Where intelligence makes impact — across onboarding, manager capability, leadership development, AI-native enablement, and measurable business outcomes.",
@@ -40,7 +47,26 @@ export const metadata: Metadata = {
     title: "Senior L&D Lead · RZR — Strategy & Build Portfolio",
     description:
       "Builder-grade strategy and execution portfolio: onboarding, manager capability, leadership development, AI-native enablement, and measurable business outcomes.",
+    url: siteUrl,
+    siteName: "RZR",
     type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: "RZR — Senior L&D Lead Strategy & Build Portfolio. Where Intelligence Makes Impact.",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Senior L&D Lead · RZR — Strategy & Build Portfolio",
+    description:
+      "Builder-grade strategy and execution portfolio: onboarding, manager capability, leadership development, AI-native enablement, and measurable business outcomes.",
+    images: [ogImageUrl],
   },
 };
 
