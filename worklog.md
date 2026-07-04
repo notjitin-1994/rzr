@@ -72,3 +72,47 @@ Stage Summary:
   - Lazy loading works (sections below fold don't render in DOM until scrolled near)
   - Mobile menu works (hamburger opens, all 5 nav items visible)
   - No code/GitHub/Vercel/Next.js/TypeScript references in user-facing UI (only the Next.js Dev Tools floating button, which is dev-environment-only and won't appear in production)
+
+---
+Task ID: 3
+Agent: Super Z (main)
+Task: Restrict color palette to brand accent colors only (no random colors). Replace casual icons (Sparkles, etc.) with professional, modern, elegant alternatives. Research and revamp.
+
+Work Log:
+- Audited current color usage: found 56 text-orange, 27 bg-orange, 7 text-rose, 3 bg-rose, plus pink/blue/red scattered across 12 component files. Orange was being used as primary accent (wrong — mint is RZR's actual brand accent).
+- Audited current icons: 37 unique lucide-react icons. Identified casual/childish icons to remove: Sparkles (whimsical), Lightbulb (eureka moment), Brain (smart), Crown (regal), Quote (basic), AlertTriangle/CheckCircle2/XCircle (older aliases), Activity (pulse), Shield (generic).
+- Researched modern professional icon systems via web search. Confirmed Lucide is the top modern minimalist library (1,450+ icons, 1.5px stroke, consistent). The issue was icon *selection*, not the library. Strategy: keep Lucide, upgrade icon choices.
+- Verified all replacement icons exist in lucide-react v1.23: ArrowRight, BookOpen, MessagesSquare, ShieldAlert, Award, MessageSquareQuote, TrendingUp, CircleCheck, CircleX, TriangleAlert, Layers.
+
+Implementation:
+- **Strict brand-only color system** — rewrote globals.css to remove standalone orange/pink/red/blue/rose tokens. Sanctioned active UI colors reduced to: INK (#0F0A14, primary text/surface), MINT (#00BDA5, primary accent), MINT-SOFT (#E6FAF7, mint background tint), MINT-DEEP (#009485, pressed state). Brand gradient (orange→red→pink) preserved as decorative-only utility (.bg-brand-gradient, .text-brand-gradient) — used on hero headline and ambient orbs only. All status colors replaced: positive=mint, neutral=muted, severe=ink. Severity is now communicated through icon + label typography, not color hue.
+- **Global color swap** across 12 component files: orange→mint (56 instances), rose/red→ink (7 instances), pink→mint, blue→mint, text-white→text-background (proper contrast on mint/ink surfaces).
+- **Icon revamp** — replaced all casual icons with executive-grade alternatives:
+  - Sparkles → ArrowRight (Cover CTA button) and BookOpen (Academy callouts + FTM facilitator notes — "reading/reference" not "eureka")
+  - Brain → MessagesSquare (Listening tour = conversation, not "smart")
+  - ShieldCheck → ShieldAlert (more dynamic risk icon, used in Cover pillar)
+  - Shield → ShieldAlert (Risks footer note)
+  - Crown → Award (LMS recommendation — achievement, not regal)
+  - Quote → MessageSquareQuote (cleaner quote glyph)
+  - Lightbulb → BookOpen (facilitator notes = reading)
+  - Activity → TrendingUp (analytics = trend, not pulse)
+  - CheckCircle2 → CircleCheck (modern lucide alias, cleaner stroke)
+  - XCircle → CircleX (modern lucide alias)
+  - AlertTriangle → TriangleAlert (modern lucide alias)
+- **Severity visualization refinement** — in RisksSection, redesigned the LikelihoodImpactBadge and heat map cell color logic. Before: rose/amber/emerald (random colors) all collapsed to identical mint after swap. After: High=ink (solid, severe), Medium=muted (neutral), Low=mint/10 (calm). Three distinct visual weights using only brand tokens. Same treatment applied to LMS ScoreCell: 5=mint solid, 4=mint/15, 3=muted, ≤2=ink/8.
+
+Stage Summary:
+- Lint: clean (zero errors).
+- Dev server: clean (all 200 responses; one transient Fast Refresh full-reload during icon rename, resolved).
+- Agent Browser verification:
+  - Hero renders with brand gradient on "makes impact", ArrowRight CTA icon (no Sparkles)
+  - 5 pillar icons all professional: GraduationCap, Users, Layers, MessagesSquare, ShieldAlert
+  - Academy knowledge check works end-to-end with BookOpen callouts + CircleCheck success icon
+  - FTM deck navigation works, Facilitator notes panel opens with BookOpen icon
+  - FTM L2 knowledge check works (5/5 score confirmed), CircleCheck for correct, CircleX for incorrect, MessageSquareQuote for below-target feedback
+  - LMS matrix renders with Award icon for recommendation, TriangleAlert for warnings, brand-only score colors (mint/muted/ink)
+  - Risks section: heat map cells use ink (severe) / muted (mid) / mint (low) — three distinct visual weights, brand-only
+  - Risks detail cards render with TrendingUp (early signal), TriangleAlert (risk icon), ShieldAlert (footer note)
+  - Mobile (375×812) renders correctly
+  - No Sparkles, Lightbulb, Brain, Crown, Quote, AlertTriangle, CheckCircle2, XCircle, or Activity icons anywhere in the UI
+  - No orange, pink, red, blue, or rose color tokens anywhere in the UI (only ink, mint, brand gradient, neutral grays)

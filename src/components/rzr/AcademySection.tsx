@@ -13,7 +13,7 @@ import {
   academyStats,
 } from "@/data/academy";
 import {
-  CheckCircle2,
+  CircleCheck,
   Clock,
   Globe,
   GraduationCap,
@@ -24,7 +24,7 @@ import {
   X,
   ArrowRight,
   ArrowLeft,
-  Sparkles,
+  BookOpen,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -78,7 +78,7 @@ export function AcademySection() {
         {academyStats.map((stat) => (
           <Card key={stat.label} className="bg-card/60">
             <CardContent className="p-4">
-              <div className="text-2xl sm:text-3xl font-semibold text-orange">{stat.value}</div>
+              <div className="text-2xl sm:text-3xl font-semibold text-mint">{stat.value}</div>
               <div className="text-xs font-medium mt-1">{stat.label}</div>
               <div className="text-[10px] text-muted-foreground mt-0.5">{stat.sublabel}</div>
             </CardContent>
@@ -87,18 +87,18 @@ export function AcademySection() {
       </div>
 
       {/* Progress bar */}
-      <Card className="mb-8 border-orange/30 bg-orange/[0.03]">
+      <Card className="mb-8 border-mint/30 bg-mint/[0.03]">
         <CardContent className="p-5">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
-              <GraduationCap className="size-4 text-orange" />
+              <GraduationCap className="size-4 text-mint" />
               <span className="text-sm font-semibold">Your progress</span>
             </div>
             <div className="text-sm font-mono text-muted-foreground">
               {completedModules.size} / {academyModules.length} modules completed
             </div>
           </div>
-          <Progress value={progressPct} className="h-2 bg-orange/15" />
+          <Progress value={progressPct} className="h-2 bg-mint/15" />
           <div className="mt-3 text-xs text-muted-foreground">
             {progressPct === 100
               ? "✓ All Foundation modules complete. Ready for Function-layer track (Day 8+)."
@@ -124,17 +124,17 @@ export function AcademySection() {
                     className={cn(
                       "w-full text-left p-3 rounded-lg border transition-all flex items-start gap-3",
                       active
-                        ? "border-orange/50 bg-orange/10 shadow-sm"
-                        : "border-border hover:border-orange/30 hover:bg-accent/40"
+                        ? "border-mint/50 bg-mint/10 shadow-sm"
+                        : "border-border hover:border-mint/30 hover:bg-accent/40"
                     )}
                   >
                     <div
                       className={cn(
                         "flex items-center justify-center w-7 h-7 rounded-full shrink-0 text-xs font-mono font-semibold",
                         done
-                          ? "bg-mint text-white"
+                          ? "bg-mint text-background"
                           : active
-                          ? "bg-orange text-white"
+                          ? "bg-mint text-background"
                           : "bg-muted text-muted-foreground"
                       )}
                     >
@@ -162,8 +162,8 @@ export function AcademySection() {
 
           <div className="mt-6 p-4 rounded-lg border border-dashed border-border bg-muted/30">
             <div className="flex items-center gap-2 mb-2">
-              <Layers className="size-3.5 text-orange" />
-              <span className="text-[10px] font-mono tracking-widest text-orange uppercase">
+              <Layers className="size-3.5 text-mint" />
+              <span className="text-[10px] font-mono tracking-widest text-mint uppercase">
                 Architecture
               </span>
             </div>
@@ -180,7 +180,7 @@ export function AcademySection() {
           <Card className="border-border/80 shadow-sm">
             <CardHeader className="border-b border-border/60 pb-6">
               <div className="flex flex-wrap items-center gap-2 mb-3">
-                <Badge variant="outline" className="font-mono text-[10px] border-orange/40 text-orange bg-orange/5">
+                <Badge variant="outline" className="font-mono text-[10px] border-mint/40 text-mint bg-mint/5">
                   Module {activeModule.index} of {academyModules.length}
                 </Badge>
                 <Badge variant="secondary" className="font-mono text-[10px]">
@@ -222,7 +222,7 @@ export function AcademySection() {
                   {activeModule.sections.map((section, idx) => (
                     <div key={idx} className="space-y-2">
                       <div className="flex items-baseline gap-3">
-                        <span className="text-[10px] font-mono text-orange font-bold">
+                        <span className="text-[10px] font-mono text-mint font-bold">
                           {String(idx + 1).padStart(2, "0")}
                         </span>
                         <h4 className="text-base font-semibold tracking-tight">
@@ -233,9 +233,9 @@ export function AcademySection() {
                         {section.body}
                       </p>
                       {section.callout && (
-                        <div className="ml-7 mt-2 p-3 rounded-md border-l-2 border-orange bg-orange/[0.04]">
+                        <div className="ml-7 mt-2 p-3 rounded-md border-l-2 border-mint bg-mint/[0.04]">
                           <div className="flex items-start gap-2">
-                            <Sparkles className="size-3.5 text-orange shrink-0 mt-0.5" />
+                            <BookOpen className="size-3.5 text-mint shrink-0 mt-0.5" />
                             <p className="text-xs text-foreground/80 italic leading-relaxed">
                               {section.callout}
                             </p>
@@ -257,7 +257,7 @@ export function AcademySection() {
                         key={idx}
                         className="flex items-start gap-3 p-3 rounded-lg bg-muted/40 border border-border/60"
                       >
-                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-orange/15 text-orange text-xs font-mono font-bold shrink-0">
+                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-mint/15 text-mint text-xs font-mono font-bold shrink-0">
                           {idx + 1}
                         </div>
                         <p className="text-sm text-foreground leading-relaxed">{outcome}</p>
@@ -279,9 +279,9 @@ export function AcademySection() {
 
                 {/* KNOWLEDGE CHECK TAB */}
                 <TabsContent value="check" className="space-y-5 mt-0">
-                  <div className="p-4 rounded-lg border border-orange/30 bg-orange/[0.04]">
+                  <div className="p-4 rounded-lg border border-mint/30 bg-mint/[0.04]">
                     <div className="flex items-center justify-between mb-2">
-                      <div className="text-[10px] font-mono tracking-widest text-orange uppercase">
+                      <div className="text-[10px] font-mono tracking-widest text-mint uppercase">
                         L2 Knowledge Check
                       </div>
                       {isRevealed && (
@@ -322,17 +322,17 @@ export function AcademySection() {
                           className={cn(
                             "w-full text-left p-3.5 rounded-lg border-2 transition-all flex items-start gap-3",
                             showCorrect && "border-mint bg-mint/10",
-                            showIncorrect && "border-rose bg-rose/10",
+                            showIncorrect && "border-ink bg-ink/10",
                             !isRevealed &&
-                              "border-border hover:border-orange/50 hover:bg-orange/[0.04] cursor-pointer",
+                              "border-border hover:border-mint/50 hover:bg-mint/[0.04] cursor-pointer",
                             isRevealed && !showCorrect && !showIncorrect && "border-border opacity-60"
                           )}
                         >
                           <div
                             className={cn(
                               "flex items-center justify-center w-6 h-6 rounded-full shrink-0 text-xs font-mono font-bold border-2",
-                              showCorrect && "border-mint bg-mint text-white",
-                              showIncorrect && "border-rose bg-rose text-rose-foreground",
+                              showCorrect && "border-mint bg-mint text-background",
+                              showIncorrect && "border-ink bg-ink text-ink-foreground",
                               !showCorrect && !showIncorrect && "border-border text-muted-foreground"
                             )}
                           >
@@ -358,19 +358,19 @@ export function AcademySection() {
                         "p-4 rounded-lg border",
                         isCorrect
                           ? "border-mint/40 bg-mint/[0.06]"
-                          : "border-orange/40 bg-orange/[0.06]"
+                          : "border-mint/40 bg-mint/[0.06]"
                       )}
                     >
                       <div className="flex items-center gap-2 mb-2">
                         {isCorrect ? (
-                          <CheckCircle2 className="size-4 text-mint" />
+                          <CircleCheck className="size-4 text-mint" />
                         ) : (
-                          <Sparkles className="size-4 text-orange" />
+                          <BookOpen className="size-4 text-mint" />
                         )}
                         <span
                           className={cn(
                             "text-xs font-mono uppercase tracking-widest",
-                            isCorrect ? "text-mint" : "text-orange"
+                            isCorrect ? "text-mint" : "text-mint"
                           )}
                         >
                           {isCorrect ? "Well done" : "Explanation"}

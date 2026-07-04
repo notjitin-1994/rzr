@@ -21,11 +21,11 @@ import {
   ChevronRight,
   Presentation,
   ClipboardList,
-  CheckCircle2,
-  XCircle,
+  CircleCheck,
+  CircleX,
   Info,
-  Lightbulb,
-  Quote,
+  BookOpen,
+  MessageSquareQuote,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -65,7 +65,7 @@ export function FtmSection() {
         {ftmModuleStats.map((stat) => (
           <Card key={stat.label} className="bg-card/60">
             <CardContent className="p-4">
-              <div className="text-2xl sm:text-3xl font-semibold text-orange">{stat.value}</div>
+              <div className="text-2xl sm:text-3xl font-semibold text-mint">{stat.value}</div>
               <div className="text-xs font-medium mt-1">{stat.label}</div>
               <div className="text-[10px] text-muted-foreground mt-0.5">{stat.sublabel}</div>
             </CardContent>
@@ -84,7 +84,7 @@ export function FtmSection() {
             <span className="hidden sm:inline">L1 Survey</span>
           </TabsTrigger>
           <TabsTrigger value="l2" className="text-xs sm:text-sm gap-1.5">
-            <CheckCircle2 className="size-3.5" />
+            <CircleCheck className="size-3.5" />
             <span className="hidden sm:inline">L2 Check</span>
           </TabsTrigger>
         </TabsList>
@@ -95,12 +95,12 @@ export function FtmSection() {
             {/* Slide viewport */}
             <div className="relative aspect-[16/10] sm:aspect-[16/9] bg-ink text-background overflow-hidden">
               <div className="absolute inset-0 bg-grid opacity-10" />
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-orange/20 rounded-full blur-3xl" />
+              <div className="absolute -top-20 -right-20 w-64 h-64 bg-mint/20 rounded-full blur-3xl" />
 
               <div className="relative h-full flex flex-col p-6 sm:p-10 lg:p-14">
                 {/* Slide header */}
                 <div className="flex items-center gap-2 mb-4 sm:mb-6">
-                  <span className="text-[10px] font-mono text-orange tracking-widest uppercase">
+                  <span className="text-[10px] font-mono text-mint tracking-widest uppercase">
                     Slide {slide.index} / {ftmSlides.length}
                   </span>
                   <span className="text-[10px] font-mono text-background/40 tracking-widest uppercase">
@@ -132,7 +132,7 @@ export function FtmSection() {
                           key={idx}
                           className="flex items-start gap-3 text-xs sm:text-sm lg:text-base text-background/85 leading-relaxed"
                         >
-                          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-orange/20 text-orange text-[10px] font-mono font-bold shrink-0 mt-0.5">
+                          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-mint/20 text-mint text-[10px] font-mono font-bold shrink-0 mt-0.5">
                             {idx + 1}
                           </span>
                           <span>{b}</span>
@@ -146,13 +146,13 @@ export function FtmSection() {
                       {slide.visual.data.steps.map((step: any, idx: number) => (
                         <div
                           key={idx}
-                          className="p-3 sm:p-4 rounded-lg border border-orange/30 bg-orange/5"
+                          className="p-3 sm:p-4 rounded-lg border border-mint/30 bg-mint/5"
                         >
                           <div className="flex items-center gap-2 mb-2">
-                            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-orange text-ink font-mono font-bold text-sm">
+                            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-mint text-ink font-mono font-bold text-sm">
                               {step.letter}
                             </div>
-                            <div className="text-sm font-semibold text-orange">{step.word}</div>
+                            <div className="text-sm font-semibold text-mint">{step.word}</div>
                           </div>
                           <div className="text-[10px] font-mono text-background/50 uppercase tracking-wider mb-1">
                             {step.question}
@@ -166,8 +166,8 @@ export function FtmSection() {
                   )}
 
                   {slide.visual?.kind === "matrix" && (
-                    <div className="mt-6 max-w-4xl overflow-hidden rounded-lg border border-orange/20">
-                      <div className="grid grid-cols-4 bg-orange/10 text-[10px] font-mono uppercase tracking-wider text-orange">
+                    <div className="mt-6 max-w-4xl overflow-hidden rounded-lg border border-mint/20">
+                      <div className="grid grid-cols-4 bg-mint/10 text-[10px] font-mono uppercase tracking-wider text-mint">
                         <div className="p-2 sm:p-3">Weight</div>
                         <div className="p-2 sm:p-3">Timing</div>
                         <div className="p-2 sm:p-3">Channel</div>
@@ -176,7 +176,7 @@ export function FtmSection() {
                       {slide.visual.data.rows.map((row: any, idx: number) => (
                         <div
                           key={idx}
-                          className="grid grid-cols-4 border-t border-orange/15 text-[11px] sm:text-xs"
+                          className="grid grid-cols-4 border-t border-mint/15 text-[11px] sm:text-xs"
                         >
                           <div className="p-2 sm:p-3 font-medium text-background/90">{row.weight}</div>
                           <div className="p-2 sm:p-3 text-background/75">{row.timing}</div>
@@ -234,20 +234,20 @@ export function FtmSection() {
                 onClick={() => setShowNotes((v) => !v)}
                 className="gap-1.5"
               >
-                <Lightbulb className="size-3.5" />
+                <BookOpen className="size-3.5" />
                 Facilitator notes
               </Button>
             </div>
 
             {/* Speaker notes panel */}
             {showNotes && (
-              <div className="border-t border-border/60 p-4 sm:p-5 bg-orange/[0.04]">
+              <div className="border-t border-border/60 p-4 sm:p-5 bg-mint/[0.04]">
                 <div className="flex items-start gap-3">
-                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-orange/15 text-orange shrink-0">
-                    <Lightbulb className="size-4" />
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-mint/15 text-mint shrink-0">
+                    <BookOpen className="size-4" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="text-[10px] font-mono tracking-widest text-orange uppercase mb-1">
+                    <div className="text-[10px] font-mono tracking-widest text-mint uppercase mb-1">
                       Facilitator Notes · Slide {slide.index}
                     </div>
                     <p className="text-sm text-foreground/85 leading-relaxed italic">
@@ -268,8 +268,8 @@ export function FtmSection() {
                 className={cn(
                   "aspect-[16/10] rounded-md border-2 p-2 text-left transition-all",
                   idx === activeSlide
-                    ? "border-orange bg-orange/10"
-                    : "border-border hover:border-orange/40 bg-card/40"
+                    ? "border-mint bg-mint/10"
+                    : "border-border hover:border-mint/40 bg-card/40"
                 )}
               >
                 <div className="text-[8px] font-mono text-muted-foreground mb-1">
@@ -288,7 +288,7 @@ export function FtmSection() {
           <Card>
             <CardHeader className="border-b border-border/60">
               <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-orange/15 text-orange">
+                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-mint/15 text-mint">
                   <ClipboardList className="size-5" />
                 </div>
                 <div>
@@ -303,7 +303,7 @@ export function FtmSection() {
               {l1Survey.map((q, idx) => (
                 <div key={q.id} className="space-y-3">
                   <div className="flex items-baseline gap-3">
-                    <span className="text-[10px] font-mono text-orange font-bold">
+                    <span className="text-[10px] font-mono text-mint font-bold">
                       Q{idx + 1}
                     </span>
                     <p className="text-sm font-medium text-pretty">{q.text}</p>
@@ -331,7 +331,7 @@ export function FtmSection() {
                             />
                             <Label
                               htmlFor={`${q.id}-${n}`}
-                              className="text-xs font-mono cursor-pointer w-7 h-7 flex items-center justify-center rounded border border-border peer-data-[state=checked]:bg-orange peer-data-[state=checked]:text-white peer-data-[state=checked]:border-orange"
+                              className="text-xs font-mono cursor-pointer w-7 h-7 flex items-center justify-center rounded border border-border peer-data-[state=checked]:bg-mint peer-data-[state=checked]:text-background peer-data-[state=checked]:border-mint"
                             >
                               {n}
                             </Label>
@@ -369,7 +369,7 @@ export function FtmSection() {
                 </Button>
               ) : (
                 <div className="p-4 rounded-lg border border-mint/40 bg-mint/[0.06] flex items-start gap-3">
-                  <CheckCircle2 className="size-5 text-mint shrink-0 mt-0.5" />
+                  <CircleCheck className="size-5 text-mint shrink-0 mt-0.5" />
                   <div>
                     <div className="text-sm font-semibold text-mint">Survey captured</div>
                     <p className="text-xs text-muted-foreground mt-1">
@@ -390,8 +390,8 @@ export function FtmSection() {
             <CardHeader className="border-b border-border/60">
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-orange/15 text-orange">
-                    <CheckCircle2 className="size-5" />
+                  <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-mint/15 text-mint">
+                    <CircleCheck className="size-5" />
                   </div>
                   <div>
                     <CardTitle className="text-xl">L2 Knowledge Check</CardTitle>
@@ -419,7 +419,7 @@ export function FtmSection() {
                 return (
                   <div key={q.id} className="space-y-3">
                     <div className="flex items-baseline gap-3">
-                      <span className="text-[10px] font-mono text-orange font-bold">
+                      <span className="text-[10px] font-mono text-mint font-bold">
                         Q{idx + 1}
                       </span>
                       <p className="text-sm font-medium text-pretty">{q.question}</p>
@@ -442,9 +442,9 @@ export function FtmSection() {
                             className={cn(
                               "w-full text-left p-3 rounded-md border-2 transition-all flex items-start gap-3",
                               showCorrect && "border-mint bg-mint/10",
-                              showIncorrect && "border-rose bg-rose/10",
+                              showIncorrect && "border-ink bg-ink/10",
                               !submitted &&
-                                "border-border hover:border-orange/50 hover:bg-orange/[0.04] cursor-pointer",
+                                "border-border hover:border-mint/50 hover:bg-mint/[0.04] cursor-pointer",
                               submitted &&
                                 !showCorrect &&
                                 !showIncorrect &&
@@ -454,17 +454,17 @@ export function FtmSection() {
                             <div
                               className={cn(
                                 "flex items-center justify-center w-5 h-5 rounded-full shrink-0 text-[10px] font-mono font-bold border-2 mt-0.5",
-                                showCorrect && "border-mint bg-mint text-white",
-                                showIncorrect && "border-rose bg-rose text-rose-foreground",
+                                showCorrect && "border-mint bg-mint text-background",
+                                showIncorrect && "border-ink bg-ink text-ink-foreground",
                                 !showCorrect &&
                                   !showIncorrect &&
                                   "border-border text-muted-foreground"
                               )}
                             >
                               {showCorrect ? (
-                                <CheckCircle2 className="size-3" />
+                                <CircleCheck className="size-3" />
                               ) : showIncorrect ? (
-                                <XCircle className="size-3" />
+                                <CircleX className="size-3" />
                               ) : (
                                 String.fromCharCode(65 + oIdx)
                               )}
@@ -476,7 +476,7 @@ export function FtmSection() {
                     </div>
                     {submitted && (
                       <div className="pl-7 p-3 rounded-md border border-border bg-muted/40 flex items-start gap-2">
-                        <Info className="size-3.5 text-orange shrink-0 mt-0.5" />
+                        <Info className="size-3.5 text-mint shrink-0 mt-0.5" />
                         <p className="text-xs text-foreground/75 leading-relaxed">
                           <span className="font-semibold">Explanation: </span>
                           {q.explanation}
@@ -501,13 +501,13 @@ export function FtmSection() {
                     "p-4 rounded-lg border flex items-start gap-3",
                     l2Pct >= 80
                       ? "border-mint/40 bg-mint/[0.06]"
-                      : "border-orange/40 bg-orange/[0.06]"
+                      : "border-mint/40 bg-mint/[0.06]"
                   )}
                 >
                   {l2Pct >= 80 ? (
-                    <CheckCircle2 className="size-5 text-mint shrink-0 mt-0.5" />
+                    <CircleCheck className="size-5 text-mint shrink-0 mt-0.5" />
                   ) : (
-                    <Quote className="size-5 text-orange shrink-0 mt-0.5" />
+                    <MessageSquareQuote className="size-5 text-mint shrink-0 mt-0.5" />
                   )}
                   <div>
                     <div className="text-sm font-semibold">

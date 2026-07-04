@@ -42,44 +42,31 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  /* RZR Official Brand Colors (extracted from rzr.com) */
+  /* === RZR Brand — strict palette ===
+   * Only THREE accent colors are sanctioned for active UI use:
+   *   1. INK   — near-black with subtle purple tint (logo fill, primary text/surface)
+   *   2. MINT  — RZR's signature brand accent (primary highlight color)
+   *   3. BRAND GRADIENT — used ONLY as a decorative element (hero headline + ambient orbs)
+   * All other colors are neutral grays.
+   */
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-mint: var(--mint);
   --color-mint-soft: var(--mint-soft);
-  --color-orange: var(--orange);
-  --color-orange-soft: var(--orange-soft);
-  --color-pink: var(--pink);
-  --color-pink-soft: var(--pink-soft);
-  --color-red: var(--red);
-  --color-blue: var(--blue);
-  --color-rose: var(--rose);
-  --color-rose-foreground: var(--rose-foreground);
+  --color-mint-deep: var(--mint-deep);
 }
 
 :root {
   --radius: 0.5rem;
 
-  /* === RZR Official Brand Palette === */
-  /* Ink — their actual near-black with subtle purple tint (from logo SVG paths) */
-  --ink: #0f0a14;
-  --ink-soft: #2a2530;
+  /* === Brand tokens === */
+  --ink: #0f0a14;        /* logo fill, primary text */
+  --ink-soft: #2a2530;   /* secondary text on dark surfaces */
+  --mint: #00bda5;       /* signature brand accent */
+  --mint-soft: #e6faf7;  /* mint background tint */
+  --mint-deep: #009485;  /* mint pressed state / deep accent */
 
-  /* Mint — RZR's signature brand color (from rzr.com CSS) */
-  --mint: #00bda5;
-  --mint-soft: #e6faf7;
-
-  /* Orange-Red-Pink brand gradient (from logo SVG gradients) */
-  --orange: #ff7a00;
-  --orange-soft: #fff1e0;
-  --pink: #e63e6d;
-  --pink-soft: #fde8ef;
-  --red: #dc1a14;
-  --blue: #0968ed;
-  --rose: #e63e6d;
-  --rose-foreground: #ffffff;
-
-  /* Surface tones (from rzr.com backgrounds) */
+  /* === Neutral surface tones (from rzr.com) === */
   --background: #ffffff;
   --foreground: #0f0a14;
   --card: #ffffff;
@@ -92,22 +79,24 @@
   --secondary-foreground: #0f0a14;
   --muted: #f4f5f7;
   --muted-foreground: #5a6068;
-  --accent: #e6faf7;
+  --accent: #f4f5f7;
   --accent-foreground: #0f0a14;
-  --destructive: #dc1a14;
+  /* Destructive uses ink (not red) to maintain brand discipline.
+     Severity is communicated through iconography + typography, not color. */
+  --destructive: #0f0a14;
   --border: #e4e7ec;
   --input: #e4e7ec;
   --ring: #00bda5;
   --chart-1: #00bda5;
-  --chart-2: #ff7a00;
-  --chart-3: #e63e6d;
-  --chart-4: #0968ed;
-  --chart-5: #dc1a14;
+  --chart-2: #0f0a14;
+  --chart-3: #5a6068;
+  --chart-4: #a8acb4;
+  --chart-5: #e4e7ec;
   --sidebar: #ffffff;
   --sidebar-foreground: #0f0a14;
   --sidebar-primary: #0f0a14;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e6faf7;
+  --sidebar-accent: #f4f5f7;
   --sidebar-accent-foreground: #0f0a14;
   --sidebar-border: #e4e7ec;
   --sidebar-ring: #00bda5;
@@ -118,14 +107,7 @@
   --ink-soft: #b4b8c0;
   --mint: #00d9bd;
   --mint-soft: #0a2a26;
-  --orange: #ff8a1f;
-  --orange-soft: #2a1a08;
-  --pink: #ec5a85;
-  --pink-soft: #2a0f1a;
-  --red: #e8382f;
-  --blue: #2a7bf0;
-  --rose: #ec5a85;
-  --rose-foreground: #ffffff;
+  --mint-deep: #4ed4c2;
 
   --background: #0a0810;
   --foreground: #ffffff;
@@ -141,15 +123,15 @@
   --muted-foreground: #9097a3;
   --accent: #1f1a28;
   --accent-foreground: #ffffff;
-  --destructive: #e8382f;
+  --destructive: #ffffff;
   --border: rgba(255, 255, 255, 0.10);
   --input: rgba(255, 255, 255, 0.15);
   --ring: #00d9bd;
   --chart-1: #00d9bd;
-  --chart-2: #ff8a1f;
-  --chart-3: #ec5a85;
-  --chart-4: #2a7bf0;
-  --chart-5: #e8382f;
+  --chart-2: #ffffff;
+  --chart-3: #b4b8c0;
+  --chart-4: #6a6f7a;
+  --chart-5: #2a2530;
   --sidebar: #15111c;
   --sidebar-foreground: #ffffff;
   --sidebar-primary: #00d9bd;
@@ -177,7 +159,7 @@
   }
 }
 
-/* === RZR Brand Gradient === */
+/* === RZR Brand Utilities === */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -186,7 +168,9 @@
     text-wrap: pretty;
   }
 
-  /* The signature RZR brand gradient: orange → red → pink */
+  /* The signature RZR brand gradient: orange → red → pink.
+   * Used ONLY as a decorative accent — hero headline + ambient orbs.
+   * Never used for status, never used on data viz. */
   .bg-brand-gradient {
     background-image: linear-gradient(135deg, #ff7a00 0%, #dc1a14 50%, #e63e6d 100%);
   }
@@ -199,43 +183,38 @@
     -webkit-text-fill-color: transparent;
   }
 
+  /* Brand accent — mint */
   .text-mint {
-    color: #00bda5;
+    color: var(--mint);
   }
   .bg-mint {
-    background-color: #00bda5;
+    background-color: var(--mint);
   }
   .border-mint {
-    border-color: #00bda5;
+    border-color: var(--mint);
   }
-  .text-orange {
-    color: #ff7a00;
+  .text-mint-deep {
+    color: var(--mint-deep);
   }
-  .bg-orange {
-    background-color: #ff7a00;
-  }
-  .border-orange {
-    border-color: #ff7a00;
-  }
-  .text-pink {
-    color: #e63e6d;
-  }
-  .bg-pink {
-    background-color: #e63e6d;
-  }
-  .border-pink {
-    border-color: #e63e6d;
-  }
-  .text-ink {
-    color: #0f0a14;
-  }
-  .bg-ink {
-    background-color: #0f0a14;
-  }
-  .border-ink {
-    border-color: #0f0a14;
+  .bg-mint-soft {
+    background-color: var(--mint-soft);
   }
 
+  /* Brand ink — primary text/surface */
+  .text-ink {
+    color: var(--ink);
+  }
+  .bg-ink {
+    background-color: var(--ink);
+  }
+  .border-ink {
+    border-color: var(--ink);
+  }
+  .text-ink-soft {
+    color: var(--ink-soft);
+  }
+
+  /* Background patterns */
   .bg-grid {
     background-image:
       linear-gradient(to right, rgba(15, 10, 20, 0.04) 1px, transparent 1px),
@@ -273,6 +252,19 @@
   }
   .shadow-card-hover {
     box-shadow: 0 2px 4px rgba(15, 10, 20, 0.06), 0 12px 32px rgba(15, 10, 20, 0.08);
+  }
+
+  /* Status styling — uses neutral ink for severity, mint for positive.
+     Severity is communicated through icon + label, not color hue. */
+  .status-positive {
+    color: var(--mint);
+    background-color: var(--mint-soft);
+    border-color: var(--mint);
+  }
+  .status-neutral {
+    color: var(--ink);
+    background-color: var(--muted);
+    border-color: var(--border);
   }
 }
 

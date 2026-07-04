@@ -25,18 +25,20 @@ import {
   computeWeightedScore,
   lmsRecommendation,
 } from "@/data/lms";
-import { Crown, TrendingUp, Calendar, Check, AlertTriangle, Info } from "lucide-react";
+import { Award, TrendingUp, Calendar, Check, TriangleAlert, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 function ScoreCell({ score }: { score: number }) {
+  // Brand-only color discipline: mint for strong, neutral for mid, ink for weak.
+  // Severity is reinforced by the number itself, not by hue.
   const color =
     score >= 5
-      ? "bg-mint/15 text-mint border-mint/30"
+      ? "bg-mint text-background border-mint"
       : score >= 4
-      ? "bg-orange/15 text-orange border-orange/30"
+      ? "bg-mint/15 text-mint border-mint/30"
       : score >= 3
-      ? "bg-muted text-muted-foreground border-border"
-      : "bg-rose/15 text-rose border-rose/30";
+      ? "bg-muted text-foreground border-border"
+      : "bg-ink/8 text-ink/70 border-ink/20";
 
   return (
     <div
@@ -75,13 +77,13 @@ export function LmsSection() {
       badge="Decision-Ready"
     >
       {/* Top-line recommendation */}
-      <Card className="mb-10 border-orange/40 bg-gradient-to-br from-orange/[0.06] via-transparent to-mint/[0.04]">
+      <Card className="mb-10 border-mint/40 bg-gradient-to-br from-mint/[0.06] via-transparent to-mint/[0.04]">
         <CardContent className="p-6">
           <div className="grid lg:grid-cols-12 gap-6 items-start">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2 mb-2">
-                <Crown className="size-4 text-orange" />
-                <span className="text-[10px] font-mono tracking-widest text-orange uppercase">
+                <Award className="size-4 text-mint" />
+                <span className="text-[10px] font-mono tracking-widest text-mint uppercase">
                   Primary Recommendation
                 </span>
               </div>
@@ -118,8 +120,8 @@ export function LmsSection() {
                         className={cn(
                           "w-full text-left p-2.5 rounded-md border transition-all flex items-center justify-between gap-2",
                           activeVendor === entry.vendor.id
-                            ? "border-orange/50 bg-orange/10"
-                            : "border-border hover:border-orange/30 bg-card/40"
+                            ? "border-mint/50 bg-mint/10"
+                            : "border-border hover:border-mint/30 bg-card/40"
                         )}
                       >
                         <div className="flex items-center gap-2.5">
@@ -127,7 +129,7 @@ export function LmsSection() {
                             className={cn(
                               "flex items-center justify-center w-6 h-6 rounded-full text-[10px] font-mono font-bold",
                               idx === 0
-                                ? "bg-orange text-white"
+                                ? "bg-mint text-background"
                                 : "bg-muted text-muted-foreground"
                             )}
                           >
@@ -140,7 +142,7 @@ export function LmsSection() {
                             <div
                               className={cn(
                                 "h-full rounded-full",
-                                idx === 0 ? "bg-orange" : "bg-mint/70"
+                                idx === 0 ? "bg-mint" : "bg-mint/70"
                               )}
                               style={{ width: `${entry.score}%` }}
                             />
@@ -185,7 +187,7 @@ export function LmsSection() {
                         onClick={() => setActiveVendor(v.id)}
                         className={cn(
                           "w-full p-3 cursor-pointer transition-colors hover:bg-accent/60",
-                          activeVendor === v.id && "bg-orange/10"
+                          activeVendor === v.id && "bg-mint/10"
                         )}
                       >
                         <div className="font-semibold">{v.name}</div>
@@ -218,7 +220,7 @@ export function LmsSection() {
                       </TooltipProvider>
                     </TableCell>
                     <TableCell className="text-center">
-                      <span className="text-xs font-mono text-orange font-bold">
+                      <span className="text-xs font-mono text-mint font-bold">
                         {criterion.weight}
                       </span>
                     </TableCell>
@@ -231,8 +233,8 @@ export function LmsSection() {
                 ))}
 
                 {/* Weighted total row */}
-                <TableRow className="border-t-2 border-orange/30 bg-orange/[0.04] hover:bg-orange/[0.06]">
-                  <TableCell className="sticky left-0 bg-orange/[0.04] z-10 font-bold text-sm">
+                <TableRow className="border-t-2 border-mint/30 bg-mint/[0.04] hover:bg-mint/[0.06]">
+                  <TableCell className="sticky left-0 bg-mint/[0.04] z-10 font-bold text-sm">
                     Weighted Score (out of 100)
                   </TableCell>
                   <TableCell className="text-center">
@@ -247,7 +249,7 @@ export function LmsSection() {
                           className={cn(
                             "inline-flex items-center justify-center px-3 py-1.5 rounded-md font-mono font-bold text-sm",
                             isTop
-                              ? "bg-orange text-white"
+                              ? "bg-mint text-background"
                               : "bg-muted text-foreground"
                           )}
                         >
@@ -290,17 +292,17 @@ export function LmsSection() {
       </Card>
 
       {/* Active vendor drill-down */}
-      <Card className="mb-10 border-orange/30">
+      <Card className="mb-10 border-mint/30">
         <CardHeader className="border-b border-border/60">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <div className="flex items-center gap-3 mb-1">
-                <span className="text-[10px] font-mono tracking-widest text-orange uppercase">
+                <span className="text-[10px] font-mono tracking-widest text-mint uppercase">
                   Vendor Drill-down
                 </span>
                 {activeVendorData.id === topVendor.vendor.id && (
-                  <Badge className="bg-orange text-white text-[10px] font-mono gap-1">
-                    <Crown className="size-2.5" />
+                  <Badge className="bg-mint text-background text-[10px] font-mono gap-1">
+                    <Award className="size-2.5" />
                     Recommended
                   </Badge>
                 )}
@@ -313,7 +315,7 @@ export function LmsSection() {
             </div>
 
             <div className="text-right">
-              <div className="text-3xl font-mono font-bold text-orange">
+              <div className="text-3xl font-mono font-bold text-mint">
                 {computeWeightedScore(activeVendorData)}
               </div>
               <div className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest">
@@ -345,8 +347,8 @@ export function LmsSection() {
 
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <AlertTriangle className="size-4 text-orange" />
-                <h4 className="text-sm font-semibold text-orange uppercase tracking-wider font-mono">
+                <TriangleAlert className="size-4 text-mint" />
+                <h4 className="text-sm font-semibold text-mint uppercase tracking-wider font-mono">
                   Weaknesses
                 </h4>
               </div>
@@ -354,7 +356,7 @@ export function LmsSection() {
                 {activeVendorData.weaknesses.map((w, idx) => (
                   <li
                     key={idx}
-                    className="text-sm text-foreground/85 leading-relaxed pl-4 border-l-2 border-orange/40"
+                    className="text-sm text-foreground/85 leading-relaxed pl-4 border-l-2 border-mint/40"
                   >
                     {w}
                   </li>
@@ -363,11 +365,11 @@ export function LmsSection() {
             </div>
           </div>
 
-          <div className="mt-6 p-4 rounded-md border border-orange/30 bg-orange/[0.04]">
+          <div className="mt-6 p-4 rounded-md border border-mint/30 bg-mint/[0.04]">
             <div className="flex items-start gap-3">
-              <Info className="size-4 text-orange shrink-0 mt-0.5" />
+              <Info className="size-4 text-mint shrink-0 mt-0.5" />
               <div>
-                <div className="text-[10px] font-mono tracking-widest text-orange uppercase mb-1">
+                <div className="text-[10px] font-mono tracking-widest text-mint uppercase mb-1">
                   Best Fit
                 </div>
                 <p className="text-sm text-foreground/85 leading-relaxed">
@@ -383,7 +385,7 @@ export function LmsSection() {
       <Card>
         <CardHeader className="border-b border-border/60">
           <div className="flex items-center gap-3">
-            <Calendar className="size-5 text-orange" />
+            <Calendar className="size-5 text-mint" />
             <div>
               <CardTitle className="text-lg">8-Week Procurement Timeline</CardTitle>
               <p className="text-sm text-muted-foreground mt-1">
@@ -393,13 +395,13 @@ export function LmsSection() {
           </div>
         </CardHeader>
         <CardContent className="pt-6">
-          <ol className="relative border-l-2 border-orange/30 ml-3 space-y-6">
+          <ol className="relative border-l-2 border-mint/30 ml-3 space-y-6">
             {lmsRecommendation.timeline.map((step, idx) => (
               <li key={idx} className="ml-6 relative">
-                <span className="absolute -left-[34px] flex items-center justify-center w-7 h-7 rounded-full bg-orange text-white text-[10px] font-mono font-bold border-2 border-background">
+                <span className="absolute -left-[34px] flex items-center justify-center w-7 h-7 rounded-full bg-mint text-background text-[10px] font-mono font-bold border-2 border-background">
                   {idx + 1}
                 </span>
-                <div className="text-[10px] font-mono tracking-widest text-orange uppercase mb-1">
+                <div className="text-[10px] font-mono tracking-widest text-mint uppercase mb-1">
                   {step.week}
                 </div>
                 <p className="text-sm text-foreground/85 leading-relaxed">{step.activity}</p>

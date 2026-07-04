@@ -11,8 +11,8 @@ import {
   ChevronUp,
   Users,
   Target,
-  AlertTriangle,
-  CheckCircle2,
+  TriangleAlert,
+  CircleCheck,
   Compass,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -44,7 +44,7 @@ export function ListeningSection() {
         {listeningTourStats.map((stat) => (
           <Card key={stat.label} className="bg-card/60">
             <CardContent className="p-4">
-              <div className="text-2xl sm:text-3xl font-semibold text-orange">{stat.value}</div>
+              <div className="text-2xl sm:text-3xl font-semibold text-mint">{stat.value}</div>
               <div className="text-xs font-medium mt-1">{stat.label}</div>
               <div className="text-[10px] text-muted-foreground mt-0.5">{stat.sublabel}</div>
             </CardContent>
@@ -53,12 +53,12 @@ export function ListeningSection() {
       </div>
 
       {/* Opening framing */}
-      <Card className="mb-8 border-orange/30 bg-orange/[0.03]">
+      <Card className="mb-8 border-mint/30 bg-mint/[0.03]">
         <CardContent className="p-5">
           <div className="flex items-start gap-3">
-            <Compass className="size-5 text-orange shrink-0 mt-0.5" />
+            <Compass className="size-5 text-mint shrink-0 mt-0.5" />
             <div>
-              <div className="text-[10px] font-mono tracking-widest text-orange uppercase mb-1">
+              <div className="text-[10px] font-mono tracking-widest text-mint uppercase mb-1">
                 Why these 5 questions
               </div>
               <p className="text-sm text-foreground/85 leading-relaxed text-pretty">
@@ -83,7 +83,7 @@ export function ListeningSection() {
               key={q.id}
               className={cn(
                 "transition-all border-border/80",
-                isOpen && "border-orange/40 shadow-sm"
+                isOpen && "border-mint/40 shadow-sm"
               )}
             >
               <button
@@ -93,7 +93,7 @@ export function ListeningSection() {
                 <div
                   className={cn(
                     "flex items-center justify-center w-10 h-10 rounded-lg shrink-0 font-mono font-bold text-sm transition-colors",
-                    isOpen ? "bg-orange text-white" : "bg-orange/15 text-orange"
+                    isOpen ? "bg-mint text-background" : "bg-mint/15 text-mint"
                   )}
                 >
                   {q.index}
@@ -103,7 +103,7 @@ export function ListeningSection() {
                   <div className="flex flex-wrap items-center gap-2 mb-2">
                     <Badge
                       variant="outline"
-                      className="text-[10px] font-mono border-orange/40 text-orange bg-orange/5"
+                      className="text-[10px] font-mono border-mint/40 text-mint bg-mint/5"
                     >
                       Question {q.index}
                     </Badge>
@@ -132,8 +132,8 @@ export function ListeningSection() {
                   <div className="grid sm:grid-cols-2 gap-4 pt-4 border-t border-border/60">
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
-                        <Target className="size-3.5 text-orange" />
-                        <span className="text-[10px] font-mono tracking-widest text-orange uppercase">
+                        <Target className="size-3.5 text-mint" />
+                        <span className="text-[10px] font-mono tracking-widest text-mint uppercase">
                           Why I&rsquo;m Asking
                         </span>
                       </div>
@@ -155,10 +155,10 @@ export function ListeningSection() {
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="p-4 rounded-lg border border-rose/30 bg-rose/[0.04]">
+                    <div className="p-4 rounded-lg border border-ink/30 bg-ink/[0.04]">
                       <div className="flex items-center gap-2 mb-2">
-                        <AlertTriangle className="size-3.5 text-rose" />
-                        <span className="text-[10px] font-mono tracking-widest text-rose uppercase">
+                        <TriangleAlert className="size-3.5 text-ink" />
+                        <span className="text-[10px] font-mono tracking-widest text-ink uppercase">
                           Red Flag
                         </span>
                       </div>
@@ -166,7 +166,7 @@ export function ListeningSection() {
                     </div>
                     <div className="p-4 rounded-lg border border-mint/30 bg-mint/[0.04]">
                       <div className="flex items-center gap-2 mb-2">
-                        <CheckCircle2 className="size-3.5 text-mint" />
+                        <CircleCheck className="size-3.5 text-mint" />
                         <span className="text-[10px] font-mono tracking-widest text-mint uppercase">
                           Green Flag
                         </span>
@@ -185,7 +185,7 @@ export function ListeningSection() {
       <Card className="mt-8 bg-muted/30 border-dashed">
         <CardContent className="p-5">
           <div className="flex items-start gap-3">
-            <Target className="size-5 text-orange shrink-0 mt-0.5" />
+            <Target className="size-5 text-mint shrink-0 mt-0.5" />
             <div>
               <div className="text-sm font-semibold mb-1">
                 What happens with the answers

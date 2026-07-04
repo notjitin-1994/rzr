@@ -5,12 +5,12 @@ import { Badge } from "@/components/ui/badge";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowDown,
+  ArrowRight,
   GraduationCap,
   Users,
-  Brain,
-  ShieldCheck,
-  Compass,
-  Sparkles,
+  MessagesSquare,
+  ShieldAlert,
+  Layers,
 } from "lucide-react";
 import { RzrLogo } from "./RzrLogo";
 
@@ -37,7 +37,7 @@ const PILLARS = [
     headline: "A Q2 decision, ready to make",
     desc: "Five vendors scored against ten weighted criteria — with a primary recommendation, vendor drill-downs, and an eight-week procurement timeline. The decision is rehearsed, not deferred.",
     metric: "Q2 contract",
-    icon: Compass,
+    icon: Layers,
   },
   {
     id: "listening",
@@ -45,7 +45,7 @@ const PILLARS = [
     headline: "Five questions that surface signal, not politeness",
     desc: "Each question is engineered to bypass polite answers and surface a specific business signal — the gap between what onboarding delivers and what the business actually needs.",
     metric: "Day-30 insight memo",
-    icon: Brain,
+    icon: MessagesSquare,
   },
   {
     id: "risks",
@@ -53,7 +53,7 @@ const PILLARS = [
     headline: "The top three risks, named and mitigated",
     desc: "Each risk has a Day-1 mitigation, a Day-30 mitigation, a named escalation path, and a RACI owner. Risks are surfaced before they're felt — not after.",
     metric: "5-day revision SLA",
-    icon: ShieldCheck,
+    icon: ShieldAlert,
   },
 ];
 
@@ -143,7 +143,7 @@ export function Cover() {
                 }
                 className="bg-ink text-background hover:bg-ink/85 gap-2"
               >
-                <Sparkles className="size-4" />
+                <ArrowRight className="size-4" />
                 Explore the portfolio
               </Button>
               <Button
@@ -170,11 +170,11 @@ export function Cover() {
                 5 buildable artifacts
               </div>
               <div className="flex items-center gap-2">
-                <div className="h-1.5 w-1.5 rounded-full bg-orange" />
+                <div className="h-1.5 w-1.5 rounded-full bg-mint" />
                 12-month roadmap
               </div>
               <div className="flex items-center gap-2">
-                <div className="h-1.5 w-1.5 rounded-full bg-pink" />
+                <div className="h-1.5 w-1.5 rounded-full bg-mint" />
                 8-office global scope
               </div>
             </motion.div>

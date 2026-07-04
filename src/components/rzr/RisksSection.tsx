@@ -7,9 +7,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { topRisks, riskStats, riskMatrixPositioning } from "@/data/risks";
 import {
-  Shield,
-  AlertTriangle,
-  Activity,
+  ShieldAlert,
+  TriangleAlert,
+  TrendingUp,
   ArrowUp,
   ArrowRight,
   Calendar,
@@ -20,10 +20,12 @@ import {
 import { cn } from "@/lib/utils";
 
 function LikelihoodImpactBadge({ likelihood, impact }: { likelihood: string; impact: string }) {
+  // Brand-only severity: ink for high severity, muted for mid, mint for low.
+  // Visual weight (not hue) communicates the severity gradient.
   const colors = {
-    High: "bg-rose/15 text-rose border-rose/30",
-    Medium: "bg-orange/15 text-orange border-orange/30",
-    Low: "bg-mint/15 text-mint border-mint/30",
+    High: "bg-ink text-background border-ink",
+    Medium: "bg-muted text-foreground border-border",
+    Low: "bg-mint/10 text-mint border-mint/30",
   } as const;
 
   return (
@@ -69,16 +71,17 @@ function RiskMatrix() {
     const score =
       (impact === "High" ? 3 : impact === "Medium" ? 2 : 1) +
       (likelihood === "High" ? 3 : likelihood === "Medium" ? 2 : 1);
-    if (score >= 5) return "bg-rose/10 hover:bg-rose/20 border-rose/30";
-    if (score >= 4) return "bg-orange/10 hover:bg-orange/20 border-orange/30";
-    return "bg-mint/10 hover:bg-mint/20 border-mint/30";
+    // Brand-only heat map: ink = high severity, muted = mid, mint-soft = low.
+    if (score >= 5) return "bg-ink/8 hover:bg-ink/15 border-ink/30";
+    if (score >= 3) return "bg-muted hover:bg-muted/70 border-border";
+    return "bg-mint/8 hover:bg-mint/15 border-mint/30";
   };
 
   return (
     <Card className="overflow-hidden">
       <CardHeader className="border-b border-border/60 pb-4">
         <div className="flex items-center gap-3">
-          <Activity className="size-5 text-orange" />
+          <TrendingUp className="size-5 text-mint" />
           <div>
             <CardTitle className="text-lg">Risk Heat Map</CardTitle>
             <p className="text-sm text-muted-foreground mt-1">
@@ -168,7 +171,7 @@ export function RisksSection() {
         {riskStats.map((stat) => (
           <Card key={stat.label} className="bg-card/60">
             <CardContent className="p-4">
-              <div className="text-xl sm:text-2xl font-semibold text-orange">{stat.value}</div>
+              <div className="text-xl sm:text-2xl font-semibold text-mint">{stat.value}</div>
               <div className="text-xs font-medium mt-1">{stat.label}</div>
               <div className="text-[10px] text-muted-foreground mt-0.5">{stat.sublabel}</div>
             </CardContent>
@@ -190,8 +193,8 @@ export function RisksSection() {
             className={cn(
               "text-left p-4 rounded-lg border-2 transition-all",
               idx === activeRiskIndex
-                ? "border-orange bg-orange/[0.06] shadow-sm"
-                : "border-border hover:border-orange/30 bg-card/40"
+                ? "border-mint bg-mint/[0.06] shadow-sm"
+                : "border-border hover:border-mint/30 bg-card/40"
             )}
           >
             <div className="flex items-center gap-2 mb-2">
@@ -199,7 +202,7 @@ export function RisksSection() {
                 className={cn(
                   "flex items-center justify-center w-7 h-7 rounded-full text-xs font-mono font-bold",
                   idx === activeRiskIndex
-                    ? "bg-orange text-white"
+                    ? "bg-mint text-background"
                     : "bg-muted text-muted-foreground"
                 )}
               >
@@ -213,12 +216,12 @@ export function RisksSection() {
       </div>
 
       {/* Active risk detail */}
-      <Card className="border-orange/30 overflow-hidden">
+      <Card className="border-mint/30 overflow-hidden">
         <CardHeader className="border-b border-border/60">
           <div className="flex items-start justify-between gap-3 flex-wrap">
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-[10px] font-mono tracking-widest text-orange uppercase">
+                <span className="text-[10px] font-mono tracking-widest text-mint uppercase">
                   Risk R{activeRisk.id.replace("r", "")} · Priority {activeRisk.index} of 3
                 </span>
                 <LikelihoodImpactBadge likelihood={activeRisk.likelihood} impact={activeRisk.impact} />
@@ -227,8 +230,8 @@ export function RisksSection() {
                 {activeRisk.title}
               </CardTitle>
             </div>
-            <div className="shrink-0 p-3 rounded-lg bg-rose/10 border border-rose/30">
-              <AlertTriangle className="size-6 text-rose" />
+            <div className="shrink-0 p-3 rounded-lg bg-ink/10 border border-ink/30">
+              <TriangleAlert className="size-6 text-ink" />
             </div>
           </div>
         </CardHeader>
@@ -245,10 +248,10 @@ export function RisksSection() {
           </div>
 
           {/* Early signal */}
-          <div className="p-4 rounded-lg border border-orange/30 bg-orange/[0.04]">
+          <div className="p-4 rounded-lg border border-mint/30 bg-mint/[0.04]">
             <div className="flex items-center gap-2 mb-2">
-              <Activity className="size-4 text-orange" />
-              <span className="text-[10px] font-mono tracking-widest text-orange uppercase">
+              <TrendingUp className="size-4 text-mint" />
+              <span className="text-[10px] font-mono tracking-widest text-mint uppercase">
                 Early Signal — When to Worry
               </span>
             </div>
@@ -270,11 +273,11 @@ export function RisksSection() {
             </div>
 
             {/* Day 30 mitigation (expandable on mobile, always visible on lg) */}
-            <div className="p-4 rounded-lg border border-orange/30 bg-orange/[0.04]">
+            <div className="p-4 rounded-lg border border-mint/30 bg-mint/[0.04]">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <Calendar className="size-4 text-orange" />
-                  <span className="text-[10px] font-mono tracking-widest text-orange uppercase">
+                  <Calendar className="size-4 text-mint" />
+                  <span className="text-[10px] font-mono tracking-widest text-mint uppercase">
                     Day 30 Mitigation
                   </span>
                 </div>
@@ -285,7 +288,7 @@ export function RisksSection() {
                       [activeRisk.id]: !prev[activeRisk.id],
                     }))
                   }
-                  className="lg:hidden text-xs text-orange font-mono"
+                  className="lg:hidden text-xs text-mint font-mono"
                 >
                   {showDay30[activeRisk.id] ? (
                     <ChevronUp className="size-4" />
@@ -308,8 +311,8 @@ export function RisksSection() {
           {/* Escalation path */}
           <div className="p-4 rounded-lg border border-border bg-muted/30">
             <div className="flex items-center gap-2 mb-2">
-              <ArrowUp className="size-4 text-orange" />
-              <span className="text-[10px] font-mono tracking-widest text-orange uppercase">
+              <ArrowUp className="size-4 text-mint" />
+              <span className="text-[10px] font-mono tracking-widest text-mint uppercase">
                 Escalation Path
               </span>
             </div>
@@ -331,7 +334,7 @@ export function RisksSection() {
       <Card className="mt-8 border-dashed bg-muted/30">
         <CardContent className="p-5">
           <div className="flex items-start gap-3">
-            <Shield className="size-5 text-orange shrink-0 mt-0.5" />
+            <ShieldAlert className="size-5 text-mint shrink-0 mt-0.5" />
             <div>
               <div className="text-sm font-semibold mb-1">
                 What the other 5 risks look like
