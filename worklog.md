@@ -116,3 +116,46 @@ Stage Summary:
   - Mobile (375×812) renders correctly
   - No Sparkles, Lightbulb, Brain, Crown, Quote, AlertTriangle, CheckCircle2, XCircle, or Activity icons anywhere in the UI
   - No orange, pink, red, blue, or rose color tokens anywhere in the UI (only ink, mint, brand gradient, neutral grays)
+
+---
+Task ID: 4
+Agent: Super Z (main)
+Task: Add a disclaimer modal that pops up on every page load, stating the demo was built in 2 days based on research and available data (website + JD + PDF). After clicking "I understand", the rest of the page is displayed.
+
+Work Log:
+- Built `DisclaimerGate` component using Radix UI Dialog primitives (already in shadcn/ui) for accessibility — focus trap, ARIA roles, ESC/click-outside prevention.
+- Used `useSyncExternalStore` (React 18+ recommended pattern) to read sessionStorage as an external store. SSR snapshot returns true (content visible) to avoid hydration mismatch flash; client snapshot checks actual sessionStorage value post-hydration.
+- Disclaimer copy (executive-grade, hiring-manager appropriate):
+  - Title: "A note before you explore."
+  - Body: "This demo was assembled in two days based on my research and the available data — not on internal RZR information. It is a starting point for our conversation, not a finalized plan. After we discuss, I will replace this with a properly functional plan..."
+  - Sources list: Public RZR website, Job description, Implementation plan PDF (each with icon + detail)
+  - Caveat: "Numbers, names, and timelines shown here are illustrative..."
+  - Meta: "Built in 2 days · Demo purpose only · For discussion"
+  - CTA: "I understand" button + helper text "The acknowledgment lasts for this browser session."
+- Visual treatment (brand-disciplined):
+  - Brand gradient strip (1.5px) at top of modal — decorative accent only
+  - RZR logo in modal header
+  - Mint accent on "Sources used" label
+  - Ink accent on caveat box (severity via icon + label, not color hue — per Task 3 brand discipline)
+  - Body scroll locked while modal open
+  - Background content visible but blurred (filter: blur(6px) brightness(0.7)) + pointer-events: none — communicates "you're almost there" without revealing details
+- Animation (Framer Motion):
+  - Overlay: fade in/out (0.3s)
+  - Modal: fade + slide-up + scale (0.4s, ease [0.22, 1, 0.36, 1])
+  - AnimatePresence for exit animation
+- Persistence: sessionStorage (key: `rzr-portfolio-disclaimer-accepted-v1`). Acknowledgment lasts for the browser session — refreshes within the same session don't re-show the disclaimer, but a new tab/window will show it again.
+- Wired into `page.tsx` — wraps the entire page (TopNav + main + Footer) so nothing is interactable until accepted.
+- SSR-safe: `useSyncExternalStore` with server snapshot = true means the server-rendered HTML shows content; client hydrates and shows the modal if not yet accepted. No hydration mismatch warnings.
+
+Stage Summary:
+- Lint: clean (zero errors).
+- Dev server: clean (all 200 responses).
+- Agent Browser verified:
+  - Fresh session (sessionStorage cleared): disclaimer modal appears on page load
+  - Modal shows: RZR logo, "A note before you explore." title, 2-day demo disclosure, sources list, caveat, "I understand" button
+  - Background page content is blurred and non-interactive while modal is open
+  - Body scroll is locked while modal is open
+  - Clicking "I understand" unlocks the page — TopNav, hero, all 5 sections become visible and interactive
+  - Refresh within same session: disclaimer does NOT reappear (sessionStorage persistence works)
+  - Mobile (375×812): modal is responsive, scrollable, "I understand" button reachable
+  - ESC key and click-outside are prevented (modal cannot be dismissed without clicking "I understand")
