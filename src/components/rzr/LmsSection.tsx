@@ -398,7 +398,7 @@ export function LmsSection() {
           <ol className="relative border-l-2 border-mint/30 ml-3 space-y-6">
             {lmsRecommendation.timeline.map((step, idx) => (
               <li key={idx} className="ml-6 relative">
-                <span className="absolute -left-[34px] flex items-center justify-center w-7 h-7 rounded-full bg-mint text-background text-[10px] font-mono font-bold border-2 border-background">
+                <span className="absolute -left-[39px] flex items-center justify-center w-7 h-7 rounded-full bg-mint text-background text-[10px] font-mono font-bold border-2 border-background">
                   {idx + 1}
                 </span>
                 <div className="text-[10px] font-mono tracking-widest text-mint uppercase mb-1">
