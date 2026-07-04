@@ -53,17 +53,19 @@ export function FtmSection() {
   return (
     <SectionShell
       id="ftm"
-      eyebrow="Artifact 02 · Tier 1"
-      title="FTM Module — Feedback Delivery"
-      description="Module 1 of the 8-module First-Time Manager program. Fully built: 7-slide deck with speaker notes, an L1 reaction survey, and an L2 knowledge check. This is the production-quality template every FTM module will follow."
-      badge="Fully Built Sample"
+      eyebrow="Artifact 02 · Manager Capability"
+      title="First-Time Manager · Module 1, fully built."
+      description="Module 1 of the 8-module First-Time Manager program: Feedback Delivery. A complete production artifact — 7-slide deck with facilitator notes, an L1 reaction survey, and an L2 knowledge check. This is the template every FTM module follows."
+      strategicFrame="Manager capability is the highest-leverage L&D investment. A great manager improves the performance of 6–10 ICs; a poor one destroys it. The 90-day FTM cohort #1 is the second urgent mandate in the JD — and this module proves the production system is ready to ship."
+      outcomeChip="90-day FTM cohort live"
+      badge="Production-Quality Sample"
     >
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
         {ftmModuleStats.map((stat) => (
           <Card key={stat.label} className="bg-card/60">
             <CardContent className="p-4">
-              <div className="text-2xl sm:text-3xl font-semibold text-amber">{stat.value}</div>
+              <div className="text-2xl sm:text-3xl font-semibold text-orange">{stat.value}</div>
               <div className="text-xs font-medium mt-1">{stat.label}</div>
               <div className="text-[10px] text-muted-foreground mt-0.5">{stat.sublabel}</div>
             </CardContent>
@@ -93,12 +95,12 @@ export function FtmSection() {
             {/* Slide viewport */}
             <div className="relative aspect-[16/10] sm:aspect-[16/9] bg-ink text-background overflow-hidden">
               <div className="absolute inset-0 bg-grid opacity-10" />
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-amber/20 rounded-full blur-3xl" />
+              <div className="absolute -top-20 -right-20 w-64 h-64 bg-orange/20 rounded-full blur-3xl" />
 
               <div className="relative h-full flex flex-col p-6 sm:p-10 lg:p-14">
                 {/* Slide header */}
                 <div className="flex items-center gap-2 mb-4 sm:mb-6">
-                  <span className="text-[10px] font-mono text-amber tracking-widest uppercase">
+                  <span className="text-[10px] font-mono text-orange tracking-widest uppercase">
                     Slide {slide.index} / {ftmSlides.length}
                   </span>
                   <span className="text-[10px] font-mono text-background/40 tracking-widest uppercase">
@@ -130,7 +132,7 @@ export function FtmSection() {
                           key={idx}
                           className="flex items-start gap-3 text-xs sm:text-sm lg:text-base text-background/85 leading-relaxed"
                         >
-                          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-amber/20 text-amber text-[10px] font-mono font-bold shrink-0 mt-0.5">
+                          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-orange/20 text-orange text-[10px] font-mono font-bold shrink-0 mt-0.5">
                             {idx + 1}
                           </span>
                           <span>{b}</span>
@@ -144,13 +146,13 @@ export function FtmSection() {
                       {slide.visual.data.steps.map((step: any, idx: number) => (
                         <div
                           key={idx}
-                          className="p-3 sm:p-4 rounded-lg border border-amber/30 bg-amber/5"
+                          className="p-3 sm:p-4 rounded-lg border border-orange/30 bg-orange/5"
                         >
                           <div className="flex items-center gap-2 mb-2">
-                            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-amber text-ink font-mono font-bold text-sm">
+                            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-orange text-ink font-mono font-bold text-sm">
                               {step.letter}
                             </div>
-                            <div className="text-sm font-semibold text-amber">{step.word}</div>
+                            <div className="text-sm font-semibold text-orange">{step.word}</div>
                           </div>
                           <div className="text-[10px] font-mono text-background/50 uppercase tracking-wider mb-1">
                             {step.question}
@@ -164,8 +166,8 @@ export function FtmSection() {
                   )}
 
                   {slide.visual?.kind === "matrix" && (
-                    <div className="mt-6 max-w-4xl overflow-hidden rounded-lg border border-amber/20">
-                      <div className="grid grid-cols-4 bg-amber/10 text-[10px] font-mono uppercase tracking-wider text-amber">
+                    <div className="mt-6 max-w-4xl overflow-hidden rounded-lg border border-orange/20">
+                      <div className="grid grid-cols-4 bg-orange/10 text-[10px] font-mono uppercase tracking-wider text-orange">
                         <div className="p-2 sm:p-3">Weight</div>
                         <div className="p-2 sm:p-3">Timing</div>
                         <div className="p-2 sm:p-3">Channel</div>
@@ -174,7 +176,7 @@ export function FtmSection() {
                       {slide.visual.data.rows.map((row: any, idx: number) => (
                         <div
                           key={idx}
-                          className="grid grid-cols-4 border-t border-amber/15 text-[11px] sm:text-xs"
+                          className="grid grid-cols-4 border-t border-orange/15 text-[11px] sm:text-xs"
                         >
                           <div className="p-2 sm:p-3 font-medium text-background/90">{row.weight}</div>
                           <div className="p-2 sm:p-3 text-background/75">{row.timing}</div>
@@ -239,13 +241,13 @@ export function FtmSection() {
 
             {/* Speaker notes panel */}
             {showNotes && (
-              <div className="border-t border-border/60 p-4 sm:p-5 bg-amber/[0.04]">
+              <div className="border-t border-border/60 p-4 sm:p-5 bg-orange/[0.04]">
                 <div className="flex items-start gap-3">
-                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-amber/15 text-amber shrink-0">
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-orange/15 text-orange shrink-0">
                     <Lightbulb className="size-4" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="text-[10px] font-mono tracking-widest text-amber uppercase mb-1">
+                    <div className="text-[10px] font-mono tracking-widest text-orange uppercase mb-1">
                       Facilitator Notes · Slide {slide.index}
                     </div>
                     <p className="text-sm text-foreground/85 leading-relaxed italic">
@@ -266,8 +268,8 @@ export function FtmSection() {
                 className={cn(
                   "aspect-[16/10] rounded-md border-2 p-2 text-left transition-all",
                   idx === activeSlide
-                    ? "border-amber bg-amber/10"
-                    : "border-border hover:border-amber/40 bg-card/40"
+                    ? "border-orange bg-orange/10"
+                    : "border-border hover:border-orange/40 bg-card/40"
                 )}
               >
                 <div className="text-[8px] font-mono text-muted-foreground mb-1">
@@ -286,7 +288,7 @@ export function FtmSection() {
           <Card>
             <CardHeader className="border-b border-border/60">
               <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-amber/15 text-amber">
+                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-orange/15 text-orange">
                   <ClipboardList className="size-5" />
                 </div>
                 <div>
@@ -301,7 +303,7 @@ export function FtmSection() {
               {l1Survey.map((q, idx) => (
                 <div key={q.id} className="space-y-3">
                   <div className="flex items-baseline gap-3">
-                    <span className="text-[10px] font-mono text-amber font-bold">
+                    <span className="text-[10px] font-mono text-orange font-bold">
                       Q{idx + 1}
                     </span>
                     <p className="text-sm font-medium text-pretty">{q.text}</p>
@@ -329,7 +331,7 @@ export function FtmSection() {
                             />
                             <Label
                               htmlFor={`${q.id}-${n}`}
-                              className="text-xs font-mono cursor-pointer w-7 h-7 flex items-center justify-center rounded border border-border peer-data-[state=checked]:bg-amber peer-data-[state=checked]:text-amber-foreground peer-data-[state=checked]:border-amber"
+                              className="text-xs font-mono cursor-pointer w-7 h-7 flex items-center justify-center rounded border border-border peer-data-[state=checked]:bg-orange peer-data-[state=checked]:text-white peer-data-[state=checked]:border-orange"
                             >
                               {n}
                             </Label>
@@ -361,15 +363,15 @@ export function FtmSection() {
               {!l1Submitted ? (
                 <Button
                   onClick={() => setL1Submitted(true)}
-                  className="bg-ink text-background hover:bg-ink-soft"
+                  className="bg-ink text-background hover:bg-ink/85/85"
                 >
                   Submit survey
                 </Button>
               ) : (
-                <div className="p-4 rounded-lg border border-emerald/40 bg-emerald/[0.06] flex items-start gap-3">
-                  <CheckCircle2 className="size-5 text-emerald shrink-0 mt-0.5" />
+                <div className="p-4 rounded-lg border border-mint/40 bg-mint/[0.06] flex items-start gap-3">
+                  <CheckCircle2 className="size-5 text-mint shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-sm font-semibold text-emerald">Survey captured</div>
+                    <div className="text-sm font-semibold text-mint">Survey captured</div>
                     <p className="text-xs text-muted-foreground mt-1">
                       In production: response logged to LMS, aggregated to cohort dashboard,
                       visible to facilitator within 24 hours. Triggers L3 30/60/90 follow-up
@@ -388,7 +390,7 @@ export function FtmSection() {
             <CardHeader className="border-b border-border/60">
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-amber/15 text-amber">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-orange/15 text-orange">
                     <CheckCircle2 className="size-5" />
                   </div>
                   <div>
@@ -417,7 +419,7 @@ export function FtmSection() {
                 return (
                   <div key={q.id} className="space-y-3">
                     <div className="flex items-baseline gap-3">
-                      <span className="text-[10px] font-mono text-amber font-bold">
+                      <span className="text-[10px] font-mono text-orange font-bold">
                         Q{idx + 1}
                       </span>
                       <p className="text-sm font-medium text-pretty">{q.question}</p>
@@ -439,10 +441,10 @@ export function FtmSection() {
                             disabled={submitted}
                             className={cn(
                               "w-full text-left p-3 rounded-md border-2 transition-all flex items-start gap-3",
-                              showCorrect && "border-emerald bg-emerald/10",
+                              showCorrect && "border-mint bg-mint/10",
                               showIncorrect && "border-rose bg-rose/10",
                               !submitted &&
-                                "border-border hover:border-amber/50 hover:bg-amber/[0.04] cursor-pointer",
+                                "border-border hover:border-orange/50 hover:bg-orange/[0.04] cursor-pointer",
                               submitted &&
                                 !showCorrect &&
                                 !showIncorrect &&
@@ -452,7 +454,7 @@ export function FtmSection() {
                             <div
                               className={cn(
                                 "flex items-center justify-center w-5 h-5 rounded-full shrink-0 text-[10px] font-mono font-bold border-2 mt-0.5",
-                                showCorrect && "border-emerald bg-emerald text-emerald-foreground",
+                                showCorrect && "border-mint bg-mint text-white",
                                 showIncorrect && "border-rose bg-rose text-rose-foreground",
                                 !showCorrect &&
                                   !showIncorrect &&
@@ -474,7 +476,7 @@ export function FtmSection() {
                     </div>
                     {submitted && (
                       <div className="pl-7 p-3 rounded-md border border-border bg-muted/40 flex items-start gap-2">
-                        <Info className="size-3.5 text-amber shrink-0 mt-0.5" />
+                        <Info className="size-3.5 text-orange shrink-0 mt-0.5" />
                         <p className="text-xs text-foreground/75 leading-relaxed">
                           <span className="font-semibold">Explanation: </span>
                           {q.explanation}
@@ -489,7 +491,7 @@ export function FtmSection() {
                 <Button
                   onClick={() => setL2Submitted(true)}
                   disabled={Object.keys(l2Answers).length < l2KnowledgeCheck.length}
-                  className="bg-ink text-background hover:bg-ink-soft"
+                  className="bg-ink text-background hover:bg-ink/85/85"
                 >
                   Submit answers
                 </Button>
@@ -498,14 +500,14 @@ export function FtmSection() {
                   className={cn(
                     "p-4 rounded-lg border flex items-start gap-3",
                     l2Pct >= 80
-                      ? "border-emerald/40 bg-emerald/[0.06]"
-                      : "border-amber/40 bg-amber/[0.06]"
+                      ? "border-mint/40 bg-mint/[0.06]"
+                      : "border-orange/40 bg-orange/[0.06]"
                   )}
                 >
                   {l2Pct >= 80 ? (
-                    <CheckCircle2 className="size-5 text-emerald shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-5 text-mint shrink-0 mt-0.5" />
                   ) : (
-                    <Quote className="size-5 text-amber shrink-0 mt-0.5" />
+                    <Quote className="size-5 text-orange shrink-0 mt-0.5" />
                   )}
                   <div>
                     <div className="text-sm font-semibold">

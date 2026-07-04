@@ -3,14 +3,15 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUp } from "lucide-react";
+import { RzrLogo } from "./RzrLogo";
 
 const NAV_ITEMS = [
-  { id: "academy", label: "Academy Prototype", tier: "T1" },
-  { id: "ftm", label: "FTM Module", tier: "T1" },
-  { id: "lms", label: "LMS Matrix", tier: "T2" },
-  { id: "listening", label: "First 5 Questions", tier: "T2" },
-  { id: "risks", label: "Risk Mitigation", tier: "T3" },
+  { id: "academy", label: "Onboarding" },
+  { id: "ftm", label: "Manager Capability" },
+  { id: "lms", label: "LMS Decision" },
+  { id: "listening", label: "First 5 Questions" },
+  { id: "risks", label: "Risk Mitigation" },
 ];
 
 export function TopNav() {
@@ -52,7 +53,7 @@ export function TopNav() {
       className={cn(
         "no-print fixed top-0 inset-x-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/85 backdrop-blur-md border-b border-border/60"
+          ? "bg-background/90 backdrop-blur-md border-b border-border/60"
           : "bg-transparent"
       )}
     >
@@ -61,18 +62,9 @@ export function TopNav() {
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center gap-3 group"
+            aria-label="Back to top"
           >
-            <div className="flex items-center justify-center w-9 h-9 rounded-md bg-ink text-background font-mono font-bold text-sm tracking-tighter">
-              R
-            </div>
-            <div className="hidden sm:block text-left">
-              <div className="text-xs font-mono tracking-widest text-amber uppercase leading-none">
-                RZR · L&D
-              </div>
-              <div className="text-sm font-semibold leading-tight mt-0.5">
-                Interview Artifacts
-              </div>
-            </div>
+            <RzrLogo className="h-7 sm:h-8" />
           </button>
 
           <nav className="hidden md:flex items-center gap-1">
@@ -83,8 +75,8 @@ export function TopNav() {
                 className={cn(
                   "px-3 py-2 text-sm font-medium rounded-md transition-colors",
                   active === item.id
-                    ? "text-amber bg-amber/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
+                    ? "text-mint bg-mint/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
               >
                 {item.label}
@@ -96,17 +88,19 @@ export function TopNav() {
             <Button
               size="sm"
               variant="outline"
-              onClick={() => handleNav("cover")}
-              className="font-mono text-xs"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="gap-1.5"
             >
-              ↑ Top
+              <ArrowUp className="size-3.5" />
+              Top
             </Button>
           </div>
 
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 -mr-2"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -121,11 +115,10 @@ export function TopNav() {
                 className={cn(
                   "block w-full text-left px-3 py-2.5 text-sm font-medium rounded-md transition-colors",
                   active === item.id
-                    ? "text-amber bg-amber/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent/60"
+                    ? "text-mint bg-mint/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
               >
-                <span className="text-[10px] font-mono text-amber/70 mr-2">{item.tier}</span>
                 {item.label}
               </button>
             ))}

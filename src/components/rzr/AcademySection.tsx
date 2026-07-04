@@ -66,17 +66,19 @@ export function AcademySection() {
   return (
     <SectionShell
       id="academy"
-      eyebrow="Artifact 01 · Tier 1"
-      title="RZR Academy — Day 1 Experience"
-      description="A clickable, 5-module Foundation-layer prototype for new-hire onboarding. Each module has learning outcomes, content sections, and an embedded knowledge check. Complete all 5 to see the progress bar fill."
-      badge="Clickable Prototype"
+      eyebrow="Artifact 01 · Onboarding"
+      title="RZR Academy — Day 1, built."
+      description="A clickable, five-module Foundation-layer prototype for new-hire onboarding. Each module has learning outcomes, content sections, and an embedded knowledge check. Complete all five to see the progress bar fill — this is the experience a new RZR hire would actually walk through on Day 1."
+      strategicFrame="RZR has no formal onboarding today. A 30-day global relaunch of RZR Academy is the first urgent mandate in the JD. This prototype demonstrates the architecture is real — not slideware."
+      outcomeChip="30-day global relaunch"
+      badge="Live Prototype"
     >
       {/* Stats bar */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
         {academyStats.map((stat) => (
           <Card key={stat.label} className="bg-card/60">
             <CardContent className="p-4">
-              <div className="text-2xl sm:text-3xl font-semibold text-amber">{stat.value}</div>
+              <div className="text-2xl sm:text-3xl font-semibold text-orange">{stat.value}</div>
               <div className="text-xs font-medium mt-1">{stat.label}</div>
               <div className="text-[10px] text-muted-foreground mt-0.5">{stat.sublabel}</div>
             </CardContent>
@@ -85,18 +87,18 @@ export function AcademySection() {
       </div>
 
       {/* Progress bar */}
-      <Card className="mb-8 border-amber/30 bg-amber/[0.03]">
+      <Card className="mb-8 border-orange/30 bg-orange/[0.03]">
         <CardContent className="p-5">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
-              <GraduationCap className="size-4 text-amber" />
+              <GraduationCap className="size-4 text-orange" />
               <span className="text-sm font-semibold">Your progress</span>
             </div>
             <div className="text-sm font-mono text-muted-foreground">
               {completedModules.size} / {academyModules.length} modules completed
             </div>
           </div>
-          <Progress value={progressPct} className="h-2 bg-amber/15" />
+          <Progress value={progressPct} className="h-2 bg-orange/15" />
           <div className="mt-3 text-xs text-muted-foreground">
             {progressPct === 100
               ? "✓ All Foundation modules complete. Ready for Function-layer track (Day 8+)."
@@ -122,17 +124,17 @@ export function AcademySection() {
                     className={cn(
                       "w-full text-left p-3 rounded-lg border transition-all flex items-start gap-3",
                       active
-                        ? "border-amber/50 bg-amber/10 shadow-sm"
-                        : "border-border hover:border-amber/30 hover:bg-accent/40"
+                        ? "border-orange/50 bg-orange/10 shadow-sm"
+                        : "border-border hover:border-orange/30 hover:bg-accent/40"
                     )}
                   >
                     <div
                       className={cn(
                         "flex items-center justify-center w-7 h-7 rounded-full shrink-0 text-xs font-mono font-semibold",
                         done
-                          ? "bg-emerald text-emerald-foreground"
+                          ? "bg-mint text-white"
                           : active
-                          ? "bg-amber text-amber-foreground"
+                          ? "bg-orange text-white"
                           : "bg-muted text-muted-foreground"
                       )}
                     >
@@ -160,8 +162,8 @@ export function AcademySection() {
 
           <div className="mt-6 p-4 rounded-lg border border-dashed border-border bg-muted/30">
             <div className="flex items-center gap-2 mb-2">
-              <Layers className="size-3.5 text-amber" />
-              <span className="text-[10px] font-mono tracking-widest text-amber uppercase">
+              <Layers className="size-3.5 text-orange" />
+              <span className="text-[10px] font-mono tracking-widest text-orange uppercase">
                 Architecture
               </span>
             </div>
@@ -178,7 +180,7 @@ export function AcademySection() {
           <Card className="border-border/80 shadow-sm">
             <CardHeader className="border-b border-border/60 pb-6">
               <div className="flex flex-wrap items-center gap-2 mb-3">
-                <Badge variant="outline" className="font-mono text-[10px] border-amber/40 text-amber bg-amber/5">
+                <Badge variant="outline" className="font-mono text-[10px] border-orange/40 text-orange bg-orange/5">
                   Module {activeModule.index} of {academyModules.length}
                 </Badge>
                 <Badge variant="secondary" className="font-mono text-[10px]">
@@ -220,7 +222,7 @@ export function AcademySection() {
                   {activeModule.sections.map((section, idx) => (
                     <div key={idx} className="space-y-2">
                       <div className="flex items-baseline gap-3">
-                        <span className="text-[10px] font-mono text-amber font-bold">
+                        <span className="text-[10px] font-mono text-orange font-bold">
                           {String(idx + 1).padStart(2, "0")}
                         </span>
                         <h4 className="text-base font-semibold tracking-tight">
@@ -231,9 +233,9 @@ export function AcademySection() {
                         {section.body}
                       </p>
                       {section.callout && (
-                        <div className="ml-7 mt-2 p-3 rounded-md border-l-2 border-amber bg-amber/[0.04]">
+                        <div className="ml-7 mt-2 p-3 rounded-md border-l-2 border-orange bg-orange/[0.04]">
                           <div className="flex items-start gap-2">
-                            <Sparkles className="size-3.5 text-amber shrink-0 mt-0.5" />
+                            <Sparkles className="size-3.5 text-orange shrink-0 mt-0.5" />
                             <p className="text-xs text-foreground/80 italic leading-relaxed">
                               {section.callout}
                             </p>
@@ -255,7 +257,7 @@ export function AcademySection() {
                         key={idx}
                         className="flex items-start gap-3 p-3 rounded-lg bg-muted/40 border border-border/60"
                       >
-                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-amber/15 text-amber text-xs font-mono font-bold shrink-0">
+                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-orange/15 text-orange text-xs font-mono font-bold shrink-0">
                           {idx + 1}
                         </div>
                         <p className="text-sm text-foreground leading-relaxed">{outcome}</p>
@@ -277,9 +279,9 @@ export function AcademySection() {
 
                 {/* KNOWLEDGE CHECK TAB */}
                 <TabsContent value="check" className="space-y-5 mt-0">
-                  <div className="p-4 rounded-lg border border-amber/30 bg-amber/[0.04]">
+                  <div className="p-4 rounded-lg border border-orange/30 bg-orange/[0.04]">
                     <div className="flex items-center justify-between mb-2">
-                      <div className="text-[10px] font-mono tracking-widest text-amber uppercase">
+                      <div className="text-[10px] font-mono tracking-widest text-orange uppercase">
                         L2 Knowledge Check
                       </div>
                       {isRevealed && (
@@ -319,17 +321,17 @@ export function AcademySection() {
                           disabled={isRevealed}
                           className={cn(
                             "w-full text-left p-3.5 rounded-lg border-2 transition-all flex items-start gap-3",
-                            showCorrect && "border-emerald bg-emerald/10",
+                            showCorrect && "border-mint bg-mint/10",
                             showIncorrect && "border-rose bg-rose/10",
                             !isRevealed &&
-                              "border-border hover:border-amber/50 hover:bg-amber/[0.04] cursor-pointer",
+                              "border-border hover:border-orange/50 hover:bg-orange/[0.04] cursor-pointer",
                             isRevealed && !showCorrect && !showIncorrect && "border-border opacity-60"
                           )}
                         >
                           <div
                             className={cn(
                               "flex items-center justify-center w-6 h-6 rounded-full shrink-0 text-xs font-mono font-bold border-2",
-                              showCorrect && "border-emerald bg-emerald text-emerald-foreground",
+                              showCorrect && "border-mint bg-mint text-white",
                               showIncorrect && "border-rose bg-rose text-rose-foreground",
                               !showCorrect && !showIncorrect && "border-border text-muted-foreground"
                             )}
@@ -355,20 +357,20 @@ export function AcademySection() {
                       className={cn(
                         "p-4 rounded-lg border",
                         isCorrect
-                          ? "border-emerald/40 bg-emerald/[0.06]"
-                          : "border-amber/40 bg-amber/[0.06]"
+                          ? "border-mint/40 bg-mint/[0.06]"
+                          : "border-orange/40 bg-orange/[0.06]"
                       )}
                     >
                       <div className="flex items-center gap-2 mb-2">
                         {isCorrect ? (
-                          <CheckCircle2 className="size-4 text-emerald" />
+                          <CheckCircle2 className="size-4 text-mint" />
                         ) : (
-                          <Sparkles className="size-4 text-amber" />
+                          <Sparkles className="size-4 text-orange" />
                         )}
                         <span
                           className={cn(
                             "text-xs font-mono uppercase tracking-widest",
-                            isCorrect ? "text-emerald" : "text-amber"
+                            isCorrect ? "text-mint" : "text-orange"
                           )}
                         >
                           {isCorrect ? "Well done" : "Explanation"}
@@ -387,7 +389,7 @@ export function AcademySection() {
                     </div>
                   )}
                   {isRevealed && (
-                    <div className="flex items-center gap-2 text-xs text-emerald">
+                    <div className="flex items-center gap-2 text-xs text-mint">
                       <Unlock className="size-3" />
                       {isCorrect
                         ? "Module complete — next module unlocked."
@@ -417,7 +419,7 @@ export function AcademySection() {
                 size="sm"
                 onClick={goNext}
                 disabled={activeModuleIndex === academyModules.length - 1}
-                className="gap-1 bg-ink text-background hover:bg-ink-soft"
+                className="gap-1 bg-ink text-background hover:bg-ink/85/85"
               >
                 Next
                 <ArrowRight className="size-3.5" />

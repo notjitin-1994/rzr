@@ -2,110 +2,149 @@
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowDown, FileText, Sparkles, Shield, Compass } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import {
+  ArrowDown,
+  GraduationCap,
+  Users,
+  Brain,
+  ShieldCheck,
+  Compass,
+  Sparkles,
+} from "lucide-react";
+import { RzrLogo } from "./RzrLogo";
 
-const ARTIFACTS = [
+const PILLARS = [
   {
     id: "academy",
-    tier: "T1",
-    title: "RZR Academy Prototype",
-    desc: "5-module Day-1 experience — clickable, branded, with embedded knowledge checks.",
-    icon: Sparkles,
+    label: "Onboarding",
+    headline: "30 days to a globally consistent Day-1",
+    desc: "A clickable RZR Academy prototype — 5 Foundation modules with embedded knowledge checks. Proves the builder mindset is real, not aspirational.",
+    metric: "30-day relaunch",
+    icon: GraduationCap,
   },
   {
     id: "ftm",
-    tier: "T1",
-    title: "FTM Feedback Delivery Module",
-    desc: "Full module: 7 slides + facilitation guide + L1 survey + L2 knowledge check.",
-    icon: FileText,
+    label: "Manager Capability",
+    headline: "90 days to a measured manager cohort",
+    desc: "A fully-built sample FTM module — Feedback Delivery — with a 7-slide deck, facilitator notes, L1 reaction survey, and L2 knowledge check. The production template every FTM module follows.",
+    metric: "Manager as multiplier",
+    icon: Users,
   },
   {
     id: "lms",
-    tier: "T2",
-    title: "LMS Comparison Matrix",
-    desc: "5 vendors × 10 criteria, weighted scoring, recommendation, 8-week procurement timeline.",
+    label: "LMS Decision",
+    headline: "A Q2 decision, ready to make",
+    desc: "Five vendors scored against ten weighted criteria — with a primary recommendation, vendor drill-downs, and an eight-week procurement timeline. The decision is rehearsed, not deferred.",
+    metric: "Q2 contract",
     icon: Compass,
   },
   {
     id: "listening",
-    tier: "T2",
-    title: "First 5 Questions",
-    desc: "The 5 questions I'd ask in Week 1 — with audiences, signals, red/green flags.",
-    icon: Compass,
+    label: "Listening Tour",
+    headline: "Five questions that surface signal, not politeness",
+    desc: "Each question is engineered to bypass polite answers and surface a specific business signal — the gap between what onboarding delivers and what the business actually needs.",
+    metric: "Day-30 insight memo",
+    icon: Brain,
   },
   {
     id: "risks",
-    tier: "T3",
-    title: "Risk Mitigation One-Pager",
-    desc: "Top 3 risks from the register, each with Day-1 and Day-30 mitigations + escalation paths.",
-    icon: Shield,
+    label: "Risk Mitigation",
+    headline: "The top three risks, named and mitigated",
+    desc: "Each risk has a Day-1 mitigation, a Day-30 mitigation, a named escalation path, and a RACI owner. Risks are surfaced before they're felt — not after.",
+    metric: "5-day revision SLA",
+    icon: ShieldCheck,
   },
 ];
 
 export function Cover() {
+  const reduced = useReducedMotion();
+
   return (
     <section
       id="cover"
-      className="relative scroll-mt-nav min-h-screen flex flex-col justify-center pt-20 pb-16 overflow-hidden"
+      className="relative scroll-mt-nav min-h-screen flex flex-col justify-center pt-24 pb-16 overflow-hidden"
     >
-      {/* Background grid */}
-      <div className="absolute inset-0 bg-grid opacity-[0.4] pointer-events-none" />
+      {/* Background */}
+      <div className="absolute inset-0 bg-grid opacity-50 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background pointer-events-none" />
-      <div className="absolute top-1/4 -right-32 w-96 h-96 bg-amber/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 -left-32 w-96 h-96 bg-emerald/15 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Brand gradient orbs */}
+      <div className="absolute top-1/4 -right-32 w-[28rem] h-[28rem] rounded-full blur-3xl pointer-events-none opacity-30"
+           style={{ background: "radial-gradient(circle, #ff7a00 0%, transparent 70%)" }} />
+      <div className="absolute bottom-1/4 -left-32 w-[28rem] h-[28rem] rounded-full blur-3xl pointer-events-none opacity-25"
+           style={{ background: "radial-gradient(circle, #00bda5 0%, transparent 70%)" }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] rounded-full blur-3xl pointer-events-none opacity-15"
+           style={{ background: "radial-gradient(circle, #e63e6d 0%, transparent 70%)" }} />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 w-full">
+        {/* Brand lockup */}
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex items-center justify-center mb-12"
+        >
+          <RzrLogo className="h-10 sm:h-12" />
+        </motion.div>
+
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
-            <div className="flex items-center gap-3 mb-6">
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="flex items-center gap-3 mb-6"
+            >
               <Badge
                 variant="outline"
-                className="border-amber/40 text-amber bg-amber/5 font-mono text-[10px] tracking-widest uppercase"
+                className="border-mint/40 text-mint bg-mint/5 font-mono text-[10px] tracking-[0.2em] uppercase"
               >
                 For Discussion · Confidential
               </Badge>
-              <span className="text-xs font-mono text-muted-foreground tracking-widest uppercase">
-                2026 · Strategy Discussion
+              <span className="text-[11px] font-mono text-muted-foreground tracking-[0.2em] uppercase">
+                Senior L&amp;D Lead · Strategy &amp; Build
               </span>
-            </div>
+            </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight text-balance leading-[1.05]">
-              The plan, made{" "}
-              <span className="relative">
-                <span className="text-amber">buildable</span>
-                <svg
-                  className="absolute -bottom-1 left-0 w-full"
-                  viewBox="0 0 200 8"
-                  preserveAspectRatio="none"
-                  aria-hidden
-                >
-                  <path
-                    d="M2,6 Q50,2 100,5 T198,4"
-                    stroke="currentColor"
-                    className="text-amber/60"
-                    strokeWidth="2"
-                    fill="none"
-                  />
-                </svg>
-              </span>
-              .
-            </h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight text-balance leading-[1.04]"
+            >
+              Where intelligence{" "}
+              <span className="text-brand-gradient">makes impact</span> —
+              <br className="hidden sm:block" /> starting on Day 1.
+            </motion.h1>
 
-            <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl text-pretty leading-relaxed">
-              Five artifacts that turn the Senior L&amp;D Lead implementation plan from a
-              strategy memo into a portfolio. Each one is built, not promised — clickable,
-              scoreable, and ready to walk into the interview with.
-            </p>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl text-pretty leading-relaxed"
+            >
+              A strategy-and-build portfolio for the Senior L&amp;D Lead role — five artifacts
+              that translate the implementation plan from <span className="text-foreground font-medium">strategy memo</span> to{" "}
+              <span className="text-foreground font-medium">proof of execution</span>. Each one is
+              built, not promised.
+            </motion.p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.38, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-8 flex flex-wrap items-center gap-3"
+            >
               <Button
                 size="lg"
                 onClick={() =>
                   document.getElementById("academy")?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="bg-ink text-background hover:bg-ink-soft"
+                className="bg-ink text-background hover:bg-ink/85 gap-2"
               >
-                Start with the Academy →
+                <Sparkles className="size-4" />
+                Explore the portfolio
               </Button>
               <Button
                 size="lg"
@@ -113,73 +152,112 @@ export function Cover() {
                 onClick={() =>
                   document.getElementById("risks")?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="font-mono"
+                className="gap-2"
               >
-                Jump to risk mitigations
+                See the risk plan
+                <ArrowDown className="size-4" />
               </Button>
-            </div>
+            </motion.div>
 
-            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs font-mono text-muted-foreground tracking-wider uppercase">
-              <span>5 artifacts</span>
-              <span className="text-border">/</span>
-              <span>1 codebase</span>
-              <span className="text-border">/</span>
-              <span>deployable to GitHub</span>
-            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.48 }}
+              className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs font-mono text-muted-foreground tracking-[0.15em] uppercase"
+            >
+              <div className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-mint" />
+                5 buildable artifacts
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-orange" />
+                12-month roadmap
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-pink" />
+                8-office global scope
+              </div>
+            </motion.div>
           </div>
 
-          <div className="lg:col-span-5">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5"
+          >
             <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-to-br from-amber/20 via-transparent to-emerald/20 rounded-2xl blur-xl" />
-              <div className="relative rounded-2xl border border-border bg-card/80 backdrop-blur p-5 shadow-xl">
-                <div className="text-[10px] font-mono tracking-widest text-amber uppercase mb-3">
-                  Artifacts in this portfolio
+              <div
+                className="absolute -inset-1 rounded-2xl blur-xl opacity-40 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #ff7a00 0%, #dc1a14 50%, #e63e6d 100%)",
+                }}
+              />
+              <div className="relative rounded-2xl border border-border bg-card/90 backdrop-blur p-5 shadow-card">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-[10px] font-mono tracking-[0.2em] text-mint uppercase">
+                    What's in the portfolio
+                  </div>
+                  <div className="text-[10px] font-mono text-muted-foreground tracking-widest">
+                    5 / 5
+                  </div>
                 </div>
-                <ul className="space-y-2">
-                  {ARTIFACTS.map((a) => (
-                    <li key={a.id}>
+                <ul className="space-y-1.5">
+                  {PILLARS.map((p, idx) => (
+                    <motion.li
+                      key={p.id}
+                      initial={{ opacity: 0, x: 8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: 0.55 + idx * 0.06 }}
+                    >
                       <button
                         onClick={() =>
-                          document.getElementById(a.id)?.scrollIntoView({ behavior: "smooth" })
+                          document.getElementById(p.id)?.scrollIntoView({ behavior: "smooth" })
                         }
-                        className="group w-full text-left p-3 rounded-lg hover:bg-accent/60 transition-colors flex items-start gap-3"
+                        className="group w-full text-left p-3 rounded-lg hover:bg-accent/80 transition-colors flex items-start gap-3"
                       >
-                        <div className="flex items-center justify-center w-8 h-8 rounded-md bg-amber/10 text-amber shrink-0">
-                          <a.icon className="size-4" />
+                        <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-mint/15 to-mint/5 text-mint shrink-0">
+                          <p.icon className="size-4" />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <div className="flex items-center gap-2">
-                            <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-amber/15 text-amber">
-                              {a.tier}
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-sm font-semibold text-foreground group-hover:text-mint transition-colors">
+                              {p.label}
                             </span>
-                            <span className="text-sm font-semibold text-foreground group-hover:text-amber transition-colors">
-                              {a.title}
+                            <span className="text-[10px] font-mono text-muted-foreground whitespace-nowrap">
+                              {p.metric}
                             </span>
                           </div>
                           <p className="text-xs text-muted-foreground mt-1 leading-snug">
-                            {a.desc}
+                            {p.headline}
                           </p>
                         </div>
                       </button>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="mt-16 lg:mt-24 flex flex-col items-center gap-3">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="mt-16 lg:mt-24 flex flex-col items-center gap-3"
+        >
           <button
             onClick={() =>
               document.getElementById("academy")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="text-xs font-mono text-muted-foreground hover:text-amber transition-colors flex items-center gap-2 tracking-widest uppercase"
+            className="text-[11px] font-mono text-muted-foreground hover:text-mint transition-colors flex items-center gap-2 tracking-[0.2em] uppercase"
           >
-            <ArrowDown className="size-3 animate-bounce" />
+            <ArrowDown className={`size-3 ${reduced ? "" : "animate-bounce"}`} />
             Scroll to explore
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

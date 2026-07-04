@@ -32,17 +32,19 @@ export function ListeningSection() {
   return (
     <SectionShell
       id="listening"
-      eyebrow="Artifact 04 · Tier 2"
-      title="The First 5 Questions I'd Ask"
-      description="Listening-tour discipline: 5 questions, each designed to surface a specific signal. Each card includes the audience, why I'm asking, the signal I'm listening for, and red/green flag responses."
-      badge="Listening Tour"
+      eyebrow="Artifact 04 · Listening Tour"
+      title="The first five questions I'd ask."
+      description="Listening-tour discipline, not a survey. Five questions, each engineered to surface a specific business signal and bypass polite answers. Each card names the audience, the why, the signal I'm listening for, and the red/green flag responses that shape Day-30 plan revisions."
+      strategicFrame="The plan is built on twelve explicit Operating Assumptions. Any assumption that breaks triggers a plan-revision memo to the Head of People within five business days. These five questions are how the assumptions get validated — not in theory, in Week 1."
+      outcomeChip="Day-30 insight memo"
+      badge="Week-1 Discipline"
     >
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
         {listeningTourStats.map((stat) => (
           <Card key={stat.label} className="bg-card/60">
             <CardContent className="p-4">
-              <div className="text-2xl sm:text-3xl font-semibold text-amber">{stat.value}</div>
+              <div className="text-2xl sm:text-3xl font-semibold text-orange">{stat.value}</div>
               <div className="text-xs font-medium mt-1">{stat.label}</div>
               <div className="text-[10px] text-muted-foreground mt-0.5">{stat.sublabel}</div>
             </CardContent>
@@ -51,12 +53,12 @@ export function ListeningSection() {
       </div>
 
       {/* Opening framing */}
-      <Card className="mb-8 border-amber/30 bg-amber/[0.03]">
+      <Card className="mb-8 border-orange/30 bg-orange/[0.03]">
         <CardContent className="p-5">
           <div className="flex items-start gap-3">
-            <Compass className="size-5 text-amber shrink-0 mt-0.5" />
+            <Compass className="size-5 text-orange shrink-0 mt-0.5" />
             <div>
-              <div className="text-[10px] font-mono tracking-widest text-amber uppercase mb-1">
+              <div className="text-[10px] font-mono tracking-widest text-orange uppercase mb-1">
                 Why these 5 questions
               </div>
               <p className="text-sm text-foreground/85 leading-relaxed text-pretty">
@@ -81,7 +83,7 @@ export function ListeningSection() {
               key={q.id}
               className={cn(
                 "transition-all border-border/80",
-                isOpen && "border-amber/40 shadow-sm"
+                isOpen && "border-orange/40 shadow-sm"
               )}
             >
               <button
@@ -91,7 +93,7 @@ export function ListeningSection() {
                 <div
                   className={cn(
                     "flex items-center justify-center w-10 h-10 rounded-lg shrink-0 font-mono font-bold text-sm transition-colors",
-                    isOpen ? "bg-amber text-amber-foreground" : "bg-amber/15 text-amber"
+                    isOpen ? "bg-orange text-white" : "bg-orange/15 text-orange"
                   )}
                 >
                   {q.index}
@@ -101,7 +103,7 @@ export function ListeningSection() {
                   <div className="flex flex-wrap items-center gap-2 mb-2">
                     <Badge
                       variant="outline"
-                      className="text-[10px] font-mono border-amber/40 text-amber bg-amber/5"
+                      className="text-[10px] font-mono border-orange/40 text-orange bg-orange/5"
                     >
                       Question {q.index}
                     </Badge>
@@ -130,8 +132,8 @@ export function ListeningSection() {
                   <div className="grid sm:grid-cols-2 gap-4 pt-4 border-t border-border/60">
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
-                        <Target className="size-3.5 text-amber" />
-                        <span className="text-[10px] font-mono tracking-widest text-amber uppercase">
+                        <Target className="size-3.5 text-orange" />
+                        <span className="text-[10px] font-mono tracking-widest text-orange uppercase">
                           Why I&rsquo;m Asking
                         </span>
                       </div>
@@ -141,8 +143,8 @@ export function ListeningSection() {
                     </div>
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
-                        <Compass className="size-3.5 text-emerald" />
-                        <span className="text-[10px] font-mono tracking-widest text-emerald uppercase">
+                        <Compass className="size-3.5 text-mint" />
+                        <span className="text-[10px] font-mono tracking-widest text-mint uppercase">
                           Signal I&rsquo;m Listening For
                         </span>
                       </div>
@@ -162,10 +164,10 @@ export function ListeningSection() {
                       </div>
                       <p className="text-xs text-foreground/80 leading-relaxed">{q.redFlag}</p>
                     </div>
-                    <div className="p-4 rounded-lg border border-emerald/30 bg-emerald/[0.04]">
+                    <div className="p-4 rounded-lg border border-mint/30 bg-mint/[0.04]">
                       <div className="flex items-center gap-2 mb-2">
-                        <CheckCircle2 className="size-3.5 text-emerald" />
-                        <span className="text-[10px] font-mono tracking-widest text-emerald uppercase">
+                        <CheckCircle2 className="size-3.5 text-mint" />
+                        <span className="text-[10px] font-mono tracking-widest text-mint uppercase">
                           Green Flag
                         </span>
                       </div>
@@ -183,7 +185,7 @@ export function ListeningSection() {
       <Card className="mt-8 bg-muted/30 border-dashed">
         <CardContent className="p-5">
           <div className="flex items-start gap-3">
-            <Target className="size-5 text-amber shrink-0 mt-0.5" />
+            <Target className="size-5 text-orange shrink-0 mt-0.5" />
             <div>
               <div className="text-sm font-semibold mb-1">
                 What happens with the answers

@@ -1,37 +1,45 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "RZR · Senior L&D Lead — Interview Artifacts",
+  title: "Senior L&D Lead · RZR — Strategy & Build Portfolio",
   description:
-    "A portfolio of build artifacts accompanying the Senior L&D Lead implementation plan: RZR Academy prototype, FTM Feedback Delivery module, LMS comparison matrix, Day-1 listening-tour questions, and a risk mitigation one-pager.",
+    "A builder-grade strategy and execution portfolio for the Senior L&D Lead role at RZR. Where intelligence makes impact — across onboarding, manager capability, leadership development, AI-native enablement, and measurable business outcomes.",
   keywords: [
     "RZR",
-    "L&D",
     "Learning & Development",
     "Senior L&D Lead",
     "Onboarding",
-    "Manager Development",
-    "Kirkpatrick",
+    "Manager Capability",
+    "Leadership Development",
     "AI-Native L&D",
+    "Kirkpatrick",
+    "Where Intelligence Makes Impact",
   ],
   authors: [{ name: "Senior L&D Lead Candidate" }],
+  icons: {
+    icon: "/brand/rzr-favicon.png",
+    apple: "/brand/rzr-favicon.png",
+  },
   openGraph: {
-    title: "RZR · Senior L&D Lead — Interview Artifacts",
+    title: "Senior L&D Lead · RZR — Strategy & Build Portfolio",
     description:
-      "Builder-grade artifacts: Academy prototype, FTM module, LMS matrix, listening-tour questions, risk one-pager.",
+      "Builder-grade strategy and execution portfolio: onboarding, manager capability, leadership development, AI-native enablement, and measurable business outcomes.",
     type: "website",
   },
 };
@@ -44,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        className={`${inter.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
         {children}
         <Toaster />

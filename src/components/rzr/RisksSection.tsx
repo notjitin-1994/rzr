@@ -22,8 +22,8 @@ import { cn } from "@/lib/utils";
 function LikelihoodImpactBadge({ likelihood, impact }: { likelihood: string; impact: string }) {
   const colors = {
     High: "bg-rose/15 text-rose border-rose/30",
-    Medium: "bg-amber/15 text-amber border-amber/30",
-    Low: "bg-emerald/15 text-emerald border-emerald/30",
+    Medium: "bg-orange/15 text-orange border-orange/30",
+    Low: "bg-mint/15 text-mint border-mint/30",
   } as const;
 
   return (
@@ -70,15 +70,15 @@ function RiskMatrix() {
       (impact === "High" ? 3 : impact === "Medium" ? 2 : 1) +
       (likelihood === "High" ? 3 : likelihood === "Medium" ? 2 : 1);
     if (score >= 5) return "bg-rose/10 hover:bg-rose/20 border-rose/30";
-    if (score >= 4) return "bg-amber/10 hover:bg-amber/20 border-amber/30";
-    return "bg-emerald/10 hover:bg-emerald/20 border-emerald/30";
+    if (score >= 4) return "bg-orange/10 hover:bg-orange/20 border-orange/30";
+    return "bg-mint/10 hover:bg-mint/20 border-mint/30";
   };
 
   return (
     <Card className="overflow-hidden">
       <CardHeader className="border-b border-border/60 pb-4">
         <div className="flex items-center gap-3">
-          <Activity className="size-5 text-amber" />
+          <Activity className="size-5 text-orange" />
           <div>
             <CardTitle className="text-lg">Risk Heat Map</CardTitle>
             <p className="text-sm text-muted-foreground mt-1">
@@ -156,17 +156,19 @@ export function RisksSection() {
   return (
     <SectionShell
       id="risks"
-      eyebrow="Artifact 05 · Tier 3"
-      title="Risk Mitigation One-Pager"
-      description="The top 3 risks from the Implementation Plan's Risk Register (R2, R1, R7), each with a Day-1 mitigation, a Day-30 mitigation, and a named escalation path. Plus the full 8-risk heat map for context."
-      badge="Day-1 Ready"
+      eyebrow="Artifact 05 · Risk Mitigation"
+      title="The top three risks, named and mitigated."
+      description="Strategic thinking means naming risk before it arrives. The three highest-priority risks from the eight-risk register — each with a Day-1 mitigation, a Day-30 mitigation, a named escalation path, and a RACI owner. Plus the full heat map for context."
+      strategicFrame="Hiring managers reward candidates who can identify risk in their own strategy. The three risks below are the ones most likely to derail the 30/60/90 plan — and the ones the hiring manager will most likely probe in interview."
+      outcomeChip="5-day revision SLA"
+      badge="Decision-Grade"
     >
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
         {riskStats.map((stat) => (
           <Card key={stat.label} className="bg-card/60">
             <CardContent className="p-4">
-              <div className="text-xl sm:text-2xl font-semibold text-amber">{stat.value}</div>
+              <div className="text-xl sm:text-2xl font-semibold text-orange">{stat.value}</div>
               <div className="text-xs font-medium mt-1">{stat.label}</div>
               <div className="text-[10px] text-muted-foreground mt-0.5">{stat.sublabel}</div>
             </CardContent>
@@ -188,8 +190,8 @@ export function RisksSection() {
             className={cn(
               "text-left p-4 rounded-lg border-2 transition-all",
               idx === activeRiskIndex
-                ? "border-amber bg-amber/[0.06] shadow-sm"
-                : "border-border hover:border-amber/30 bg-card/40"
+                ? "border-orange bg-orange/[0.06] shadow-sm"
+                : "border-border hover:border-orange/30 bg-card/40"
             )}
           >
             <div className="flex items-center gap-2 mb-2">
@@ -197,7 +199,7 @@ export function RisksSection() {
                 className={cn(
                   "flex items-center justify-center w-7 h-7 rounded-full text-xs font-mono font-bold",
                   idx === activeRiskIndex
-                    ? "bg-amber text-amber-foreground"
+                    ? "bg-orange text-white"
                     : "bg-muted text-muted-foreground"
                 )}
               >
@@ -211,12 +213,12 @@ export function RisksSection() {
       </div>
 
       {/* Active risk detail */}
-      <Card className="border-amber/30 overflow-hidden">
+      <Card className="border-orange/30 overflow-hidden">
         <CardHeader className="border-b border-border/60">
           <div className="flex items-start justify-between gap-3 flex-wrap">
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-[10px] font-mono tracking-widest text-amber uppercase">
+                <span className="text-[10px] font-mono tracking-widest text-orange uppercase">
                   Risk R{activeRisk.id.replace("r", "")} · Priority {activeRisk.index} of 3
                 </span>
                 <LikelihoodImpactBadge likelihood={activeRisk.likelihood} impact={activeRisk.impact} />
@@ -243,10 +245,10 @@ export function RisksSection() {
           </div>
 
           {/* Early signal */}
-          <div className="p-4 rounded-lg border border-amber/30 bg-amber/[0.04]">
+          <div className="p-4 rounded-lg border border-orange/30 bg-orange/[0.04]">
             <div className="flex items-center gap-2 mb-2">
-              <Activity className="size-4 text-amber" />
-              <span className="text-[10px] font-mono tracking-widest text-amber uppercase">
+              <Activity className="size-4 text-orange" />
+              <span className="text-[10px] font-mono tracking-widest text-orange uppercase">
                 Early Signal — When to Worry
               </span>
             </div>
@@ -255,11 +257,11 @@ export function RisksSection() {
 
           {/* Day 1 mitigation */}
           <div className="grid lg:grid-cols-2 gap-4">
-            <div className="p-4 rounded-lg border border-emerald/30 bg-emerald/[0.04]">
+            <div className="p-4 rounded-lg border border-mint/30 bg-mint/[0.04]">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <Calendar className="size-4 text-emerald" />
-                  <span className="text-[10px] font-mono tracking-widest text-emerald uppercase">
+                  <Calendar className="size-4 text-mint" />
+                  <span className="text-[10px] font-mono tracking-widest text-mint uppercase">
                     Day 1 Mitigation
                   </span>
                 </div>
@@ -268,11 +270,11 @@ export function RisksSection() {
             </div>
 
             {/* Day 30 mitigation (expandable on mobile, always visible on lg) */}
-            <div className="p-4 rounded-lg border border-amber/30 bg-amber/[0.04]">
+            <div className="p-4 rounded-lg border border-orange/30 bg-orange/[0.04]">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <Calendar className="size-4 text-amber" />
-                  <span className="text-[10px] font-mono tracking-widest text-amber uppercase">
+                  <Calendar className="size-4 text-orange" />
+                  <span className="text-[10px] font-mono tracking-widest text-orange uppercase">
                     Day 30 Mitigation
                   </span>
                 </div>
@@ -283,7 +285,7 @@ export function RisksSection() {
                       [activeRisk.id]: !prev[activeRisk.id],
                     }))
                   }
-                  className="lg:hidden text-xs text-amber font-mono"
+                  className="lg:hidden text-xs text-orange font-mono"
                 >
                   {showDay30[activeRisk.id] ? (
                     <ChevronUp className="size-4" />
@@ -306,8 +308,8 @@ export function RisksSection() {
           {/* Escalation path */}
           <div className="p-4 rounded-lg border border-border bg-muted/30">
             <div className="flex items-center gap-2 mb-2">
-              <ArrowUp className="size-4 text-amber" />
-              <span className="text-[10px] font-mono tracking-widest text-amber uppercase">
+              <ArrowUp className="size-4 text-orange" />
+              <span className="text-[10px] font-mono tracking-widest text-orange uppercase">
                 Escalation Path
               </span>
             </div>
@@ -329,7 +331,7 @@ export function RisksSection() {
       <Card className="mt-8 border-dashed bg-muted/30">
         <CardContent className="p-5">
           <div className="flex items-start gap-3">
-            <Shield className="size-5 text-amber shrink-0 mt-0.5" />
+            <Shield className="size-5 text-orange shrink-0 mt-0.5" />
             <div>
               <div className="text-sm font-semibold mb-1">
                 What the other 5 risks look like
