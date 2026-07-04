@@ -13,7 +13,6 @@ import {
   ShieldAlert,
   Layers,
 } from "lucide-react";
-import { RzrLogo } from "./RzrLogo";
 
 const PILLARS = [
   {
@@ -79,16 +78,6 @@ export function Cover() {
            style={{ background: "radial-gradient(circle, #e63e6d 0%, transparent 70%)" }} />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 w-full">
-        {/* Brand lockup */}
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="flex items-center justify-center mb-12"
-        >
-          <RzrLogo className="h-10 sm:h-12" />
-        </motion.div>
-
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
             <motion.div
