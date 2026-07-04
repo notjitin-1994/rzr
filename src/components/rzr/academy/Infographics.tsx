@@ -40,12 +40,12 @@ function TimelineInfographic({ title, data }: { title: string; data: Record<stri
     <div className="space-y-6">
       <h4 className="text-sm font-mono tracking-widest text-mint uppercase">{title}</h4>
 
-      <div className="relative">
-        {/* Timeline line — centered vertically */}
-        <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 bg-gradient-to-r from-mint/20 via-mint to-mint/20" />
+      <div className="relative pt-12 pb-24">
+        {/* Timeline line — passes through center, aligned with dots */}
+        <div className="absolute left-0 right-0 top-[88px] h-0.5 bg-gradient-to-r from-mint/20 via-mint to-mint/20" />
 
         {/* Points */}
-        <div className="relative flex justify-between items-center">
+        <div className="relative flex justify-between items-start">
           {points.map((point, idx) => {
             const isCurrent = idx === points.length - 1;
             return (
@@ -58,35 +58,35 @@ function TimelineInfographic({ title, data }: { title: string; data: Record<stri
                   delay: idx * 0.15,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="flex flex-col items-center"
+                className="flex flex-col items-center w-[110px]"
               >
-                {/* Year */}
+                {/* Year — above the line */}
                 <div
                   className={cn(
-                    "text-xs font-mono font-semibold mb-2",
+                    "text-xs font-mono font-semibold mb-3 h-4 flex items-center",
                     isCurrent ? "text-mint" : "text-muted-foreground"
                   )}
                 >
                   {point.year}
                 </div>
 
-                {/* Dot */}
+                {/* Dot — sits ON the line */}
                 <div
                   className={cn(
-                    "w-4 h-4 rounded-full border-2 relative z-10",
+                    "w-4 h-4 rounded-full border-2 relative z-10 bg-background",
                     isCurrent
                       ? "bg-mint border-mint shadow-[0_0_12px_rgba(0,189,165,0.5)]"
-                      : "bg-background border-mint/40"
+                      : "border-mint/40"
                   )}
                 />
 
-                {/* Label */}
-                <div className="mt-2 text-sm font-semibold text-foreground text-center max-w-[100px]">
+                {/* Label — below the line */}
+                <div className="mt-3 text-sm font-semibold text-foreground text-center leading-tight">
                   {point.label}
                 </div>
 
                 {/* Detail */}
-                <div className="mt-1 text-xs text-muted-foreground text-center max-w-[120px]">
+                <div className="mt-1 text-xs text-muted-foreground text-center leading-snug">
                   {point.detail}
                 </div>
               </motion.div>
