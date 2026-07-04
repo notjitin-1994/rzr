@@ -1,0 +1,1438 @@
+        RZR                                                                                R Z R -LND-01        ·   V1.0
+
+
+
+
+I M P L E M E N TAT I O N P L A N                  /   12-MONTH ROADMAP + YEAR-2 VISION
+
+
+
+
+Senior L&D Lead
+Implementation Plan
+A builder-grade blueprint to close RZR's onboarding and manager-capability
+gaps, ship a global L&D infrastructure across eight offices, and embed an AI-
+native learning operating system that scales with RZR's growth — from San
+Francisco to Seoul.
+
+
+
+
+30                                  7                           3                            L1–L3
+D AY S T O                          L&D                         NEW HIRES                    K I R K PA T R I C K
+ACADEMY                             WORKSTRE A M S              PITCHED                      COVERAGE
+RE LA UNCH
+
+
+
+
+P R EPAR ED F O R                              ROLE                            EDIT IO N
+Hiring Manager & HRBP                          Senior L&D Lead (IC)            2026 · Strategy Discussion
+
+R Z R W H E R E I N T E L L I G E N C E M A K E S I M PA C T                CONF I DENTI AL · F OR DI SCUSSI ON
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+ Contents
+ IMPLEMENTATION PLAN · RZR GLOBAL
+
+
+
+
+ Executive Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+
+      Top-Line Metrics at a Glance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+
+      What This Plan Delivers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+
+      The Single Decision I Need from This Meeting . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+
+
+ RZR Context & Operating Assumptions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+
+      What the Research Tells Us About RZR . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+
+      HR Tech Stack & Operating Surface . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+
+      Operating Assumptions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+
+
+ Strategic Approach & Guiding Principles            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .6
+
+      The Five Principles . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+
+
+ 30/60/90-Day Quick-Win Plan . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+
+      90-Day Timeline at a Glance      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .7
+
+      Day 1–30: Listen, Audit, Rebuild, Soft-Launch RZR Academy . . . . . . . . . . . . . . . . . . . . . . . 8
+
+      Day 31–60: Global Academy Relaunch + Manager Program Design               . . . . . . . . . . . . . . . . . . .8
+
+      Day 61–90: FTM Launch + Measurement Baseline . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+
+
+ 12-Month Implementation Roadmap               . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+
+      Quarterly Milestone Map . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+
+      Workstream Deep-Dives . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+
+                    Workstream 1 · RZR Academy — Global Onboarding . . . . . . . . . . . . . . . . . . . . 10
+
+                    Workstream 2 · Manager Capability Development . . . . . . . . . . . . . . . . . . . . . . 11
+
+                    Workstream 3 · Leadership Development . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+
+                    Workstream 4 · Annual L&D; Calendar & Content Management              . . . . . . . . . . . . . . 11
+
+                    Workstream 5 · Function-Specific & Custom Training         . . . . . . . . . . . . . . . . . . . 12
+
+                    Workstream 6 · Learning Measurement & Effectiveness . . . . . . . . . . . . . . . . . . 12
+
+                    Workstream 7 · LMS & Learning Technology . . . . . . . . . . . . . . . . . . . . . . . . 12
+
+
+
+
+Confidential · For Discussion                                                                                          01
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+ Year-2 Strategic Vision . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+
+
+ AI-Native L&D; Enablement . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+
+      Five AI Use Cases for Year 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+
+      Build vs Buy Decisions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+
+      Guardrails: Privacy, IP, and Bias . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+
+
+ Team-Build Pitch: 1 ID + 1 Content Developer . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+
+      Why 3 and Not 1 or 5 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+
+      The 3-Person Team at a Glance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+
+      Role Card 1: Instructional Designer (ID) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+
+      Role Card 2: Content Developer (CD) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+
+      Phased Hiring Timeline . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+
+      What the Team Unlocks vs Solo IC        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+
+
+ RACI & Stakeholder Map . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+
+      Stakeholder Map . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+
+      RACI Matrix . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+
+
+ KPI & Measurement Framework . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+
+      Layer 1: Kirkpatrick L1–L3 Framework . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+
+      Layer 2: Program-Level KPIs      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+
+      Layer 3: Manager Effectiveness Index (MEI) v1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+
+
+ Indicative Budget & Risks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+
+      Indicative Year-1 Budget (USD)      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+
+      Risk Register . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+
+      Decision Asks from This Meeting . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+
+
+
+
+Confidential · For Discussion                                                                                          02
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+ CHAPTER 01
+
+
+
+ Executive Summary
+ RZR Global — the AI-driven advertising platform formerly known as Aarki — is scaling across
+ eight global offices (San Francisco, New York, London, Tel Aviv, Bangalore, Beijing, Manila, and
+ Seoul), processing over 5 million mobile ad requests per second from 10 billion+ devices. As the
+ business expands, two structural gaps have surfaced that are directly impacting performance,
+ manager effectiveness, and cultural cohesion: the absence of a structured onboarding
+ experience and the lack of any formal manager or leadership capability development. This plan is
+ the operating blueprint for the Senior L&D; Lead role, designed to close those gaps and build the
+ learning infrastructure that defines how RZR develops its people through Year 1 and into Year 2.
+
+ The mandate is sequenced around two urgent priorities. First, within 30 days, revamp, rebuild, and
+ relaunch RZR Academy as a globally consistent onboarding experience across all markets. Second, within
+ 90 days, design and launch a structured Manager Capability Development program for first-time and new
+ managers globally. From there, the role expands into a full-stack L&D; calendar, leadership development,
+ function-specific training, and a measurement framework built on the Kirkpatrick L1–L3 model. The plan is
+ explicitly AI-native: every workflow considers AI augmentation for content generation, personalization,
+ translation, simulation, and analytics.
+
+
+ Top-Line Metrics at a Glance
+
+
+
+            30                          90                        7                    L1–L3
+      DAYS TO ACADEMY           DAYS TO MANAGER COHORT
+                                                           L&D; WORKSTREAMS         KIRKPATRICK COVERAGE
+         RELAUNCH                         #1
+
+
+
+
+              3                           8                       3                   Q1–Q4
+      NEW HIRES PITCHED          GLOBAL OFFICES SERVED     FTES IN L&D; TEAM       QUARTERLY ELT READOUTS
+
+
+
+
+Confidential · For Discussion                                                                                03
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+ What This Plan Delivers
+
+  SCOPE                                  METHOD                                   CADENCE
+  12-Month Roadmap + Year-2              Explicit Operating Assumptions           30 / 60 / 90-Day Quick-Win Plan
+  Vision                                 Twelve documented assumptions            Day-by-day activities, deliverables,
+  Seven L&D; workstreams sequenced       with impact levels,                      and success criteria
+  across four quarters,                  validated in the first 30 days through   for the two urgent mandates from
+  with a Year-2 strategic vision for     a listening tour.                        the job description.
+  compounding impact.
+
+
+  EDGE                                   ASK                                      RIGOR
+  AI-Native Enablement Section           Team-Build Pitch                         KPI & Measurement Framework
+  Five concrete AI use cases with        One Instructional Designer + one         Kirkpatrick L1–L3, program-level
+  build-vs-buy decisions                 Content Developer,                       KPIs, and a quarterly
+  and explicit privacy, IP, and bias     phased Q1, reporting to the Senior       Manager Effectiveness Index as the
+  guardrails.                            L&D; Lead.                               headline metric.
+
+
+
+
+ The Single Decision I Need from This Meeting
+
+   Three Asks
+   1. Approve the team structure — 1 Instructional Designer + 1 Content Developer, both hired in Q1, reporting to
+   the Senior L&D; Lead.
+   2. Endorse the 30/60/90 milestones — Academy relaunch in 30 days, First-Time Manager cohort live in 90
+   days, MEI v1 baseline in 90 days.
+   3. Confirm budget envelope — Year-1 indicative range of USD 480K – 780K (blended US/India headcount +
+   LMS + AI tooling + external programs).
+
+
+ CHAPTER 02
+
+
+
+ RZR Context & Operating Assumptions
+ What the Research Tells Us About RZR
+
+
+
+
+Confidential · For Discussion                                                                                            04
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+ CONTEXT                                                                        AT A GLANCE
+
+ RZR is the new identity of Aarki, a performance marketing platform             Formerly Aarki (10+ years)
+ with more than a decade of mobile advertising experience. The                  CEO Aman Sareen
+ rebrand reflects an evolution from mobile-first to a unified,                  HQ San Francisco, CA
+ cross-screen performance system spanning User Acquisition,
+                                                                                Offices 8 globally
+ Retargeting, Connected TV, and Influencer — all powered by Encore,
+                                                                                Employees 51–200 (LinkedIn)
+ RZR's proprietary AI-supervised machine learning platform.
+ Headquartered in San Francisco, RZR operates four                              Scale 5M+ ad req/sec, 10B+
+                                                                                devices
+ owned-and-operated data centers processing 6M+ queries per
+ second, with a global team spread across seven to eight offices                Platform Encore (proprietary
+                                                                                AI/ML)
+ depending on the source, and an employee base in the 51–200 range
+ per LinkedIn. The job description additionally calls out growth markets        Data centers 4 owned, 6M+ qps
+
+ in Armenia, Belarus, and Europe, suggesting continued expansion.               Tagline Where Intelligence Makes
+ Aman Sareen leads as CEO. The tagline — Where Intelligence Makes               Impact
+
+ Impact — frames the cultural narrative the L&D; function must
+ reinforce.
+
+
+
+ HR Tech Stack & Operating Surface
+
+       Greenhouse               BambooHR                Lattice                 Jira                   Notion
+           ATS                    HRIS                PERFORMANCE           WORK MGMT                KNOWLEDGE
+
+
+
+ The L&D; function will integrate with this stack rather than introduce parallel systems. Notably, there is no
+ LMS mentioned — evaluation, selection, and rollout of an LMS is itself a Year-1 workstream. In the interim,
+ onboarding and manager program delivery will run through a combination of Notion (content), BambooHR
+ (cohort tracking), and Google Slides / Canva (live sessions), with an explicit migration path once the LMS is
+ live in Q2–Q3.
+
+
+ Operating Assumptions
+ Given that internal data on current onboarding completion rates, manager population, and historical L&D;
+ spend is not yet accessible, this plan proceeds on the following explicit assumptions. Each assumption is
+ flagged with impact level (H/M/L) and the workstreams it directly affects. These will be validated in the first
+ 30 days through the stakeholder listening tour and People-team data pull, and the plan will be revised
+ accordingly.
+
+
+  ID     Assumption                                                     Impac      Workstreams Affected
+                                                                        t
+
+
+  A1     Total headcount is in the 200–350 range by end of Year 1,      H          Onboarding, Manager Dev,
+         growing from current ~150–200                                             Budget
+
+  A2     Manager population is approximately 30–50 globally (1          H          Manager Dev, MEI, Leadership
+         manager per ~6 ICs)                                                       Dev
+
+  A3     No formal onboarding program exists today; ad-hoc              H          RZR Academy
+         manager-led onboarding only
+
+  A4     No LMS is currently deployed; Notion + Google Slides are the   H          LMS & Learning Tech
+         de facto content surface
+
+
+
+
+Confidential · For Discussion                                                                                      05
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+  ID     Assumption                                                       Impac    Workstreams Affected
+                                                                          t
+
+
+  A5     Content needs localization into Mandarin, Korean, Russian, and   M        Academy, Manager Dev,
+         Spanish at minimum                                                        Function-Specific
+
+  A6     Executive sponsor is the Head of People; ELT visibility is       H        Measurement, RACI
+         monthly via readout
+
+  A7     Year-1 L&D; budget envelope is in the USD 500K–800K range        H        Budget
+         (3 FTEs + tools + vendors)
+
+  A8     AI tooling access (LLM subscriptions) is approvable at           M        AI-Native Enablement
+         department level under existing IT policy
+
+  A9     Manager training time is capped at 4 hours/manager/month         M        Manager Dev, Calendar
+         (protecting billable capacity)
+
+  A1     HRBP coverage exists in each major region (US, India, APAC,      M        RACI, Stakeholder
+  0      EMEA) — 4–6 HRBPs total
+
+  A11    Rebrand from Aarki is recent (within 12 months); cultural        M        Onboarding content, Leadership
+         identity is still consolidating                                           Dev
+
+  A1     POSH compliance, interview-skills training, and tools training   M        Calendar, Function-Specific
+  2      are currently ad-hoc or absent
+
+
+
+   Each assumption will be validated in the first 30 days. Any assumption that breaks will trigger a plan revision
+   memo to the Head of People within 5 business days.
+
+
+ CHAPTER 03
+
+
+
+ Strategic Approach & Guiding Principles
+ The L&D; function at RZR will be built on five operating principles. These are not slogans — they translate
+ into concrete design decisions across every workstream, from how content is authored to how programs
+ are measured and how the team is structured. The principles are deliberately aligned with RZR's own
+ cultural narrative of intelligence making impact and with the builder mindset the role demands.
+
+
+ The Five Principles
+
+                AI-Native by Default
+                Every workflow starts by asking: how does AI augment this? Content drafting, personalization,
+
+   P1           translation, simulation, analytics — AI is the operating layer, not a feature.
+
+                BEHAVIOR → LLM-assisted content (3–5x throughput), AI persona role-play for manager training,
+                AI-surfaced cohort insights.
+
+
+
+
+Confidential · For Discussion                                                                                        06
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+                Builder Mindset
+
+  P2
+                Design from zero. No legacy constraints, no inherited templates. Every artifact is built to be measured,
+                iterated, and either scaled or retired within 2 cycles.
+
+                BEHAVIOR → MVP-first launches; 90-day assessment on every cohort; explicit retire/iterate decisions.
+
+
+
+
+                Measurement-Obsessed
+                No program ships without a Kirkpatrick L1–L3 plan. Decisions to continue, improve, or retire are made
+
+   P3           on data, not opinion. Quarterly readout to ELT is non-negotiable.
+
+                BEHAVIOR → MEI v1 in 90 days; L1 surveys on every session; L2 knowledge checks; L3 30/60/90
+                follow-ups.
+
+
+
+
+                Globally Consistent, Locally Adapted
+
+  P4
+                One program architecture across all markets. Regional variants only where cultural, legal, or language
+                considerations demand. Avoid the trap of 8 separate onboarding programs.
+
+                BEHAVIOR → Single Academy architecture with regional overlay; local-language tracks by cohort.
+
+
+
+
+                Manager as Multiplier
+
+   P5
+                Manager capability is the highest-leverage L&D; investment. A great manager improves the
+                performance of 6–10 ICs; a poor one destroys it. Manager dev gets disproportionate resourcing.
+
+                BEHAVIOR → FTM program, Managers Learning Series, MEI driving manager promotion decisions.
+
+
+
+ These principles also serve as the design review criteria for every program. Before any initiative moves
+ from design to launch, it must pass a five-question check: Is AI used where it could augment? Is the
+ measurement plan defined? Is the global architecture preserved with regional variants only where
+ necessary? Does this build manager capability? Is there a 90-day effectiveness assessment built in?
+ Programs that cannot answer yes to all five are sent back to design.
+
+ CHAPTER 04
+
+
+
+ 30/60/90-Day Quick-Win Plan
+ The first 90 days establish credibility, ship the two urgent mandates from the job description, and build the
+ measurement baseline that everything else is judged against. The plan is deliberately aggressive but
+ feasible: it assumes the Senior L&D; Lead starts solo and the Instructional Designer + Content Developer
+ join by day 30. If hiring slips, the day-30 Academy relaunch moves to a soft-launch with a single cohort
+ rather than a full global rollout.
+
+
+ 90-Day Timeline at a Glance
+
+
+
+
+Confidential · For Discussion                                                                                          07
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+                    30                                       60                                           90
+                   DAY 1–30                                DAY 31–60                                  DAY 61–90
+
+ Listen · Audit · Rebuild                   Global Relaunch + Manager                  FTM Launch + Measurement
+ Stakeholder listening tour, asset audit,   Design                                     Baseline
+ Academy architecture design, MVP           Academy goes global across 7               FTM cohort #1 live, MEI v1 baseline,
+ content build, soft-launch cohort #1.      markets, BambooHR/Notion                   Kirkpatrick L1–L2 in production, 90-day
+                                            integration, FTM curriculum design,        Academy assessment, Q1 ELT readout.
+                                            New Manager Track.
+
+
+
+
+ Day 1–30: Listen, Audit, Rebuild, Soft-Launch RZR Academy
+ Objective: Establish the operating baseline, design the new onboarding architecture, and soft-launch RZR
+ Academy with one cohort before global rollout. This phase is heavy on listening and design — the worst
+ outcome would be to ship content without understanding regional nuances, the rebrand context, or what
+ managers actually need new hires to know.
+
+  Activity                      What                                                        Deliverable
+
+
+  Listening tour                15–20 interviews across 7 offices — HRBPs, function         Insight memo; assumption
+                                heads, recent hires, managers                               validation
+
+  Audit existing assets         Inventory current onboarding content, identify gaps,        Asset inventory; gap matrix
+                                audit tool usage
+
+  Design Academy                Modules, sequencing, sync/async/blended, regional           Architecture spec v1.0
+  architecture                  adaptations, 30/60/90 experience
+
+  Build MVP content (3          General onboarding, Engineering track, Sales/GTM            15–20 modules ready for
+  tracks)                       track                                                       soft-launch
+
+  Soft-launch with 1            Run a single cohort end-to-end (likely Bangalore or SF)     Cohort #1 live; L1 + qualitative
+  cohort                                                                                    feedback
+
+  Stakeholder alignment         Weekly check-ins with Head of People; ELT update at         Signed-off architecture;
+                                day 30                                                      green-light for global launch
+
+
+ Success criteria for Day 30: Architecture spec signed off by Head of People and at least two function
+ heads; cohort #1 completes Academy with L1 satisfaction score ≥ 4.0/5; assumption validation memo
+ delivered; green-light for global relaunch.
+
+
+ Day 31–60: Global Academy Relaunch + Manager Program Design
+ Objective: Take Academy global across all markets, integrate with BambooHR and Notion, and complete
+ the design of the First-Time Manager program — ready to recruit cohort #1 in Day 61. This is the phase
+ where the builder mindset matters most: every system built here (cohort tracking, content templates,
+ manager toolkit) becomes the foundation for everything that follows.
+
+
+  Activity                      What                                                        Deliverable
+
+
+  Academy global rollout        Launch across SF, NY, London, Bangalore, Beijing,           7 regional cohorts running;
+                                Manila, Seoul; regional cohorts                             weekly dashboard
+
+
+
+
+Confidential · For Discussion                                                                                                    08
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+  Activity                      What                                                       Deliverable
+
+
+  BambooHR + Notion             Auto-enroll new hires on start date; track completion in   Automated enrollment workflow
+  integration                   BambooHR
+
+  30/60/90 new hire             Structured check-ins, milestone templates, manager         Manager toolkit published
+  experience                    touch-point scripts
+
+  FTM program design            8-module curriculum: role transition, feedback,            Curriculum spec + first 3
+                                performance, conflict, coaching, hiring, PIPs,             modules built
+                                psychological safety
+
+  New Manager                   Track for experienced managers joining RZR —               Track outline + module 1 ready
+  Onboarding Track              philosophy, expectations, tools
+
+  ID + CD onboarded             Both team hires productive by day 45                       Team operating rhythm
+                                                                                           established
+
+
+
+
+ Day 61–90: FTM Launch + Measurement Baseline
+ Objective: Run the first First-Time Manager cohort, ship Manager Effectiveness Index v1, and present the
+ Q1 readout to ELT. By day 90, RZR has a live Academy, a live FTM program, a measurement framework in
+ production, and a defensible story for the executive team.
+
+
+  Activity                      What                                                       Deliverable
+
+
+  FTM cohort #1 live            8–12 first-time managers across regions; 8 modules         Cohort completes; L1 + L2 data
+                                delivered over 6 weeks                                     captured
+
+  MEI v1 baseline               Composite index: 360 (40%) + engagement (25%) +            Baseline MEI scores for cohort
+                                performance (20%) + retention (15%)                        #1
+
+  L1–L2 surveys in              Post-session reactions + knowledge checks on every         Survey templates; first
+  production                    live program                                               dashboard
+
+  90-day Academy                Cohort #1 effectiveness: knowledge retention, role         Assessment report;
+  assessment                    readiness, cultural alignment                              iterate-or-retire decisions
+
+  Q1 ELT readout                30-min presentation: what shipped, what measured,          Signed-off Q2 plan; budget
+                                what next, what we need                                    reconfirmation
+
+  Risk + assumption             Validate or revise each of the 12 operating                Revised assumptions; plan v1.1
+  refresh                       assumptions
+
+
+
+   Day 90 Success Criteria
+   Academy — Live in all 7 markets; L1 ≥ 4.2/5; 90-day retention ≥ 90% for cohort #1
+   FTM — Cohort #1 complete; L2 knowledge uplift ≥ 25% pre vs post
+   MEI — v1 baselined for cohort #1 managers; quarterly cadence locked
+   Team — ID + CD productive; full 3-person team operational
+   ELT — Q1 readout delivered; Q2 plan endorsed
+
+
+ CHAPTER 05
+
+
+
+
+Confidential · For Discussion                                                                                               09
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+ 12-Month Implementation Roadmap
+ The 12-month roadmap sequences seven workstreams across four quarters. The Q1 priorities are explicitly
+ the two urgent mandates — Academy relaunch and First-Time Manager program launch. Q2 adds
+ leadership development piloting and LMS selection. Q3 brings function-specific training and the first MEI
+ quarterly readout. Q4 closes with the full annual L&D; calendar published for Year 2, leadership program
+ graduation, and the L&D; measurement framework in steady state.
+
+
+ Quarterly Milestone Map
+
+  Workstream          Q1 (Day 1–90)           Q2 (Day 91–180)         Q3 (Day 181–270)       Q4 (Day 271–365)
+
+
+  RZR Academy         Global relaunch; 7      Async track live in 3   Cohort #5+;            Year-2 calendar
+                      markets; cohort #1      languages; manager      knowledge retention    published; Academy
+                      90-day assessment       toolkit v2              ≥ 80%                  v2 design
+
+  Manager             FTM cohort #1; New      FTM cohort #2;          MEI Q3 readout;        FTM cohort #4; MEI
+  Capability          Manager Track live      Managers Learning       targeted               tied to promo cycle
+                                              Series monthly          interventions live
+
+  Leadership          —                       Pilot design with       Leadership pilot       Pilot graduation;
+  Development                                 Head of People; HiPo    cohort #1 (8–10 L6+)   Year-2 leadership
+                                              identification                                 program spec
+
+  Annual              Content library v1      POSH +                  Performance            Year-2 L&D; calendar
+  Calendar &          (Academy + FTM)         interview-skills        management training    published
+  Content                                     training live           cycle
+
+  Function-Speci      —                       Eng/ML/Product          Sales/GTM              Finance + Ops
+  fic Training                                enablement scoping      enablement live;       tracks;
+                                              with function heads     objection-handling     cross-functional
+                                                                      workshops              reviews
+
+  Measurement         L1 surveys in           L2 knowledge            L3 behavior transfer   Year-end
+  & Effectiveness     production; MEI v1      checks; 30/60/90        study; MEI Q3          effectiveness report;
+                                              follow-ups live         readout                ROI analysis
+
+  LMS &               LMS requirements        LMS selected;           LMS implementation;    LMS live; first cohort
+  Learning Tech       spec; vendor longlist   contract signed         content migration      onboarded on LMS
+
+
+
+
+ Workstream Deep-Dives
+ Workstream 1 · RZR Academy — Global Onboarding
+ RZR Academy is the front door of the company. The revamp will produce a modular architecture with three
+ layers. Delivery blends async self-paced modules (Notion + LMS), live cohort sessions (regional), and
+ structured manager check-ins. Automation: new-hire auto-enrollment triggers from BambooHR,
+ day-1/7/30/60/90 milestone nudges via Notion or LMS workflow. Every cohort gets a 90-day effectiveness
+ assessment measuring knowledge retention (L2), role readiness (manager-rated, L3), and cultural
+ alignment (self-report + manager observation).
+
+
+
+
+Confidential · For Discussion                                                                                         10
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+   FOUNDATION LAYER
+   Company, culture, values, business model, products, Encore platform basics, tools
+   (Greenhouse/BambooHR/Lattice/Jira/Notion), people policies, POSH fundamentals.
+
+
+   FUNCTION LAYER
+   Role-specific tracks for Engineering, ML, Product, Sales, CS, Finance, Ops. Each track co-owned by L&D; and the
+   function lead.
+
+
+   ROLE-READINESS LAYER
+   30/60/90-day milestones, manager touch-point scripts, peer-buddy pairing, capstone project, regional adaptations.
+
+
+
+ Workstream 2 · Manager Capability Development
+ Manager capability is the highest-leverage L&D; investment. Four sub-programs run in parallel. HRBP
+ partnerships identify managers needing targeted support, and bespoke interventions are run for the bottom
+ decile.
+
+  SUB-PROGRAM A                                               SUB-PROGRAM B
+  First-Time Manager Program                                  New Manager Onboarding Track
+  8 modules over 6 weeks for anyone newly promoted into       3-module sprint for experienced managers joining RZR.
+  management.                                                 Covers RZR's management philosophy, performance
+  Role transition, feedback delivery, performance             expectations, and people-management tools.
+  conversations, conflict handling, psychological safety,
+  coaching vs. directing, hiring, PIPs.
+
+
+  SUB-PROGRAM C                                               SUB-PROGRAM D
+  Managers' Learning Series                                   Manager Effectiveness Index
+  Monthly or bi-monthly 90-min sessions on rotating           Quarterly composite metric (360 + engagement +
+  topics.                                                     performance + retention).
+  Open to all managers globally — feedback delivery,          Becomes the language for manager quality
+  performance conversations, handling conflict, building      conversations.
+  psychological safety, coaching vs. directing.
+
+
+
+ Workstream 3 · Leadership Development
+ Year 1 runs a single leadership pilot — a small cohort (8–10 L6+ leaders) focused on strategic leadership,
+ organizational influence, and executive presence. The pilot is co-designed with the Head of People and
+ uses a blend of external facilitators, internal executive sponsors, and structured peer-coaching triads. In
+ parallel, succession readiness is operationalized: HiPo identification in partnership with the Head of People,
+ structured acceleration tracks for the top 20–30, and calibration-linked development conversations at
+ year-end. A leadership reading list, curated external program recommendations (e.g., INSEAD, Stanford
+ GSB, Harvard Online), and a small learning library are curated for L6+ as a self-directed resource. Year 2
+ evolves this into a full cohort-based executive program.
+
+ Workstream 4 · Annual L&D; Calendar & Content Management
+ A single global L&D; calendar is published quarterly and rolls forward 12 months. It covers every planned
+ workshop, training session, and self-directed learning cycle across all workstreams. The content library is
+ the single source of truth for all learning materials — decks, e-learning modules, toolkits, job aids,
+ facilitation guides — versioned, tagged by audience and language, and owned by the L&D; team.
+ Performance management training is a flagship sub-program: managers and employees are equipped to
+ run effective goal-setting, mid-year reviews, and year-end calibration cycles. Targeted People-process
+ training — POSH compliance, interview skills, onboarding managers, tools training (BambooHR, Lattice,
+
+
+
+Confidential · For Discussion                                                                                          11
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+ Greenhouse) — is built and scheduled into the calendar. All content is reviewed for accessibility, inclusivity,
+ and global relevance.
+
+ Workstream 5 · Function-Specific & Custom Training
+ Function-specific training is co-designed with functional heads. Engineering and ML need deeply technical
+ enablement (architecture walkthroughs, ML platform training, code-review norms, on-call practices).
+ Product needs PRD craft, roadmap communication, and stakeholder alignment. Sales and GTM need pitch
+ skills, product knowledge, objection handling, and competitive positioning — this is delivered as a recurring
+ enablement series in partnership with the GTM leadership. Finance and Ops get tools and process training
+ (FP&A; systems, procurement, vendor management). New-hire role-specific enablement runs beyond
+ general onboarding — a 2-week technical bootcamp for Engineering hires, a 3-week sales bootcamp for
+ GTM hires. Each function track is co-owned by the L&D; team and the function lead.
+
+ Workstream 6 · Learning Measurement & Effectiveness
+ The measurement framework is Kirkpatrick L1–L3 across all programs. Quarterly dashboards are produced
+ for People leadership and the ELT: ROI proxies (cost per learner-hour, content reuse rate), completion
+ rates, effectiveness scores, manager capability trends. Post-program surveys and 30/60/90 follow-ups are
+ automated through the LMS once live; until then, manual via Google Forms + Sheets. Data drives explicit
+ continue/improve/retire decisions on every program each quarter.
+
+ Workstream 7 · LMS & Learning Technology
+ Year 1 includes LMS evaluation, selection, and implementation. The selection criteria are: global scale (8+
+ offices, 4+ languages), HRIS integration (BambooHR first, then Lattice), async + live delivery support,
+ AI-assisted personalization, mobile-friendly for field teams, and content authoring integration. The shortlist
+ will likely include Docebo, Disprz, 360Learning, Cornerstone, and LearnUpon; final selection is a joint L&D;
+ + IT + Procurement decision in Q2. Implementation runs Q3 with content migration from Notion + Google
+ Slides, and the LMS goes live in Q4 with the first LMS-onboarded cohort. Until LMS go-live, delivery runs
+ through the interim stack. Content authoring tools are standardized on Google Slides (decks), Canva Pro
+ (visuals), Notion (text content + job aids), and Articulate Rise (e-learning modules) once LMS is live.
+
+ CHAPTER 06
+
+
+
+ Year-2 Strategic Vision
+
+     "
+     Year 1 builds the foundation. Year 2 compounds it.
+     — Strategic shift: from building L&D; infrastructure to operating it as a decision-grade capability.
+
+
+
+ The strategic shift is from building L&D; infrastructure to operating it as a decision-grade capability that
+ influences who gets promoted, who enters succession benches, and how RZR competes on talent across
+ markets. Seven shifts define Year 2.
+
+
+  Capability                       Year 1 (Foundation)                     Year 2 (Compounding)
+
+
+  Leadership Development           Single pilot cohort                     Cohort-based executive program with external
+                                                                           faculty (INSEAD/Stanford/ISB), 2–3
+                                                                           cohorts/year
+
+
+
+
+Confidential · For Discussion                                                                                             12
+      RZR Senior L&D Lead Implementation Plan
+
+
+
+
+  Capability                      Year 1 (Foundation)                       Year 2 (Compounding)
+
+
+  Succession Readiness            HiPo identification framework             Operationalized calibration-linked HiPo tracks;
+                                                                            bench depth reported quarterly to ELT
+
+  AI-Personalized Learning        AI tools used in content authoring        Per-role, per-level adaptive learning paths
+                                                                            driven by LMS analytics + skills graph
+
+  Manager Effectiveness           v1 baseline + quarterly readout           MEI v2 tied to promotion and compensation
+  Index                                                                     decisions; manager quality is a measured KPI
+
+  Regional L&D; Partnerships      In-house only                             External executive ed seats (IIM, ISB, Cornell,
+                                                                            INSEAD); regional certification tracks
+
+  Internal Certification          —                                         RZR-built credentials recognized in
+  Academy                                                                   performance management; role-based
+                                                                            certifications
+
+  Cross-Market Mobility           —                                         Skills graph of internal expertise; talent
+                                                                            marketplace for cross-region project staffing
+
+
+ Year 2 also sees the L&D; team size stabilize at 3 FTEs (Senior L&D; Lead + 1 ID + 1 Content Developer),
+ with potential to add a part-time LMS Administrator if the platform demands dedicated ops. The team's
+ operating model shifts from build everything in-house to curate, customize, and partner — the in-house
+ team owns architecture, measurement, and flagship programs; vendor and academic partners own
+ specialized content (executive ed, POSH certification, technical certifications).
+
+ CHAPTER 07
+
+
+
+ AI-Native L&D; Enablement
+
+       "
+       AI is the operating layer of the L&D; function at RZR — not a feature, not a pilot,
+       not a sidebar.
+       — Every workflow starts by asking how AI can augment it.
+
+
+
+ The intent is not to replace the L&D; team but to multiply its throughput 3–5x, allowing a 3-person team to
+ deliver what would otherwise require 6–8. Five concrete use cases are in scope for Year 1, each with an
+ explicit build-vs-buy decision and clear guardrails on data privacy, IP, and bias mitigation.
+
+
+ Five AI Use Cases for Year 1
+
+  #     Use Case           What It Does                                Indicative Tools            Year-1 Outcome Target
+
+
+  1     Content            LLM-assisted drafting of decks, job         ChatGPT Enterprise /        3–5x content throughput;
+        Generation         aids, e-learning scripts, facilitation      Claude Team / Gemini        50% reduction in
+                           guides, assessment items. Human             for Workspace               time-to-first-draft
+                           review on every artifact before
+                           publish.
+
+
+
+
+Confidential · For Discussion                                                                                                 13
+      RZR Senior L&D Lead Implementation Plan
+
+
+
+
+  #      Use Case          What It Does                                  Indicative Tools            Year-1 Outcome Target
+
+
+  2      AI Persona        Practice difficult conversations              Second Nature /             Manager confidence
+         Simulations       (feedback, conflict, PIP, performance         Zenarate / in-house         score; reduction in
+                           review) with AI role-play partners.           GPT-based personas          time-to-comfort on hard
+                           Used in FTM and Managers Learning                                         conversations
+                           Series.
+
+  3      Personalization   LMS-integrated AI recommends                  Docebo Shape AI /           Module relevance score;
+         & Adaptive        modules by role, gap, career goal,            Disprz AI /                 reduction in skipped
+         Learning          and prior performance. Reduces                360Learning AI              modules; learner NPS
+                           one-size-fits-all training fatigue.
+
+  4      AI Translation    Auto-translate content into Mandarin,         DeepL Pro / Google          4 languages live within
+         & Localization    Korean, Russian, Spanish. Human               Translate + human           Q2; translation cost
+                           review for cultural fit and idiomatic         reviewer per language       reduced 60% vs
+                           accuracy before publish.                                                  full-human translation
+
+  5      AI Analytics &    Auto-generated cohort insights,               LMS-native AI +             Quarterly insight reports;
+         Insights          sentiment analysis of qualitative             custom GPT on               predictive attrition flag
+                           feedback, predictive flags for at-risk        anonymized cohort           precision ≥ 70%
+                           new hires (early attrition risk).             data
+
+
+
+
+ Build vs Buy Decisions
+ The default posture is buy for commodity AI capabilities (translation, content generation, LMS
+ personalization) and build for capabilities that encode RZR-specific context (manager persona simulations
+ reflecting RZR's culture and performance philosophy, cohort analytics on RZR's specific KPIs). Build
+ decisions require an explicit ROI case and IT security review. The team does not build from scratch when a
+ credible SaaS exists.
+
+
+ Guardrails: Privacy, IP, and Bias
+
+  PRIVACY                                                           IP
+  Data Privacy                                                      IP Protection
+  No PII or performance data in public LLMs.                        RZR proprietary content not used to train external
+  Enterprise-tier tools with zero-retention contracts only.         models.
+                                                                    Vendor contracts must explicitly opt out of training.
+
+
+  BIAS                                                              TRANSPARENCY
+  Bias Mitigation                                                   Transparency
+  AI-translated content reviewed by a native speaker                Every AI-assisted artifact is labeled.
+  before publish.                                                   Learners know when interacting with an AI persona vs a
+  AI-persona simulations tested for cultural sensitivity            human.
+  across regions.
+
+
+
+
+      Human-in-the-loop — No AI-generated content ships without human review. AI augments the team; it does
+      not replace editorial judgment.
+
+
+ CHAPTER 08
+
+
+
+ Team-Build Pitch: 1 ID + 1 Content Developer
+
+Confidential · For Discussion                                                                                                     14
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+ The job description frames the Senior L&D; Lead as a builder IC — strategic thinking, content creation,
+ stakeholder influence, rigorous measurement. The role is explicitly not a content coordination role. Yet the
+ scope — 7 workstreams, 8 offices, 30-day Academy relaunch, 90-day manager program launch, full L&D;
+ calendar, leadership pilot, function-specific training, measurement framework, LMS implementation — is
+ materially infeasible for a solo IC. Without a team, the role degrades into content coordinator within 60
+ days: the Senior L&D; Lead becomes the bottleneck on every artifact, strategic work gets crowded out by
+ production, and the builder mandate fails. This section pitches the minimum viable team: 1 Instructional
+ Designer + 1 Content Developer, reporting to the Senior L&D; Lead — a 3-person team powered by AI
+ augmentation.
+
+
+ Why 3 and Not 1 or 5
+
+  Team Shape                    Capacity                                                     Verdict
+
+
+  Solo (just the Sr L&D;        Strategic work survives; production bottlenecked;            Infeasible given JD scope
+  Lead)                         30-day Academy missed; role degrades to content
+                                coordinator
+
+  Lead + 1 (ID only)            Architecture + ID cover design; no production capacity       Misses 30/60/90
+                                for 3 language tracks + 7 markets + FTM + leadership +       commitments
+                                function-specific content
+
+  Lead + ID + 1 CD              Architecture (Lead) + design (ID) + production (1 CD with    Meets JD scope with
+  (RECOMMENDED)                 AI augmentation). Sustainable 3–5x throughput; 3-person      margin
+                                team delivers what 6–8 would without AI.
+
+  Lead + 2 IDs + 2 CDs          Comfortable capacity; introduces management                  Overkill for Year 1
+  (4-person team)               overhead; not justified until Year 2 cohort volume scales;
+                                budget inefficient for Year 1
+
+
+
+
+ The 3-Person Team at a Glance
+
+  LEAD                                      DESIGN                                   BUILD
+  Senior L&D; Lead                          Instructional Designer                   Content Developer
+  Strategy, architecture, stakeholder       Learning architecture, curriculum        End-to-end content production
+  influence,                                design,                                  across
+  measurement, ELT readouts, builder        evaluation frameworks, LMS admin,        onboarding, manager, leadership,
+  mandate.                                  SME facilitation, content quality        function-specific.
+  AI-native operating model owner.          gate.                                    AI-assisted drafting power user.
+
+
+
+
+ Role Card 1: Instructional Designer (ID)
+
+
+
+
+Confidential · For Discussion                                                                                            15
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+   Instructional Designer — 5–7 yrs experience
+   Mission: Own learning architecture across all workstreams. Translate SME knowledge into learner-centric
+   curriculum. Design evaluation frameworks. Administer the LMS once live.
+   Key Year-1 deliverables: RZR Academy architecture v1; FTM curriculum spec; Kirkpatrick L1–L3 evaluation
+   design; LMS admin; content quality review gate.
+   Must-have skills: Instructional design (ADDIE/AGILE/SAM), curriculum architecture, evaluation design
+   (Kirkpatrick), LMS administration, SME facilitation, storyline/Rise authoring.
+   Nice-to-have: AI-assisted content workflows, multi-language content design, developer/technical content
+   background.
+   Indicative compensation: India — INR 28–42 L p.a.; US — USD 95–130K base. Recommend India-based hire
+   for cost efficiency and proximity to Bangalore office.
+
+
+
+
+ Role Card 2: Content Developer (CD)
+
+   Content Developer — 3–5 yrs experience
+   Mission: Own end-to-end production of onboarding, manager development, leadership, and function-specific
+   content. Take ID-designed architecture to publishable artifacts. Operate as an AI-assisted drafting power
+   user to maximize throughput.
+   Key Year-1 deliverables: 80+ Academy modules across foundation + function tracks; FTM module production
+   (8 modules); Managers Learning Series monthly assets; leadership pilot materials; manager toolkit; POSH and
+   interview-skills content; function-specific enablement (Engineering, Sales/GTM).
+   Must-have skills: Slide craft (Google Slides / PowerPoint), e-learning authoring (Articulate Rise / Canva),
+   video editing basics, facilitation guide writing, AI-assisted drafting (ChatGPT/Claude power user), technical
+   writing.
+   Nice-to-have: Graphic design (Canva/Figma), video production (Camtasia/Loom), localization experience,
+   prior ad-tech or sales enablement background.
+   Indicative compensation: India — INR 18–28 L p.a.; US — USD 70–95K base. Recommend India-based hire
+   (Bangalore preferred for engineering proximity).
+
+
+
+
+ Phased Hiring Timeline
+
+  Timeframe             Action                                          Notes
+
+
+  Day 1–30              ID requisition opened; CD requisition opened    Sr L&D; Lead solo; uses AI tooling to maintain
+                                                                        velocity
+
+  Day 30–45             ID hired; CD hired                              Both productive by day 45; full 3-person
+                                                                        team operational; team rhythm established
+
+  Day 60–90             Steady-state operations                         No additional hiring required in Year 1; revisit
+                                                                        at Year-2 planning
+
+
+
+
+ What the Team Unlocks vs Solo IC
+
+
+
+
+Confidential · For Discussion                                                                                              16
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+  Outcome                                     Solo IC                     Lead + ID + 1 CD
+
+
+  RZR Academy relaunch in 30 days             Soft-launch 1 cohort only   Full global launch in 30 days
+
+  FTM cohort #1 in 90 days                    Slips to Day 120+           Day 90 commitment met
+
+  Content library size by Year-1 end          30–40 modules               120+ modules across 4 languages
+
+  Strategic work (measurement, LMS,           Crowded out by production   Sustained strategic altitude
+  leadership)
+
+  AI-native operating model                   Aspirational                Operational
+
+  Builder mindset (per JD)                    Degrades to coordinator     Sustained
+
+
+
+
+Confidential · For Discussion                                                                               17
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+ CHAPTER 09
+
+
+
+ RACI & Stakeholder Map
+ The Senior L&D; Lead is the single accountable owner of the L&D; function, but delivery is impossible
+ without active partnership with the People team, function heads, IT, Legal, and the ELT. This section maps
+ the stakeholders and assigns explicit RACI roles across the seven workstreams plus cross-cutting
+ activities.
+
+
+ Stakeholder Map
+
+  Stakeholder                             Role                       Influence      Engagement Cadence
+
+
+  Head of People                          Sponsor                    High           Weekly 1:1; monthly written update
+
+  HRBPs (US, India, APAC, EMEA)           Co-creator +               High           Bi-weekly sync; cohort intake
+                                          Co-deliverer                              coordination
+
+  ELT (CEO, CPO, CRO, CTO)                Approver +                 High           Monthly readout; quarterly deep-dive
+                                          Beneficiary
+
+  Function Heads (Eng, ML,                Co-creator + SME           High           Per-program scoping sessions;
+  Product, Sales, Finance)                source                                    quarterly review
+
+  IT / LMS Admin                          Implementer                Medium         LMS selection Q2; implementation Q3;
+                                                                                    BAU Q4+
+
+  Legal / Compliance                      Reviewer                   Medium         POSH content review; AI tooling
+                                                                                    privacy review; vendor contracts
+
+  Finance / Procurement                   Approver                   Medium         Budget approval; LMS contract;
+                                                                                    vendor onboarding
+
+  Internal Comms                          Amplifier                  Low            Launch announcements; cohort
+                                                                                    spotlights
+
+  Existing Managers (cohort               Beneficiary                High           Pre-program intake; post-program
+  participants)                                                                     feedback
+
+  BambooHR / Lattice /                    Enabler                    Medium         Integration scoping; data flow for
+  Greenhouse admins                                                                 enrollment + MEI
+
+
+
+
+ RACI Matrix
+ R = Responsible (does the work) · A = Accountable (owns the outcome, single) · C = Consulted · I = Informed
+
+
+                                Sr L&D;                       Head of               Function
+ Activity                                    ID          CD                 HRBPs                IT        Legal         ELT
+                                 Lead                         People                 Heads
+
+
+ Academy architecture            A/R         R           R      C             C        C          I          I            I
+
+ Academy content
+                                  A          R           R       I            C        C          I          I            I
+ production
+
+ FTM program design              A/R         R           R      C             C        I          I          I            I
+
+
+
+
+Confidential · For Discussion                                                                                                  18
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+                                Sr L&D;                      Head of              Function
+ Activity                                   ID      CD                 HRBPs                     IT         Legal      ELT
+                                 Lead                        People                Heads
+
+
+ FTM cohort delivery              A         R       R           I         C           I           I           I          I
+
+ Leadership pilot                A/R        R       R          C          I           I           I           I         C
+
+ LMS selection                   A/R        C       I          C          I           I          R            C          I
+
+ LMS implementation               C         R       I           I         I           I          A/R          I          I
+
+ Function-specific
+                                  A         C       R           I         C          R            I           I          I
+ training
+
+ Measurement
+                                 A/R        R       I          C          C           I           I           I          I
+ framework
+
+ MEI quarterly readout           A/R        C       I          C          C          C            I           I          I
+
+ Budget approval                  R         I       I          A          I           I           I           I         C
+
+ AI tooling privacy
+                                  R         I       I          C          I           I          C            A          I
+ review
+
+ Hiring decisions (ID/CD)         R         I       I          A          C           I           I           I          I
+
+ POSH training content            A         R       R          C          C           I           I           C          I
+
+
+ CHAPTER 10
+
+
+
+ KPI & Measurement Framework
+ Measurement is the third guiding principle. No program ships without a Kirkpatrick L1–L3 measurement
+ plan, and quarterly readouts to the ELT are non-negotiable. The framework has three layers: (a) the
+ Kirkpatrick L1–L3 baseline applied to every program; (b) program-level KPIs specific to Academy, FTM, and
+ Leadership; (c) the Manager Effectiveness Index — a composite quarterly metric that becomes the
+ language for manager quality at RZR.
+
+
+ Layer 1: Kirkpatrick L1–L3 Framework
+
+  Level             What Is Measured                Method                    Cadence                  Year-1 Target
+
+
+  L1 —              Post-session satisfaction,      24-hour                   After every              ≥ 4.0 / 5.0 average
+  Reaction          perceived relevance,            post-session survey       session
+                    facilitator effectiveness
+
+  L2 —              Knowledge uplift, skill         Pre/post knowledge        Start and end of         ≥ 25% uplift
+  Learning          acquisition, confidence gain    check                     every program            pre→post
+
+  L3 —              On-the-job behavior transfer,   30/60/90-day              30/60/90 days            ≥ 70% demonstrating
+  Behavior          manager-observed                follow-up;                post-program             target behavior
+                    application                     manager-rated
+
+
+
+
+Confidential · For Discussion                                                                                                19
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+  Level           What Is Measured                   Method                      Cadence              Year-1 Target
+
+
+  L4 —            Business outcomes: retention,      12-month cohort             Year-2 quarterly     Defined in Year-2
+  Results         performance, promotion             performance                                      spec
+  (Year 2)        velocity                           comparison
+
+
+
+
+ Layer 2: Program-Level KPIs
+
+  Program                  KPIs                                                      Year-1 Targets
+
+
+  RZR Academy              90-day new-hire retention; time-to-productivity;          90-day retention ≥ 90%;
+                           knowledge retention score; cultural alignment             time-to-productivity ↓ 25% vs
+                           score; completion rate; manager feedback on               baseline; knowledge retention ≥ 80%;
+                           new-hire readiness                                        completion ≥ 95%; manager readiness
+                                                                                     ≥ 4.0/5
+
+  First-Time Manager       Capability uplift pre/post; MEI score; 360 score;         Capability uplift ≥ 25%; MEI baseline
+                           promotion-readiness; team engagement delta                established; 360 score ≥ 4.0/5; team
+                                                                                     engagement delta ≥ +5pp vs control
+                                                                                     group
+
+  Leadership               HiPo retention; succession bench depth; internal          HiPo retention ≥ 95%; bench depth
+  Development              mobility; leader NPS; sponsor satisfaction                reported quarterly; internal mobility ≥
+                                                                                     20% of leadership openings filled
+                                                                                     internally; leader NPS ≥ 40
+
+  Function-Specific        Function-lead satisfaction; on-the-job application;       Function-lead satisfaction ≥ 4.2/5; ≥
+                           certification completion                                  70% application at 60 days;
+                                                                                     certification completion ≥ 80%
+
+
+
+
+ Layer 3: Manager Effectiveness Index (MEI) v1
+ The MEI is the single most important Year-1 measurement artifact. It is a composite quarterly metric that
+ combines four signals into one number per manager. MEI v1 will be baselined in Q1 (using cohort #1 of the
+ FTM program) and reported quarterly to the ELT. Year 2 evolves MEI into a decision-grade input for
+ promotion and compensation.
+
+
+                      40%                                     25%                           20%                    15%
+
+
+  Signal                   Weight      What It Captures
+
+
+  360-degree               40%         Direct reports + peers + manager ratings on 6 manager competencies (feedback,
+  feedback                             coaching, performance, conflict, psychological safety, hiring)
+
+  Team engagement          25%         Quarterly pulse engagement score for the manager's team (Lattice-sourced)
+
+  Performance              20%         Team performance distribution (calibration scores) — does the manager
+  outcomes                             differentiate performance fairly and develop their team?
+
+  Retention                15%         12-month team retention rate; weighted higher for involuntary regretted attrition
+
+
+
+
+Confidential · For Discussion                                                                                                  20
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+   MEI Operating Cadence
+   Quarterly — MEI calculated for every manager globally; aggregated to org-level rollup for ELT readout.
+   Bi-annually — Bottom-decile managers enter a targeted intervention track (bespoke coaching + focused L&D;
+   plan) co-designed with HRBP.
+   Year-2 evolution — MEI v2 weights adjust based on Year-1 data; MEI becomes a formal input to promotion
+   and compensation calibration.
+   Transparency — Managers see their own MEI; team-level aggregates are visible to skip-level leaders;
+   individual scores are not stack-ranked publicly.
+
+
+ CHAPTER 11
+
+
+
+ Indicative Budget & Risks
+ The Year-1 budget envelope is sized for a 3-person L&D; team operating across 8 offices with an AI-native
+ operating model. Ranges shown are low/mid/high — the low end assumes India-heavy hiring and a single
+ LMS region; the high end assumes US-heavy hiring, premium LMS tier, and full external program spend.
+ Final numbers depend on hiring decisions, LMS tier selected, and AI tooling negotiations. This is an
+ indicative envelope for the meeting, not a committed forecast.
+
+
+ Indicative Year-1 Budget (USD)
+
+  Category                                    Low    Mid       High       Notes
+
+
+  Headcount — 3 FTEs (Sr Lead + ID +          300K   380K      500K       Largest line; India-heavy mix
+  CD, blended US/India)                                                   recommended
+
+  LMS subscription (Docebo / Disprz /         45K    70K       110K       Scales with active learner count
+  360Learning tier)
+
+  Content authoring tools (Articulate /       8K     14K       20K        Team licenses + per-seat
+  Canva Pro / Notion Plus)
+
+  AI tooling (ChatGPT Enterprise / Claude     18K    30K       55K        Enterprise-tier; simulation platform
+  Team / simulation platform)                                             optional in Y1
+
+  External facilitators (leadership cohort,   25K    45K       75K        Leadership pilot + POSH delivery
+  POSH certified trainer)
+
+  Vendor programs (executive ed seats,        15K    30K       50K        INSEAD/ISB/Cornell seats for HiPo + L6+
+  certifications)
+
+  Localization & translation (4 languages,    12K    22K       35K        DeepL Pro + native reviewer per
+  human review)                                                           language
+
+  Measurement & analytics (survey tools,      6K     12K       20K        Google Forms free baseline; LMS-native
+  dashboard software)                                                     post-Q3
+
+  Misc & contingency (10–15%)                 25K    40K       60K        Travel, offsites, ad-hoc vendor work
+
+  Total Year-1 indicative                     454K   643K      925K
+
+
+
+
+Confidential · For Discussion                                                                                       21
+    RZR Senior L&D Lead Implementation Plan
+
+
+
+
+   Recommended ask: endorse the mid-range envelope of USD 643K for Year-1 planning. Reconfirm at Q1
+   readout once hiring and LMS selection are finalized.
+
+
+
+
+Confidential · For Discussion                                                                         22
+      RZR Senior L&D Lead Implementation Plan
+
+
+
+
+ Risk Register
+
+  I      Risk                             Likeli   Imp    Mitigation & Owner
+  D                                       hood     act
+
+
+  R      LMS procurement delay            M        H      Phased approach: contract by Q2, implementation Q3, go-live
+  1      (vendor selection, IT security                   Q4. Interim stack (Notion + Google Slides + BambooHR)
+         review, contract negotiation                     bridges any gap. Senior L&D; Lead owns; IT co-accountable.
+         slips)
+
+  R      Manager bandwidth for            H        H      Modular design (90-min sessions); async-first where
+  2      training time — managers                         possible; ELT sponsor message that manager dev is
+         resist 4 hrs/month                               non-negotiable. HRBP partnership for holdouts.
+
+  R      Regional cultural resistance     M        M      Regional overlay in Academy architecture; native-speaker
+  3      — content feels US-centric                       review on translations; regional HRBP as content co-creator.
+         in APAC markets
+
+  R      Content translation quality —    M        M      Human native-speaker review on every translated artifact
+  4      AI translation drifts in                         before publish; translation memory built up over Year 1.
+         tone/idiom
+
+  R      AI data privacy — PII or         L        H      Enterprise-tier zero-retention contracts only; explicit PII
+  5      performance data leaks into                      redaction protocol; Legal review on every AI tool onboarding.
+         public LLM
+
+  R      Manager sponsorship gaps         M        H      ELT-level expectation setting; MEI readout creates social
+  6      — function heads                                 pressure; function-head RACI on their own team's manager
+         deprioritize L&D; for billable                   dev.
+         work
+
+  R      ID/CD hiring market              H        M      Competitive comp bands (top of India market for ID);
+  7      competitiveness — India                          compelling role pitch (builder from zero, AI-native); referral
+         tech L&D; market is hot                          incentives.
+
+  R      Rebrand-related culture drift    M        M      Academy explicitly addresses rebrand story; leadership pilot
+  8      — post-Aarki identity still                      reinforces cultural narrative; Year-1 readout surfaces cultural
+         consolidating                                    health signals.
+
+
+
+
+ Decision Asks from This Meeting
+
+      Three Decisions to Walk Away With
+      1. Approve the team structure — 1 ID + 1 Content Developer, both hired in Q1, reporting to the Senior L&D;
+      Lead (3-person team).
+      2. Endorse the 30/60/90 milestones — Academy global relaunch by Day 30, FTM cohort #1 live by Day 90,
+      MEI v1 baseline by Day 90.
+      3. Confirm budget envelope — Year-1 indicative range USD 480K–780K (mid-recommended: USD 643K);
+      reconfirm at Q1 readout.
+
+
+ With these three decisions, the Senior L&D; Lead can start on Day 1 with a clear mandate, a defensible team
+ structure, and the resources to deliver against the JD's most urgent priorities. The next step after this
+ meeting is a 30-day operating plan that translates this blueprint into week-by-week execution — listening
+ tour schedule, Academy architecture spec, and ID/CD hiring kickoff.
+
+
+
+
+Confidential · For Discussion                                                                                               23
+
