@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowDown,
@@ -16,7 +17,7 @@ import { RzrLogo } from "./RzrLogo";
 
 const PILLARS = [
   {
-    id: "academy",
+    href: "/onboarding",
     label: "Onboarding",
     headline: "30 days to a globally consistent Day-1",
     desc: "A clickable RZR Academy prototype — 5 Foundation modules with embedded knowledge checks. Proves the builder mindset is real, not aspirational.",
@@ -24,7 +25,7 @@ const PILLARS = [
     icon: GraduationCap,
   },
   {
-    id: "ftm",
+    href: "/manager-capability",
     label: "Manager Capability",
     headline: "90 days to a measured manager cohort",
     desc: "A fully-built sample FTM module — Feedback Delivery — with a 7-slide deck, facilitator notes, L1 reaction survey, and L2 knowledge check. The production template every FTM module follows.",
@@ -32,7 +33,7 @@ const PILLARS = [
     icon: Users,
   },
   {
-    id: "lms",
+    href: "/lms-decision",
     label: "LMS Decision",
     headline: "A Q2 decision, ready to make",
     desc: "Five vendors scored against ten weighted criteria — with a primary recommendation, vendor drill-downs, and an eight-week procurement timeline. The decision is rehearsed, not deferred.",
@@ -40,7 +41,7 @@ const PILLARS = [
     icon: Layers,
   },
   {
-    id: "listening",
+    href: "/first-5-questions",
     label: "Listening Tour",
     headline: "Five questions that surface signal, not politeness",
     desc: "Each question is engineered to bypass polite answers and surface a specific business signal — the gap between what onboarding delivers and what the business actually needs.",
@@ -48,7 +49,7 @@ const PILLARS = [
     icon: MessagesSquare,
   },
   {
-    id: "risks",
+    href: "/risk-mitigation",
     label: "Risk Mitigation",
     headline: "The top three risks, named and mitigated",
     desc: "Each risk has a Day-1 mitigation, a Day-30 mitigation, a named escalation path, and a RACI owner. Risks are surfaced before they're felt — not after.",
@@ -138,24 +139,13 @@ export function Cover() {
             >
               <Button
                 size="lg"
-                onClick={() =>
-                  document.getElementById("academy")?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="bg-ink text-background hover:bg-ink/85 gap-2"
+                asChild
+                className="bg-ink text-background hover:bg-ink/85 gap-2 cursor-pointer"
               >
-                <ArrowRight className="size-4" />
-                Explore the portfolio
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() =>
-                  document.getElementById("risks")?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="gap-2"
-              >
-                See the risk plan
-                <ArrowDown className="size-4" />
+                <Link href="/onboarding">
+                  <ArrowRight className="size-4" />
+                  Start by Exploring Onboarding Demo
+                </Link>
               </Button>
             </motion.div>
 
@@ -206,16 +196,14 @@ export function Cover() {
                 <ul className="space-y-1.5">
                   {PILLARS.map((p, idx) => (
                     <motion.li
-                      key={p.id}
+                      key={p.href}
                       initial={{ opacity: 0, x: 8 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: 0.55 + idx * 0.06 }}
                     >
-                      <button
-                        onClick={() =>
-                          document.getElementById(p.id)?.scrollIntoView({ behavior: "smooth" })
-                        }
-                        className="group w-full text-left p-3 rounded-lg hover:bg-accent/80 transition-colors flex items-start gap-3"
+                      <Link
+                        href={p.href}
+                        className="group w-full text-left p-3 rounded-lg hover:bg-accent/80 transition-colors flex items-start gap-3 cursor-pointer"
                       >
                         <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-mint/15 to-mint/5 text-mint shrink-0">
                           <p.icon className="size-4" />
@@ -233,7 +221,7 @@ export function Cover() {
                             {p.headline}
                           </p>
                         </div>
-                      </button>
+                      </Link>
                     </motion.li>
                   ))}
                 </ul>
@@ -241,23 +229,6 @@ export function Cover() {
             </div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="mt-16 lg:mt-24 flex flex-col items-center gap-3"
-        >
-          <button
-            onClick={() =>
-              document.getElementById("academy")?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="text-[11px] font-mono text-muted-foreground hover:text-mint transition-colors flex items-center gap-2 tracking-[0.2em] uppercase"
-          >
-            <ArrowDown className={`size-3 ${reduced ? "" : "animate-bounce"}`} />
-            Scroll to explore
-          </button>
-        </motion.div>
       </div>
     </section>
   );

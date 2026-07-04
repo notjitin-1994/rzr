@@ -1,23 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowUp } from "lucide-react";
 import { RzrLogo } from "./RzrLogo";
 
 const NAV_ITEMS = [
-  { id: "academy", label: "Onboarding" },
-  { id: "ftm", label: "Manager Capability" },
-  { id: "lms", label: "LMS Decision" },
-  { id: "listening", label: "First 5 Questions" },
-  { id: "risks", label: "Risk Mitigation" },
+  { href: "/onboarding", label: "Onboarding" },
+  { href: "/manager-capability", label: "Manager Capability" },
+  { href: "/lms-decision", label: "LMS Decision" },
+  { href: "/first-5-questions", label: "First 5 Questions" },
+  { href: "/risk-mitigation", label: "Risk Mitigation" },
 ];
 
 export function TopNav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [active, setActive] = useState<string>("");
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -25,28 +27,6 @@ export function TopNav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]) setActive(visible[0].target.id);
-      },
-      { rootMargin: "-30% 0px -60% 0px", threshold: [0, 0.25, 0.5, 1] }
-    );
-    NAV_ITEMS.forEach((item) => {
-      const el = document.getElementById(item.id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
-
-  const handleNav = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    setMobileOpen(false);
-  };
 
   return (
     <header
@@ -59,28 +39,28 @@ export function TopNav() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          <Link
+            href="/"
             className="flex items-center gap-3 group"
-            aria-label="Back to top"
+            aria-label="Back to home"
           >
             <RzrLogo className="h-7 sm:h-8" />
-          </button>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-1">
             {NAV_ITEMS.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNav(item.id)}
+              <Link
+                key={item.href}
+                href={item.href}
                 className={cn(
                   "px-3 py-2 text-sm font-medium rounded-md transition-colors",
-                  active === item.id
+                  pathname === item.href
                     ? "text-mint bg-mint/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </nav>
 
@@ -109,18 +89,19 @@ export function TopNav() {
         {mobileOpen && (
           <nav className="md:hidden border-t border-border/60 py-3 space-y-1">
             {NAV_ITEMS.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNav(item.id)}
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
                 className={cn(
                   "block w-full text-left px-3 py-2.5 text-sm font-medium rounded-md transition-colors",
-                  active === item.id
+                  pathname === item.href
                     ? "text-mint bg-mint/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </nav>
         )}
