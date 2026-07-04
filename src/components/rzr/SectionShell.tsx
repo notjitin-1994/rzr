@@ -33,7 +33,7 @@ export function SectionShell({
     <section
       id={id}
       className={cn(
-        "scroll-mt-nav py-20 sm:py-28 border-t border-border/60 first:border-t-0",
+        "scroll-mt-nav pt-24 pb-16 border-t border-border/60 first:border-t-0",
         className
       )}
     >

@@ -5,9 +5,7 @@ import { PageLayout } from "@/components/rzr/PageLayout";
 export default function RiskMitigationPage() {
   return (
     <PageLayout>
-      <div className="pt-12 pb-8">
-        <RisksSection />
-      </div>
+      <RisksSection />
     </PageLayout>
   );
 }

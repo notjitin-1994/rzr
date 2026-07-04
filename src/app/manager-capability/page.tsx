@@ -5,9 +5,7 @@ import { PageLayout } from "@/components/rzr/PageLayout";
 export default function ManagerCapabilityPage() {
   return (
     <PageLayout>
-      <div className="pt-12 pb-8">
-        <FtmSection />
-      </div>
+      <FtmSection />
     </PageLayout>
   );
 }
