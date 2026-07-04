@@ -141,7 +141,7 @@ export const RzrWelcomeVideo: React.FC = () => {
     <AbsoluteFill style={{ background: INK, fontFamily: "Inter, system-ui, sans-serif" }}>
       {/* === Background music — ambient pad, loops entire duration === */}
       <Audio
-        src={staticFile("audio/rzr-ambient.mp3")}
+        src={staticFile("audio/ambient.wav")}
         volume={(f) => {
           // Fade in over first 2s, hold, fade out over last 2s
           const fadeIn = interpolate(f, [0, 60], [0, 0.35], { extrapolateRight: "clamp" });
