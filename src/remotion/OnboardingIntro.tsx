@@ -65,7 +65,7 @@ export const OnboardingIntroVideo: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: INK, overflow: "hidden", fontFamily: "Inter, system-ui, sans-serif" }}>
       {/* Background score and voiceover */}
-      <Audio src={staticFile("audio/ambient.mp3")} loop />
+      <Audio src={staticFile("audio/ambient.wav")} loop />
       <Audio src={staticFile("audio/voiceover.mp3")} />
       
       {/* Brand gradient orb radial */}
