@@ -40,6 +40,7 @@ import {
   Heart,
   Play,
   Video,
+  MessageCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -124,8 +125,22 @@ export function FtmSection() {
           <Card className="overflow-hidden border-border/80">
             {/* Slide viewport */}
             <div className="relative aspect-[16/10] sm:aspect-[16/9] bg-ink text-background overflow-hidden">
-              <div className="absolute inset-0 bg-grid opacity-10" />
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-mint/20 rounded-full blur-3xl" />
+              {/* Background image with overlay */}
+              {slide.backgroundImage && (
+                <>
+                  <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: `url(${slide.backgroundImage})` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/60" />
+                </>
+              )}
+              {!slide.backgroundImage && (
+                <>
+                  <div className="absolute inset-0 bg-grid opacity-10" />
+                  <div className="absolute -top-20 -right-20 w-64 h-64 bg-mint/20 rounded-full blur-3xl" />
+                </>
+              )}
 
               <AnimatePresence mode="wait">
                 <motion.div

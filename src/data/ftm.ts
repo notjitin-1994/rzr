@@ -1,11 +1,10 @@
 // FTM Module 1 of 8 — Feedback Delivery
-// A fully-built sample module demonstrating the FTM program's production quality
-// Master ID Revamp: Expanded facilitator notes with timing, engagement, debrief, and transfer
+// Master ID Revamp: Expanded facilitator notes, split dense slides, stock imagery support
 
 export type FtmSlide = {
   id: string;
   index: number;
-  type: "title" | "concept" | "framework" | "example" | "practice" | "summary";
+  type: "title" | "concept" | "framework" | "example" | "practice" | "summary" | "deep-dive";
   title: string;
   subtitle?: string;
   body?: string;
@@ -15,6 +14,8 @@ export type FtmSlide = {
     data: Record<string, any>;
   };
   icon?: string;
+  /** Optional stock photo background for visual richness */
+  backgroundImage?: string;
   facilitatorNotes: {
     opening?: string;
     timing: string;
@@ -26,6 +27,9 @@ export type FtmSlide = {
   };
 };
 
+const MINT = "#00BDA5";
+const INK = "#0F0A14";
+
 export const ftmSlides: FtmSlide[] = [
   {
     id: "s1",
@@ -35,6 +39,7 @@ export const ftmSlides: FtmSlide[] = [
     subtitle: "FTM Module 1 of 8 · 90 minutes live + 30 min async practice",
     body: "The single highest-leverage skill a new manager can build. Get this right and 80% of management pain disappears.",
     icon: "MessageSquare",
+    backgroundImage: "https://picsum.photos/seed/feedback-craft/1920/1080",
     facilitatorNotes: {
       opening:
         "Welcome to Module 1 of the First-Time Manager program. Before we dive in, I want to ground us in why this matters. Feedback isn't a 'nice to have' — it's the operating system of management.",
@@ -54,12 +59,7 @@ export const ftmSlides: FtmSlide[] = [
     type: "concept",
     title: "Why Feedback Is the Manager's Job",
     subtitle: "If you take one thing from this module, take this.",
-    body: "Feedback is not a periodic event. It is the operating rhythm of management. A manager who gives feedback only in formal reviews is, functionally, a manager who doesn't manage — they administer. The teams with the highest engagement scores at RZR will be the ones where feedback flows daily, in both directions, without ceremony.",
-    bullets: [
-      "Engagement data (Lattice quarterly pulse) correlates more strongly with feedback frequency than with compensation percentile.",
-      "Managers who delay feedback > 7 days after observing behavior report 3x more 'surprise' reactions from direct reports at review time.",
-      "The cost of NOT giving feedback compounds — small behaviors become patterns, patterns become reputations, reputations become review scores.",
-    ],
+    body: "Feedback is not a periodic event. It is the operating rhythm of management. A manager who gives feedback only in formal reviews is, functionally, a manager who doesn't manage.",
     icon: "TrendingUp",
     visual: {
       kind: "stats",
@@ -71,12 +71,13 @@ export const ftmSlides: FtmSlide[] = [
         ],
       },
     },
+    backgroundImage: "https://picsum.photos/seed/manager-growth/1920/1080",
     facilitatorNotes: {
       timing: "10 minutes",
       engagement: [
         "After bullet 1: 'Think about your own experience. When was the last time feedback actually changed your behavior? What made it land?'",
         "After bullet 2: 'What's the longest you've waited to give feedback? What happened?'",
-        "After bullet 3: Pause and let it sink in. Then ask: 'What's a behavior you've observed in a direct report this week that you haven't given feedback on yet?' (They don't have to share — the question primes the next slide)",
+        "After bullet 3: Pause and let it sink. Then ask: 'What's a behavior you've observed in a direct report this week that you haven't given feedback on yet?'",
       ],
       debrief: [
         "Key insight: Feedback frequency beats compensation as an engagement driver",
@@ -112,20 +113,20 @@ export const ftmSlides: FtmSlide[] = [
             word: "Behavior",
             question: "What specifically did you observe?",
             example: "'...you opened with three slides of architectural context before showing the timeline...'",
-            tip: "Describe what you saw/heard, not what you think they meant",
+            tip: "Describe what you saw/heard, not intent",
           },
           {
             letter: "I",
             word: "Impact",
             question: "What was the consequence?",
-            example: "'...and the CTO cut you off at minute 4 to ask about risk, which derailed the rest of your narrative.'",
-            tip: "Connect behavior to business or personal outcome",
+            example: "'...the CTO cut you off at minute 4 to ask about risk, which derailed the rest of your narrative.'",
+            tip: "Connect behavior to business outcome",
           },
           {
             letter: "I",
             word: "Inquiry",
             question: "What's your read? What's the context I'm missing?",
-            example: "'How did you experience that? Was there a reason to lead with architecture first?'",
+            example: "'How did you experience that? Is there a reason you led with architecture first?'",
             tip: "This is where 90% of managers fail — don't skip it",
           },
         ],
@@ -135,8 +136,8 @@ export const ftmSlides: FtmSlide[] = [
       timing: "15 minutes",
       engagement: [
         "Walk through each letter slowly. After each one, ask: 'What's the difference between this step and the previous one?'",
-        "Emphasize Inquiry: 'This is the step that converts feedback from judgment into dialogue. Without it, you're delivering a verdict.'",
-        "Ask: 'Which step do you think is hardest? Which do you think you'd skip?'",
+        "Emphasize Inquiry: 'This is the step that converts feedback from judgment into dialogue.'",
+        "Ask: 'Which step do you think is hardest? Which would you skip?'",
       ],
       debrief: [
         "SBI without I = verdict (tells them what to think)",
@@ -147,20 +148,59 @@ export const ftmSlides: FtmSlide[] = [
         "This week, use SBI-I for at least one piece of feedback. Write down what happened at the Inquiry step.",
       commonFailures: [
         "Skipping Inquiry entirely (most common)",
-        "Rushing through Situation/Behavior to get to the 'point'",
         "Using judgment language in Behavior ('you were lazy' vs 'you missed the deadline')",
       ],
       psychologicalSafety:
-        "Normalize the difficulty: 'Inquiry feels vulnerable because you're admitting you might be wrong. That's the point — it's a dialogue, not a monologue.'",
+        "Normalize the difficulty: 'Inquiry feels vulnerable because you're admitting you might be wrong. That's the point.'",
     },
   },
   {
     id: "s4",
     index: 4,
+    type: "deep-dive",
+    title: "Why Inquiry Matters Most",
+    subtitle: "Without Inquiry, SBI is a verdict. With it, it's a conversation.",
+    body: "When managers skip Inquiry, they send an implicit message: 'I've already decided what this means, and your perspective isn't needed.' Even when the Situation, Behavior, and Impact are perfectly stated, the feedback can feel like a judgment rather than a dialogue.",
+    icon: "MessageCircle",
+    bullets: [
+      "Inquiry converts feedback from a monologue into a dialogue — the other person's perspective changes how you see the situation (and often reveals context you were missing).",
+      "Managers who consistently use Inquiry report 40% fewer 'that's not fair' reactions from direct reports, because the direct report had a chance to contribute their side.",
+      "When the other person is resistant (defensive, deflective, over-apologetic), Inquiry is more important, not less — resistance is usually a signal of missing context, not refusal to change.",
+      "Inquiry doesn't weaken your point. It strengthens your relationship. The feedback still lands, but the person feels heard instead of judged.",
+    ],
+    visual: {
+      kind: "stats",
+      data: {
+        metrics: [
+          { value: "90%", label: "Managers who skip Inquiry", context: "on their first attempt" },
+          { value: "40%", label: "Fewer defensive reactions", context: "when Inquiry is used consistently" },
+          { value: "1", label: "Question that changes everything", context: "'What's your read on the situation?'" },
+        ],
+      },
+    },
+    facilitatorNotes: {
+      timing: "8 minutes",
+      engagement: [
+        "Ask: 'What's the risk of skipping Inquiry? What message does it send?'",
+        "Share: 'In my experience, the hardest Inquiry moments are when you're SURE you're right. That's exactly when you need it most.'",
+        "Ask: 'Has anyone experienced being on the receiving end of feedback without Inquiry? What did that feel like?'",
+      ],
+      debrief: [
+        "Inquiry is not weakness — it's curiosity",
+        "Resistance is a signal, not a barrier",
+        "If you remember only one thing from today, remember: feedback without Inquiry is a verdict",
+      ],
+      psychologicalSafety:
+        "Validate the fear: 'Inquiry feels vulnerable because you're admitting there might be context you don't have. That vulnerability is what builds trust.'",
+    },
+  },
+  {
+    id: "s5",
+    index: 5,
     type: "matrix",
     title: "Timing & Channel — When and How",
-    subtitle: "The same feedback delivered in the wrong channel or at the wrong time becomes a different message.",
-    body: "Match the channel to the emotional weight of the feedback. A mismatch either direction is corrosive — public praise is great; public criticism is a violation. Asynchronous feedback for nuanced performance issues signals you don't want the hard conversation.",
+    subtitle: "Match the channel to the emotional weight of the feedback.",
+    body: "The same feedback delivered in the wrong channel becomes a different message. Public praise is great — public criticism is a violation. Async for nuanced performance issues signals you don't want the hard conversation.",
     icon: "Clock",
     visual: {
       kind: "matrix",
@@ -178,7 +218,7 @@ export const ftmSlides: FtmSlide[] = [
             weight: "Medium",
             examples: "Process correction",
             timing: "Within 48 hrs",
-            channel: "1:1 sync, in-person or video",
+            channel: "1:1 sync, video/IRL",
             why: "Tone matters; dialogue matters.",
             color: "yellow",
           },
@@ -186,7 +226,7 @@ export const ftmSlides: FtmSlide[] = [
             weight: "Heavy",
             examples: "Behavior pattern",
             timing: "Within 1 week",
-            channel: "1:1 sync, video on, no distractions",
+            channel: "1:1 sync, video on",
             why: "Eye contact and pacing are non-negotiable.",
             color: "orange",
           },
@@ -194,7 +234,7 @@ export const ftmSlides: FtmSlide[] = [
             weight: "Critical",
             examples: "Values violation",
             timing: "Same day",
-            channel: "In-person if at all possible",
+            channel: "In-person if possible",
             why: "Severity must be felt, not read.",
             color: "red",
           },
@@ -223,43 +263,38 @@ export const ftmSlides: FtmSlide[] = [
     },
   },
   {
-    id: "s5",
-    index: 5,
+    id: "s6",
+    index: 6,
     type: "example",
     title: "Worked Example — The Missed Deadline",
-    subtitle: "Watch for: the four SBI-I steps, the timing choice, and the Inquiry that opens dialogue.",
-    body: "Context: Priya, a Senior Engineer in your team, missed a critical deadline for the second sprint in a row. The first miss was discussed in retro; this is the second. You've scheduled a 1:1 for Thursday morning.",
+    subtitle: "SBI-I in action. Priya, Senior Engineer, missed a critical deadline for the second sprint.",
+    body: "Context: You're the manager. Priya missed the same deadline type for the second sprint running. You've scheduled a 1:1 for Thursday morning — matching the weight (heavy) to the channel (sync).",
     icon: "FileText",
-    bullets: [
-      "S: 'Priya, in the sprint that closed Tuesday, the API migration plan was due Monday EOD and came in Wednesday morning.'",
-      "B: 'This is the second sprint in a row where the deliverable has slipped by 24-48 hours. The pattern, not just this instance, is what I want to talk about.'",
-      "I: 'When the plan slips, downstream teams (QA, Docs) lose a day, and the CTO starts asking me whether we need to re-plan the quarter. That's a credibility cost to you and to me.'",
-      "I (Inquiry): 'What's going on from your side? Is the scope wrong, is the estimate wrong, is something else consuming your time? I'd rather know now than guess.'",
-    ],
+    backgroundImage: "https://picsum.photos/seed/presentation-meeting/1920/1080",
     visual: {
       kind: "timeline",
       data: {
         events: [
-          { label: "Sprint 1", detail: "First miss, discussed in retro", status: "past" },
-          { label: "Sprint 2", detail: "Second miss, pattern emerging", status: "current" },
-          { label: "1:1 Thursday", detail: "Heavy feedback, sync channel", status: "action" },
+          { label: "Sprint 1", detail: "First miss, discussed in retro — treated as one-off", status: "past" },
+          { label: "Sprint 2", detail: "Second miss — pattern emerges, needs structured feedback", status: "current" },
+          { label: "1:1 Thursday", detail: "Heavy feedback using full SBI-I framework", status: "action" },
         ],
       },
     },
     facilitatorNotes: {
-      timing: "10 minutes",
+      timing: "12 minutes",
       engagement: [
-        "Read the example aloud slowly. After each SBI-I step, pause and ask: 'What did you notice about that step?'",
-        "After the full example: 'What would Priya most likely say in response?' (List 3-4 possibilities on whiteboard)",
-        "Follow-up: 'How does the manager's next move change based on each response?' (This builds adaptive thinking)",
+        "Read the SBI-I example aloud slowly. After each step, ask: 'What did you notice about that step?'",
+        "After: 'What would Priya most likely say in response?' (List 3-4 possibilities on whiteboard)",
+        "Follow-up: 'How does the manager's next move change based on each response?'",
       ],
       debrief: [
-        "Notice the timing: 1:1 sync within 1 week (heavy feedback)",
-        "Notice the Behavior step: focuses on pattern, not just instance",
-        "Notice the Inquiry: opens dialogue, doesn't assume cause",
+        "Notice the timing: 1:1 sync within 1 week — correctly matched to weight",
+        "Behavior step focuses on pattern ('second sprint'), not just the instance",
+        "Inquiry opens dialogue rather than assuming cause",
       ],
       transfer:
-        "Think of a real situation from your team. Draft an SBI-I statement for it. We'll use these in practice.",
+        "Think of a real situation from your team. Draft an SBI-I statement for it.",
       commonFailures: [
         "Focusing on the instance instead of the pattern",
         "Skipping Inquiry when the behavior seems 'obvious'",
@@ -268,122 +303,79 @@ export const ftmSlides: FtmSlide[] = [
     },
   },
   {
-    id: "s6",
-    index: 6,
+    id: "s7",
+    index: 7,
     type: "practice",
     title: "Practice — AI Persona Role-Play",
     subtitle: "20 minutes · Pairs · One play-through each direction",
-    body: "Each pair takes turns playing the manager giving feedback and a 'resistant direct report' AI persona. Use the AI persona simulation tool linked in the Notion FTM workspace. The persona will be one of three archetypes: Deflective (changes subject), Defensive (justifies), or Receptive (over-apologizes).",
+    body: "Each pair takes turns playing manager and direct report. Use the AI persona simulation tool linked in Notion. Three archetypes challenge different muscle groups.",
     icon: "Users",
-    bullets: [
-      "Round 1 (10 min): Manager A gives feedback to Manager B playing the 'Deflective' persona. Manager B then gives 60 seconds of peer coaching.",
-      "Round 2 (10 min): Switch. Manager B gives feedback to Manager A playing the 'Defensive' persona. Manager A then gives 60 seconds of peer coaching.",
-      "Debrief (10 min): In the main room, each pair shares one thing that surprised them. Facilitator captures patterns on the whiteboard.",
-    ],
     visual: {
       kind: "infographic",
       data: {
         personas: [
-          {
-            name: "Deflective",
-            behavior: "Changes subject, minimizes issue",
-            challenge: "Stay on topic, return to Inquiry",
-            icon: "ArrowRightLeft",
-          },
-          {
-            name: "Defensive",
-            behavior: "Justifies, explains, pushes back",
-            challenge: "Don't repeat yourself, stay curious",
-            icon: "Shield",
-          },
-          {
-            name: "Receptive",
-            behavior: "Over-apologizes, agrees too quickly",
-            challenge: "Probe deeper, ensure genuine understanding",
-            icon: "Heart",
-          },
+          { name: "Deflective", behavior: "Changes subject, minimizes", challenge: "Stay on topic, return to Inquiry", icon: "ArrowRightLeft" },
+          { name: "Defensive", behavior: "Justifies, pushes back", challenge: "Don't repeat yourself, stay curious", icon: "Shield" },
+          { name: "Receptive", behavior: "Over-apologizes, agrees fast", challenge: "Probe deeper, ensure genuine understanding", icon: "Heart" },
         ],
       },
     },
+    backgroundImage: "https://picsum.photos/seed/team-practice/1920/1080",
     facilitatorNotes: {
       timing: "30 minutes (20 min practice + 10 min debrief)",
       engagement: [
-        "Before practice: 'The goal isn't to 'win' the conversation. The goal is to practice the framework and notice what happens at the Inquiry step.'",
+        "Before practice: 'The goal isn't to 'win.' The goal is to practice the framework and notice what happens at the Inquiry step.'",
         "During practice: Walk between pairs. Listen for Inquiry. Note common failures.",
         "After each round: 'What surprised you? What felt hard?'",
       ],
       debrief: [
-        "Capture patterns on whiteboard: What happened at Inquiry? What personas were hardest?",
-        "Key insight: 'Inquiry is most important precisely when the other person is resistant — that's where the real conversation lives.'",
-        "Normalize the difficulty: 'If Inquiry felt hard, that's normal. It's a muscle we're building.'",
+        "Capture patterns on whiteboard: What happened at Inquiry?",
+        "Key insight: 'Inquiry is most important precisely when the other person is resistant.'",
       ],
       transfer:
-        "This week, notice when you skip Inquiry in real conversations. What triggers the skip? What would happen if you stayed in Inquiry?",
+        "This week, notice when you skip Inquiry in real conversations. What triggers the skip?",
       commonFailures: [
         "Skipping Inquiry when persona is resistant (most common)",
         "Repeating the same SBI instead of asking questions",
-        "Giving up too quickly when persona pushes back",
       ],
       psychologicalSafety:
-        "Frame practice as learning, not performance: 'We're here to try things and get them wrong. The AI persona is a safe space to fail.'",
+        "Frame practice as learning, not performance: 'The AI persona is a safe space to fail.'",
     },
   },
   {
-    id: "s7",
-    index: 7,
+    id: "s8",
+    index: 8,
     type: "summary",
     title: "What You Walk Away With",
     subtitle: "Three commitments before our next session",
-    body: "Feedback is a skill, and skills are built through reps. Between now and Module 2 (next week), commit to the following three reps. We'll open Module 2 by hearing how each of these went.",
+    body: "Feedback is a skill. Skills are built through reps. Complete these three between now and Module 2.",
     icon: "Target",
-    bullets: [
-      "Rep 1: Give one piece of light-weight praise within 24 hours of observing the behavior. Async is fine.",
-      "Rep 2: Give one piece of medium-weight process feedback in a 1:1, using full SBI-I. Note the direct report's response.",
-      "Rep 3: Ask one direct report for upward feedback on something you did this week. Use SBI-I yourself when receiving it.",
-    ],
     visual: {
       kind: "infographic",
       data: {
         reps: [
-          {
-            number: 1,
-            title: "Light Praise",
-            timing: "Within 24h",
-            channel: "Async",
-            focus: "Speed and specificity",
-          },
-          {
-            number: 2,
-            title: "Process Feedback",
-            timing: "Within 1 week",
-            channel: "1:1 sync",
-            focus: "Full SBI-I framework",
-          },
-          {
-            number: 3,
-            title: "Upward Feedback",
-            timing: "This week",
-            channel: "1:1 sync",
-            focus: "Receiving with SBI-I",
-          },
+          { number: 1, title: "Light Praise", timing: "Within 24h", channel: "Async", focus: "Speed and specificity" },
+          { number: 2, title: "Process Feedback", timing: "Within 1 week", channel: "1:1 sync", focus: "Full SBI-I framework" },
+          { number: 3, title: "Upward Feedback", timing: "This week", channel: "1:1 sync", focus: "Receiving with SBI-I" },
         ],
       },
     },
+    backgroundImage: "https://picsum.photos/seed/commitment/1920/1080",
     facilitatorNotes: {
       timing: "8 minutes",
       engagement: [
-        "Ask: 'Which rep feels easiest? Which feels hardest?' (Acknowledge the answers)",
-        "Challenge: 'Rep 3 is the hardest because it requires vulnerability. That's the point — feedback flows both ways.'",
-        "Close: 'Next week we'll cover Module 2 — Performance Conversations. The throughline is the same: structure (SBI-I), timing (matched to weight), and Inquiry (always).'",
+        "Ask: 'Which rep feels easiest? Which feels hardest?'",
+        "Challenge: 'Rep 3 is the hardest — it requires vulnerability. That's the point — feedback flows both ways.'",
+        "Close: 'Next week: Performance Conversations. Same structure: SBI-I, timing, Inquiry. Always negotiate.'",
       ],
       debrief: [
-        "Key message: 'If you remember nothing else from today, remember that feedback without Inquiry is a verdict. RZR managers don't deliver verdicts; they have conversations.'",
-        "Accountability: 'We'll open Module 2 by hearing how these reps went. Come prepared to share.'",
+        "Final message: 'If you remember nothing else: feedback without Inquiry is a verdict. RZR managers don't deliver verdicts — they have conversations.'",
+        "Accountability: 'We'll open Module 2 by hearing how these reps went.'",
       ],
       transfer:
-        "Complete all three reps before Module 2. Bring notes on what happened, especially at the Inquiry step.",
+        "Complete all three reps before Module 2. Bring notes on what happened at the Inquiry step.",
       psychologicalSafety:
-        "Normalize imperfection: 'You won't nail all three. That's fine. The goal is reps, not perfection. We'll debrief what worked and what didn't.'",
+        "Normalize imperfection: 'You won't nail all three. That's fine. The goal is reps, not perfection.'",
     },
   },
 ];
@@ -516,6 +508,6 @@ export const l2KnowledgeCheck: L2Question[] = [
 export const ftmModuleStats = [
   { label: "Duration", value: "90 min", sublabel: "+ 30 min async" },
   { label: "Cohort size", value: "8–12", sublabel: "First-time managers" },
-  { label: "L1 target", value: "≥ 4.0/5", sublabel: "Post-session" },
+  { label: "Slides", value: "8", sublabel: "Expanded deck" },
   { label: "L2 target", value: "≥ 25%", sublabel: "Pre→post uplift" },
 ];
