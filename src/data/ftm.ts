@@ -39,7 +39,7 @@ export const ftmSlides: FtmSlide[] = [
     subtitle: "FTM Module 1 of 8 · 90 minutes live + 30 min async practice",
     body: "The single highest-leverage skill a new manager can build. Get this right and 80% of management pain disappears.",
     icon: "MessageSquare",
-    backgroundImage: "https://picsum.photos/seed/feedback-craft/1920/1080",
+    backgroundImage: "https://picsum.photos/seed/leadership-feedback/1920/1080",
     facilitatorNotes: {
       opening:
         "Welcome to Module 1 of the First-Time Manager program. Before we dive in, I want to ground us in why this matters. Feedback isn't a 'nice to have' — it's the operating system of management.",
@@ -158,40 +158,34 @@ export const ftmSlides: FtmSlide[] = [
     id: "s4",
     index: 4,
     type: "deep-dive",
-    title: "Why Inquiry Matters Most",
+    title: "Inquiry: The Step Most Managers Skip",
     subtitle: "Without Inquiry, SBI is a verdict. With it, it's a conversation.",
-    body: "When managers skip Inquiry, they send an implicit message: 'I've already decided what this means, and your perspective isn't needed.' Even when the Situation, Behavior, and Impact are perfectly stated, the feedback can feel like a judgment rather than a dialogue.",
     icon: "MessageCircle",
-    bullets: [
-      "Inquiry converts feedback from a monologue into a dialogue — the other person's perspective changes how you see the situation (and often reveals context you were missing).",
-      "Managers who consistently use Inquiry report 40% fewer 'that's not fair' reactions from direct reports, because the direct report had a chance to contribute their side.",
-      "When the other person is resistant (defensive, deflective, over-apologetic), Inquiry is more important, not less — resistance is usually a signal of missing context, not refusal to change.",
-      "Inquiry doesn't weaken your point. It strengthens your relationship. The feedback still lands, but the person feels heard instead of judged.",
-    ],
     visual: {
       kind: "stats",
       data: {
         metrics: [
-          { value: "90%", label: "Managers who skip Inquiry", context: "on their first attempt" },
-          { value: "40%", label: "Fewer defensive reactions", context: "when Inquiry is used consistently" },
-          { value: "1", label: "Question that changes everything", context: "'What's your read on the situation?'" },
+          { value: "90%", label: "Skip Inquiry", context: "on first attempt" },
+          { value: "40%", label: "Fewer defensive reactions", context: "when Inquiry is used" },
+          { value: "1", label: "Question changes everything", context: "'What's your read?'" },
         ],
       },
     },
+    backgroundImage: "https://picsum.photos/seed/conversation-dialogue/1920/1080",
     facilitatorNotes: {
       timing: "8 minutes",
       engagement: [
         "Ask: 'What's the risk of skipping Inquiry? What message does it send?'",
-        "Share: 'In my experience, the hardest Inquiry moments are when you're SURE you're right. That's exactly when you need it most.'",
-        "Ask: 'Has anyone experienced being on the receiving end of feedback without Inquiry? What did that feel like?'",
+        "Share: 'The hardest Inquiry moments are when you're SURE you're right. That's when you need it most.'",
+        "Ask: 'Has anyone experienced feedback without Inquiry? What did that feel like?'",
       ],
       debrief: [
         "Inquiry is not weakness — it's curiosity",
         "Resistance is a signal, not a barrier",
-        "If you remember only one thing from today, remember: feedback without Inquiry is a verdict",
+        "If you remember only one thing: feedback without Inquiry is a verdict",
       ],
       psychologicalSafety:
-        "Validate the fear: 'Inquiry feels vulnerable because you're admitting there might be context you don't have. That vulnerability is what builds trust.'",
+        "Validate the fear: 'Inquiry feels vulnerable because you're admitting there might be context you don't have. That vulnerability builds trust.'",
     },
   },
   {

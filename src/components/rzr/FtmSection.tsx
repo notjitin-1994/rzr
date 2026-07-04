@@ -149,7 +149,7 @@ export function FtmSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="relative h-full flex flex-col p-6 sm:p-10 lg:p-14"
+                  className="relative h-full flex flex-col p-6 sm:p-10 lg:p-10 overflow-hidden"
                 >
                   {/* Slide header */}
                   <div className="flex items-center gap-3 mb-4 sm:mb-6">
@@ -169,7 +169,7 @@ export function FtmSection() {
                   </div>
 
                   {/* Slide content */}
-                  <div className="flex-1 flex flex-col justify-center max-w-4xl">
+                    <div className="flex-1 flex flex-col justify-center max-w-4xl overflow-hidden min-h-0">
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-balance leading-tight">
                       {slide.title}
                     </h3>
@@ -546,7 +546,7 @@ export function FtmSection() {
           </Card>
 
           {/* Slide thumbnails */}
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
             {ftmSlides.map((s, idx) => {
               const SlideIcon = s.icon ? iconMap[s.icon] : null;
               return (

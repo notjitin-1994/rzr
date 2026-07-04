@@ -33,6 +33,7 @@ type Badge = {
   id: string;
   name: string;
   description: string;
+  hint: string;
   icon: any;
   check: (state: GamificationState) => boolean;
   category: "milestone" | "exploration" | "mastery" | "engagement";
@@ -52,6 +53,7 @@ const BADGES: Badge[] = [
     id: "first-steps",
     name: "First Steps",
     description: "Complete your first module",
+    hint: "Complete 1 module",
     icon: Star,
     category: "milestone",
     check: (s) => s.completedModules.size >= 1,
@@ -60,6 +62,7 @@ const BADGES: Badge[] = [
     id: "foundation-builder",
     name: "Foundation Builder",
     description: "Complete all 5 Onboarding modules",
+    hint: "Complete all 5 modules",
     icon: Trophy,
     category: "milestone",
     check: (s) => s.completedModules.size >= 5,
@@ -68,6 +71,7 @@ const BADGES: Badge[] = [
     id: "knowledge-seeker",
     name: "Knowledge Seeker",
     description: "Answer all knowledge checks correctly",
+    hint: "Get all 5 checks correct",
     icon: GraduationCap,
     category: "mastery",
     check: (s) => s.totalChecks >= 5 && s.correctChecks === s.totalChecks,
@@ -76,6 +80,7 @@ const BADGES: Badge[] = [
     id: "explorer",
     name: "Explorer",
     description: "View all infographic types",
+    hint: "View all 6 scene types",
     icon: Compass,
     category: "exploration",
     check: (s) => s.viewedTypes.size >= 6,
@@ -84,6 +89,7 @@ const BADGES: Badge[] = [
     id: "voice-explorer",
     name: "Voice Explorer",
     description: "Use voiceover narration",
+    hint: "Use the voiceover feature",
     icon: Headphones,
     category: "engagement",
     check: (s) => s.voiceoverUsed,
@@ -92,6 +98,7 @@ const BADGES: Badge[] = [
     id: "video-viewer",
     name: "Video Watcher",
     description: "Watch the Onboarding intro video",
+    hint: "Watch the intro video",
     icon: Video,
     category: "engagement",
     check: (s) => s.videoWatched,
@@ -100,6 +107,7 @@ const BADGES: Badge[] = [
     id: "fast-track",
     name: "Fast Track",
     description: "Perfect score on all knowledge checks",
+    hint: "Get perfect scores on all checks",
     icon: Zap,
     category: "mastery",
     check: (s) => s.totalChecks >= 5 && s.correctChecks >= 5,
@@ -114,7 +122,6 @@ export function AcademySection() {
   const [activeTrackId, setActiveTrackId] = useState("onboarding");
   const [activeModuleIndex, setActiveModuleIndex] = useState<number | null>(null);
   const [completedModules, setCompletedModules] = useState<Set<string>>(new Set());
-  const [showAchievements, setShowAchievements] = useState(false);
   const [newBadge, setNewBadge] = useState<string | null>(null);
 
   // Gamification state
@@ -252,10 +259,7 @@ export function AcademySection() {
         )}
 
         {/* Badges summary */}
-        <button
-          onClick={() => setShowAchievements(!showAchievements)}
-          className="shrink-0 p-4 rounded-lg border border-border hover:border-mint/40 hover:bg-mint/[0.03] transition-all text-left"
-        >
+        <div className="shrink-0 p-4 rounded-lg border border-mint/30 bg-mint/[0.03]">
           <div className="flex items-center gap-2 mb-1">
             <Trophy className="size-4 text-mint" />
             <span className="text-xs font-semibold">Achievements</span>
@@ -264,73 +268,73 @@ export function AcademySection() {
             {earnedCount}
             <span className="text-xs text-muted-foreground font-normal"> / {totalBadges}</span>
           </div>
-        </button>
+        </div>
       </div>
 
-      {/* Achievements panel */}
-      <AnimatePresence>
-        {showAchievements && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden mb-8"
-          >
-            <Card className="border-mint/20 bg-mint/[0.02]">
-              <CardContent className="p-5">
-                <div className="flex items-center gap-2 mb-4">
-                  <Trophy className="size-4 text-mint" />
-                  <span className="text-xs font-mono tracking-widest text-mint uppercase">
-                    Badges & Achievements
-                  </span>
-                  <span className="text-[10px] font-mono text-muted-foreground">
-                    {earnedCount} / {totalBadges} earned
-                  </span>
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-                  {BADGES.map((badge) => {
-                    const earned = earnedBadges.has(badge.id);
-                    const Icon = badge.icon;
-                    return (
-                      <motion.div
-                        key={badge.id}
-                        initial={false}
-                        animate={{ scale: earned ? 1 : 0.95 }}
-                        className={cn(
-                          "p-3 rounded-lg border text-center transition-all",
-                          earned
-                            ? "border-mint/40 bg-mint/10"
-                            : "border-border/60 bg-muted/20 opacity-60"
-                        )}
-                      >
-                        <div
-                          className={cn(
-                            "flex items-center justify-center w-10 h-10 rounded-full mx-auto mb-2",
-                            earned
-                              ? "bg-mint text-background shadow-[0_0_12px_rgba(0,189,165,0.3)]"
-                              : "bg-muted text-muted-foreground"
-                          )}
-                        >
-                          <Icon className="size-5" />
-                        </div>
-                        <div className="text-xs font-semibold text-foreground">{badge.name}</div>
-                        <div className="text-[10px] text-muted-foreground mt-0.5">
-                          {badge.description}
-                        </div>
-                        {earned && (
-                          <Badge className="mt-2 text-[8px] bg-mint text-background font-mono">
-                            Earned
-                          </Badge>
-                        )}
-                      </motion.div>
-                    );
-                  })}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Achievements panel — always visible, shows all badges (earned + locked) */}
+      <div className="mb-8">
+        <Card className="border-mint/20 bg-mint/[0.02]">
+          <CardContent className="p-5">
+            <div className="flex items-center gap-2 mb-4">
+              <Trophy className="size-4 text-mint" />
+              <span className="text-xs font-mono tracking-widest text-mint uppercase">
+                Badges & Achievements
+              </span>
+              <span className="text-[10px] font-mono text-muted-foreground">
+                {earnedCount} / {totalBadges} earned
+              </span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              {BADGES.map((badge) => {
+                const earned = earnedBadges.has(badge.id);
+                const Icon = badge.icon;
+                return (
+                  <motion.div
+                    key={badge.id}
+                    initial={false}
+                    animate={{ scale: earned ? 1 : 0.95 }}
+                    className={cn(
+                      "p-3 rounded-lg border text-center transition-all",
+                      earned
+                        ? "border-mint/40 bg-mint/10"
+                        : "border-border/60 bg-muted/20"
+                    )}
+                  >
+                    <div
+                      className={cn(
+                        "flex items-center justify-center w-10 h-10 rounded-full mx-auto mb-2",
+                        earned
+                          ? "bg-mint text-background shadow-[0_0_12px_rgba(0,189,165,0.3)]"
+                          : "bg-muted text-muted-foreground grayscale opacity-50"
+                      )}
+                    >
+                      <Icon className="size-5" />
+                    </div>
+                    <div className={cn(
+                      "text-xs font-semibold",
+                      earned ? "text-foreground" : "text-muted-foreground"
+                    )}>
+                      {badge.name}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground mt-0.5">
+                      {badge.description}
+                    </div>
+                    {earned ? (
+                      <Badge className="mt-2 text-[8px] bg-mint text-background font-mono">
+                        Earned
+                      </Badge>
+                    ) : (
+                      <div className="mt-2 text-[9px] text-muted-foreground font-mono">
+                        🔒 {badge.hint}
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
 
       {/* Module selector or Module experience */}
       {activeModule ? (
